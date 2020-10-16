@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+.env
+.yarn
+
+# IDE
+.vscode/
+.idea/
+.vs/
+
+
+# Logs
+yarn-error.log
+npm-debug.log
+lerna-debug.log
