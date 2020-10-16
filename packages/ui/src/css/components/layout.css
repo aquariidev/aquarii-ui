@@ -1,0 +1,12 @@
+.section {
+    @apply py-4;
+}
+
+.aq-mhs {
+    min-height: calc(100vh - 3rem);
+}
+
+/* Container fluid */
+.aq-container-fluid {
+    @apply px-4 mx-auto;
+}

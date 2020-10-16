@@ -1,0 +1,12 @@
+{
+  "name": "aquarii-ui",
+  "version": "0.0.1",
+  "description": "Admin and page template build with tailwindcss",
+  "main": "index.js",
+  "repository": "https://github.com/aquariidev/aquarii-ui",
+  "author": "Michael Lazuardy",
+  "license": "NO",
+  "devDependencies": {
+    "tailwindcss": "^1.9.2"
+  }
+}

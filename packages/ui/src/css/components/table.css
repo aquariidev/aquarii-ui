@@ -1,0 +1,42 @@
+.aq-table {
+    @apply min-w-full rounded-lg;
+}
+
+.aq-table table {
+    @apply w-full;
+}
+
+.aq-table thead tr th {
+    @apply px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider border-b;
+}
+
+.aq-table tbody {
+    @apply bg-white;
+}
+
+.aq-table tbody tr td {
+    @apply px-6 py-4 whitespace-no-wrap text-sm;
+}
+
+/* Default table */
+.aq-table tbody tr:not(:last-child) {
+    @apply border-b;
+}
+
+/* Striped table */
+.aq-table.striped tr:not(:last-child) {
+    @apply border-b-0;
+}
+
+.aq-table.striped tr:nth-child(2n) {
+    @apply bg-gray-50;
+}
+
+/* Size modifier */
+.aq-table.small tbody tr td {
+    @apply py-2;
+}
+
+.aq-table.small tbody tr th {
+    @apply px-2;
+}

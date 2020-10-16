@@ -1,0 +1,75 @@
+/* Basic normal button */
+.aq-btn {
+    @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded-md transition duration-150 ease-in-out font-medium bg-white border-gray-300;
+}
+
+/* Basic small button */
+.aq-btn.small {
+    @apply px-2 py-1;
+}
+
+/* Basic large button */
+.aq-btn.large {
+    @apply px-6 py-4;
+}
+
+/* Basic */
+.aq-btn.primary, .aq-btn.success, .aq-btn.danger {
+    @apply text-white;
+}
+
+button:disabled {
+    @apply cursor-not-allowed;
+}
+
+/* Outline button */
+.aq-btn.outline {
+    @apply bg-transparent !important;
+}
+
+.aq-btn:focus {
+    @apply outline-none;
+}
+
+/* Primary */
+.aq-btn.primary {
+    @apply bg-indigo-600 border-indigo-600;
+}
+
+.aq-btn.primary.outline {
+    @apply text-indigo-600;
+}
+
+.aq-btn.primary:hover {
+    @apply bg-indigo-500 border-indigo-500;
+}
+
+.aq-btn.primary:disabled {
+    @apply bg-indigo-300 border-indigo-300;
+}
+
+/* Success */
+.aq-btn.success {
+    @apply bg-green-400 border-green-400;
+}
+
+.aq-btn.success.outline {
+    @apply text-green-400;
+}
+
+.aq-btn.success:hover {
+    @apply bg-green-500 border-green-500;
+}
+
+/* Danger */
+.aq-btn.danger {
+    @apply bg-red-500 border-red-500;
+}
+
+.aq-btn.danger.outline {
+    @apply text-red-500;
+}
+
+.aq-btn.danger:hover {
+    @apply bg-red-600 border-red-600;
+}

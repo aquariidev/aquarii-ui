@@ -1,0 +1,7 @@
+.aq-label {
+    @apply px-2 inline-flex text-xs leading-5 font-semibold rounded-full;
+}
+
+.aq-label.success {
+    @apply bg-green-100 text-green-800;
+}

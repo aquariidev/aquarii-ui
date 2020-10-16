@@ -1,0 +1,22 @@
+html {
+    @apply antialiased;
+    font-size: 16px;
+}
+
+/* Link */
+a {
+    @apply text-indigo-600;
+}
+
+a:hover {
+    @apply text-indigo-900;
+}
+
+/* Heading */
+h1, h2, h3, h4, h5 {
+    @apply font-bold text-gray-900;
+}
+
+h1 {
+    @apply text-3xl;
+}

@@ -1,0 +1,27 @@
+.aq-pagination {
+    @apply flex items-center justify-between border-gray-200 ;
+}
+
+.aq-pagination .link {
+    @apply -ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm leading-5 font-medium text-gray-700 transition ease-in-out duration-150;
+}
+
+.aq-pagination .link.icon {
+    @apply px-2;
+}
+
+.aq-pagination .link:hover {
+    @apply text-gray-500;
+}
+
+.aq-pagination .link.active {
+    @apply bg-gray-50;
+}
+
+.aq-pagination .link:first-child {
+    @apply rounded-l-md;
+}
+
+.aq-pagination .link:last-child {
+    @apply rounded-r-md;
+}

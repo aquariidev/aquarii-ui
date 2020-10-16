@@ -1,0 +1,43 @@
+.aq-sidebar {
+    @apply flex inset-0 z-40 bg-gray-700 bg-opacity-50;
+}
+
+.aq-sidebar.aq-open {
+    @apply flex;
+}
+
+.aq-sidebar .sidebar-container {
+    @apply flex flex-col w-64;
+}
+
+.aq-sidebar .sidebar-content {
+    @apply flex flex-col flex-grow bg-gray-800 pt-5 pb-4 overflow-y-auto;
+}
+
+.aq-sidebar .sidebar-logo {
+    @apply flex items-center flex-shrink-0 px-4;
+}
+
+.aq-sidebar .nav {
+    @apply px-2 my-4;
+}
+
+.aq-sidebar .nav a {
+    @apply flex items-center px-2 py-2 text-sm leading-6 font-medium rounded-md text-gray-300 transition ease-in-out duration-150 my-2;
+}
+
+.aq-sidebar .nav a:hover {
+    @apply text-white bg-gray-700
+}
+
+.aq-sidebar .nav a.active {
+    @apply bg-gray-900;
+}
+
+.aq-sidebar .nav a:focus {
+    @apply outline-none;
+}
+
+.aq-sidebar .nav a svg {
+    @apply mr-4 h-6 w-6 text-gray-400 transition ease-in-out duration-150;
+}

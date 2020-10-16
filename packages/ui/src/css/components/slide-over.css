@@ -1,0 +1,29 @@
+.aq-slide-over {
+    @apply fixed inset-0 overflow-hidden;
+    z-index: 1005;
+}
+
+.aq-slide-over.aq-open {
+    @apply block;
+}
+
+.aq-slide-over .header {
+    @apply py-6 px-4 bg-indigo-700;
+}
+
+.aq-slide-over .body {
+    @apply flex-1 flex flex-col justify-between;
+}
+
+/* Transition */
+.aq-slide-over.enter, .aq-slide-over.leave {
+    @apply transform transition ease-in-out duration-500
+}
+
+.aq-slide-over.enter-start, .aq-slide-over.leave-end {
+    @apply translate-x-full;
+}
+
+.aq-slide-over.enter-end, .aq-slide-over.leave-start {
+    @apply translate-x-0;
+}

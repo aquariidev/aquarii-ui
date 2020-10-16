@@ -1,0 +1,57 @@
+/* Label */
+label {
+    @apply mb-1 block text-gray-700 text-sm;
+}
+
+/* Base */
+
+.aq-forms .group{
+    @apply mb-4;
+}
+
+.aq-forms .aq-form-control {
+    @apply rounded;
+}
+
+/* Form Control */
+.aq-form-control {
+    @apply bg-white appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 text-gray-900 leading-5 text-sm;
+}
+
+.aq-form-control:focus {
+    @apply border-primary outline-none border-blue-300;
+}
+
+/* Stack Forms */
+.aq-stack-forms .aq-form-control:not(:last-child) {
+    @apply border-b-0;
+}
+
+.aq-stack-forms .aq-form-control:focus:not(:last-child) {
+    @apply border-b;
+}
+
+.aq-stack-forms .aq-form-control:focus + .aq-form-control:not(:first-child) {
+    @apply border-t-0;
+}
+
+.aq-stack-forms.round .aq-form-control:first-child {
+    @apply rounded-t-md;
+}
+
+.aq-stack-forms.round .aq-form-control:last-child {
+    @apply rounded-b-md;
+}
+
+/* Checkbox */
+.aq-forms .group.checkbox {
+    @apply flex items-center;
+}
+
+.aq-forms .group.checkbox label {
+    @apply mb-0 ml-2;
+}
+
+.aq-form-checkbox {
+    @apply h-4 w-4 text-indigo-600;
+}

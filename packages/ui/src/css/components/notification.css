@@ -1,0 +1,3 @@
+.aq-notification {
+    @apply fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none z-50;
+}

@@ -1,0 +1,67 @@
+.aq-nav {
+    @apply flex flex-col;
+    margin: 8px 0px;
+}
+
+/* Link */
+.aq-nav a {
+    @apply text-gray-600;
+}
+
+.aq-nav a:hover , .aq-nav button:hover{
+    @apply text-link no-underline;
+}
+
+.aq-nav a svg, .aq-nav button svg {
+    @apply mx-auto;
+}
+
+/* nav item */
+.aq-nav a.active {
+    @apply text-link;
+}
+
+.aq-nav li > a, .aq-nav li > button {
+    @apply outline-none items-center flex relative;
+    line-height:1;
+    height: 50px;
+    padding: 0px 16px;
+}
+
+.aq-nav-icon {
+    @apply inline-block mr-4;
+    width: 20px;
+    height: 20px;
+    content:'';
+}
+
+.aq-nav-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Nav parent arrow */
+.aq-nav > .aq-parent > a::after {
+    @apply absolute w-4 h-4 bg-no-repeat;
+    transform: rotate(180deg);
+    right: 10px;
+    content: "";
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2214%22%20viewBox%3D%220%200%2014%2014%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolyline%20fill%3D%22none%22%20stroke%3D%22%23666%22%20stroke-width%3D%221.1%22%20points%3D%2210%201%204%207%2010%2013%22%20%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+/* Nav sub */
+.aq-nav-sub {
+    @apply hidden;
+}
+
+.aq-nav-sub {
+    padding: 5px 0 5px 15px;
+}
+
+.aq-parent.aq-open .aq-nav-sub {
+    @apply block;
+}
+
+.aq-parent.aq-open > a::after {
+    transform: rotate(-90deg);
+}
