@@ -1,5 +1,5 @@
-import { leave } from '@/assets/js/transition';
-import { onClickOutside } from '@/assets/js/observe';
+import { leave } from '../utils/transition';
+import { onClickOutside } from '../utils/observe';
 
 export default {
     name: 'slideOver',

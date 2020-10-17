@@ -1,5 +1,5 @@
-import { seek, onClickOutside } from '../observe';
-import { toggle, leave } from '@/assets/js/transition';
+import { seek, onClickOutside } from '../utils/observe';
+import { toggle, leave } from '../utils/transition';
 
 export default {
     name: 'dropdown',

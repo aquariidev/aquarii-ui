@@ -1,5 +1,5 @@
-import { onClickOutside } from '../observe';
-import { leave } from '../transition';
+import { onClickOutside } from '../utils/observe';
+import { leave } from '../utils/transition';
 
 export default {
     name: 'modal',

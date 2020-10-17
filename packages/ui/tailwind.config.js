@@ -55,7 +55,7 @@ module.exports = {
 
   // purgecss
   purge: {
-    enabled: process.env.NODE_ENV == 'production',
+    enabled: process.env.NODE_ENV !== 'development',
     content: [
 
     ]
