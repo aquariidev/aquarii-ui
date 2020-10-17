@@ -5,10 +5,61 @@ module.exports = {
     defaultLineHeights: true,
     standardFontWeights: true
   },
-  purge: [],
   theme: {
-    extend: {}
+    extend: {},
+    fontFamily: {
+        'sans': font
+    },
+    minHeight: {
+        '5': '5vh',
+        '95': '95vh',
+        'screen': '100vh',
+        'full': '100%',
+        '0': '0'
+    },
+    borderRadius: {
+        'none': '0',
+        'sm': '.125rem',
+        'default': '.25rem',
+        'md': '0.375rem',
+        'lg': '.5rem',
+        'xl': '1rem',
+        'full': '9999px',
+        'large': '12px',
+    },
+    backgroundColor: theme => ({
+        ...theme('colors'),
+        'primary': '#3289f7',
+        'default': '#eff5fb',
+    }),
+    borderColor: theme => ({
+        ...theme('colors'),
+        'default': theme('colors.gray.300'),
+        'primary': '#3289f7',
+    }),
+    textColor: theme => ({
+        ...theme('colors'),
+        'link': '#3289f7'
+    }),
+    container: {
+        center: true,
+        padding: '1rem'
+    }
   },
   variants: {},
-  plugins: []
+  plugins: [
+      require('@tailwindcss/ui'),
+  ],
+
+  // purgecss
+  purge: {
+    enabled: process.env.NODE_ENV == 'production',
+    content: [
+      'components/**/*.vue',
+      'layouts/**/*.vue',
+      'pages/**/*.vue',
+      'plugins/**/*.js',
+      'nuxt.config.js'
+    ]
+  },
 }
