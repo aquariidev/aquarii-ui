@@ -19,6 +19,10 @@
     @apply flex items-center flex-shrink-0 px-4;
 }
 
+.aq-sidebar .sidebar-logo img {
+    @apply h-8 w-auto;
+}
+
 .aq-sidebar .nav {
     @apply px-2 my-4;
 }
