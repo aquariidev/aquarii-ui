@@ -1,3 +1,5 @@
+const font = 'Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji';
+
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
@@ -55,11 +57,7 @@ module.exports = {
   purge: {
     enabled: process.env.NODE_ENV == 'production',
     content: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      'nuxt.config.js'
+
     ]
   },
 }
