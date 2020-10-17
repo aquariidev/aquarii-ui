@@ -4,8 +4,8 @@
   "description": "Admin and page template build with tailwindcss",
   "main": "index.js",
   "scripts": {
-    "build:test": "cross-env NODE_ENV=test webpack --config webpack.config.js",
-    "dev": "cross-env NODE_ENV=development webpack serve --config webpack.config.js --hot"
+    "build:dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js",
+    "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.config.js --hot"
   },
   "repository": "https://github.com/aquariidev/aquarii-ui",
   "author": "Michael Lazuardy",
