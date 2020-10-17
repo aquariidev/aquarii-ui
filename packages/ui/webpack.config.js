@@ -4,7 +4,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
       filename: 'main.js',
-      path: path.resolve(__dirname, process.env.NODE_ENV == 'production' ? 'dist' : 'devdist')
+      path: path.resolve(__dirname, process.env.NODE_ENV == 'production' ? 'dist' : 'dev')
   },
   module: {
     rules: [
@@ -23,7 +23,7 @@ module.exports = {
   //...
   devServer: {
     index: 'index.html',
-    contentBase: path.join(__dirname, 'devdist'),
+    contentBase: path.join(__dirname, 'dev'),
     compress: true,
     port: 9000
   }
