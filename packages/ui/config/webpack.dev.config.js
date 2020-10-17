@@ -1,12 +1,14 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const resolve = file => path.resolve(__dirname, file);
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['./src/index.js', './src/css/main.css'],
   output: {
     filename: 'main.js',
-    path: resolve('../dev')
+    path: resolve('../dev'),
+    publicPath: '/dev/'
   },
   module: {
     rules: [
@@ -19,14 +21,25 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader", "postcss-loader",
+        ],
       }
     ]
   },
+  plugins: [
+    new MiniCssExtractPlugin({filename: '../dev/main.css'})
+  ],
   //...
   devServer: {
     index: 'index.html',
     contentBase: resolve('../dev'),
     compress: true,
-    port: 9000
+    port: 9000,
+    publicPath: '/dev/'
   }
 }

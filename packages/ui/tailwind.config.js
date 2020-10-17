@@ -50,14 +50,14 @@ module.exports = {
   },
   variants: {},
   plugins: [
-      require('@tailwindcss/ui'),
+    require('@tailwindcss/ui'),
   ],
 
   // purgecss
-  purge: {
-    enabled: process.env.NODE_ENV !== 'development',
-    content: [
-
-    ]
-  },
+  purge: [
+    './dev/*.html',
+    './dev/**/*.html',
+    './dev/**/*.vue',
+    './dev/**/*.jsx',
+  ]
 }
