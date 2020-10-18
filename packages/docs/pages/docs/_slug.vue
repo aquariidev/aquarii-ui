@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  async asyncData ({ $content }) {
-      const page = await $content('home').fetch()
+  async asyncData ({ $content, params }) {
+      const page = await $content(`docs/${params.slug}`).fetch()
 
       return {
         page
