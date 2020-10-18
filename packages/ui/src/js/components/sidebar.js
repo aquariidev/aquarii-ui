@@ -1,4 +1,4 @@
-import { onClickOutside } from '../observe';
+import { onClickOutside } from '../utils/observe';
 
 export default {
     name: 'sidebar',

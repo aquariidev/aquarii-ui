@@ -1,18 +1,9 @@
-export default class Instance {
-    /** @type {HTMLElement} */
-    $el = null;
+export default function Instance($el) {
+    const element = document.querySelector($el);
 
-    /**
-     * Constuctor
-     *
-     * @param {string} $el
-     * @return {void}
-     */
-    constructor($el) {
-        const element = document.querySelector($el);
-
-        if(element) {
-            this.$el = element;
-        }
+    if(!element) {
+        this.$el = null;
     }
+
+    this.$el = element;
 }

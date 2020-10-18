@@ -1,0 +1,15 @@
+{
+  "name": "aquarii-ui",
+  "version": "0.0.1",
+  "description": "aquarii-ui",
+  "main": "index.js",
+  "repository": "https://mlazuardy@github.com/aquariidev/aquarii-ui.git",
+  "author": "mlazuardy <lazuardymichael@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "docs:dev": "node scripts/dev.js"
+  },
+  "devDependencies": {
+    "shelljs": "^0.8.4"
+  }
+}

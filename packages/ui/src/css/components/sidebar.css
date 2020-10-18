@@ -11,11 +11,16 @@
 }
 
 .aq-sidebar .sidebar-content {
-    @apply flex flex-col flex-grow bg-gray-800 pt-5 pb-4 overflow-y-auto;
+    @apply flex flex-col flex-grow pt-5 pb-4 overflow-y-auto;
+    background: linear-gradient(294.17deg, rgb(47, 25, 55) 35.57%, rgb(69, 38, 80) 92.42%, rgb(69, 38, 80) 92.42%);
 }
 
 .aq-sidebar .sidebar-logo {
     @apply flex items-center flex-shrink-0 px-4;
+}
+
+.aq-sidebar .sidebar-logo img {
+    @apply h-8 w-auto;
 }
 
 .aq-sidebar .nav {

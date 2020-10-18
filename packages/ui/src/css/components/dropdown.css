@@ -22,6 +22,7 @@
     @apply bg-cool-gray-100;
 }
 
+/* purgecss start ignore */
 /* Transition */
 .aq-dropdown-enter {
     @apply transition ease-out duration-100;
@@ -38,3 +39,4 @@
 .aq-dropdown-enter-end, .aq-dropdown-leave-start {
     @apply transform opacity-100 scale-100;
 }
+/* purgecss end ignore */

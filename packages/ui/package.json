@@ -4,15 +4,32 @@
   "description": "Admin and page template build with tailwindcss",
   "main": "index.js",
   "scripts": {
-    "build:test": "cross-env NODE_ENV=production npx tailwindcss build src/css/main.css -o devdist/main.css"
+    "build:dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js",
+    "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.config.js --hot"
   },
   "repository": "https://github.com/aquariidev/aquarii-ui",
   "author": "Michael Lazuardy",
   "license": "NO",
   "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
     "@tailwindcss/ui": "^0.6.2",
+    "babel-loader": "^8.1.0",
     "cross-env": "^7.0.2",
+    "css-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^1.0.0",
     "postcss": "^8.1.1",
-    "tailwindcss": "^1.9.2"
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^4.0.4",
+    "style-loader": "^2.0.0",
+    "tailwindcss": "^1.9.2",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.3",
+    "vue-router": "^3.4.7",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.0.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }

@@ -1,4 +1,4 @@
-import { toggle } from '@/assets/js/transition';
+import { toggle } from '../utils/transition';
 
 export default {
     name: 'toggle',

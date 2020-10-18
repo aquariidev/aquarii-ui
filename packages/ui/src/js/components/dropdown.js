@@ -1,5 +1,5 @@
-import { seek, onClickOutside } from '../observe';
-import { toggle, leave } from '@/assets/js/transition';
+import { seek, onClickOutside } from '../utils/observe';
+import { toggle, leave } from '../utils/transition';
 
 export default {
     name: 'dropdown',
@@ -10,7 +10,9 @@ export default {
          * @param {HTMLElement} el
          */
         bind(el) {
-            let toggler = el.parentNode.firstChild;
+            let toggler = el.parentNode.firstElementChild;
+
+            console.log(el)
 
             el.addEventListener('click', function(e) {
                 e.stopPropagation()
@@ -21,7 +23,6 @@ export default {
                     e.preventDefault();
                     e.stopPropagation();
                     closeAllDropdown( seek('.aq-dropdown'), el)
-
 
                     toggle(el, { transitionName: 'aq-dropdown' });
                     el.style.left = dropdownPosition(toggler, el);
