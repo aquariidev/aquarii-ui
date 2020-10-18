@@ -55,9 +55,7 @@ module.exports = {
 
   // purgecss
   purge: [
-    './dev/*.html',
-    './dev/**/*.html',
-    './dev/**/*.vue',
-    './dev/**/*.jsx',
+    './src/**/*.js',
+    './src/**/*.vue',
   ]
 }

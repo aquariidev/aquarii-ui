@@ -1,3 +1,5 @@
+const path = require('path');
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -22,7 +24,7 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
   ],
@@ -44,5 +46,13 @@ export default {
   content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extend (config) {
+      config.resolve.alias['~ui'] = path.join(__dirname, '../ui/src')
+    }
+  },
+  tailwindcss: {
+    cssPath: path.join(__dirname, '../ui/src/css/main.css'),
+    configPath: path.join(__dirname, '../ui/tailwind.config.js')
+  }
 }
