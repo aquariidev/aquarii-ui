@@ -30,7 +30,7 @@
     </div>
     <div class="relative px-4 sm:px-6 lg:px-8">
       <div class="text-lg max-w-prose mx-auto mb-6">
-        <h1 class="mt-2 mb-8 text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{title}}</h1>
+        <h1 class="mt-2 mb-4 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{title}}</h1>
         <p class="text-xl text-gray-500 leading-8" v-if="description">{{description}}</p>
       </div>
       <div class="prose prose-lg text-gray-500 mx-auto">
