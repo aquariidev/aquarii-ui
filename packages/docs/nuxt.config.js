@@ -19,7 +19,10 @@ export default {
   plugins: [],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: [
+    '~/components',
+    {path: path.resolve('../ui/src/components/')}
+  ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
@@ -43,7 +46,9 @@ export default {
   axios: {},
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: {},
+  content: {
+    liveEdit: false,
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
