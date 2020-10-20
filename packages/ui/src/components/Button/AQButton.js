@@ -6,6 +6,9 @@ export default {
     },
     outline: {
       required: false,
+    },
+    size: {
+      required: false,
     }
   },
   computed: {
@@ -19,6 +22,12 @@ export default {
       if(this.outline !== undefined) {
         classes.push('outline')
       }
+
+      if(this.size) {
+        classes.push(this.size);
+      }
+
+      console.log(this.$parent)
 
       return classes.join(' ')
     }
