@@ -31,6 +31,7 @@ description: Button are the core of every project
 ```
 
 By default Standard button ( without type props) will be serve as a outline button
+
 All event handler from html button or vue directive can be add to this component
 
 <example-alert-button>Show Alert</example-alert-button>
@@ -52,6 +53,13 @@ there is a 3 types of button size, standard ( without props), small and large
 ## Button Groups
 
 <aq-button-group>
-  <aq-button>Standard Button</aq-button>
-  <aq-button>Standard Button</aq-button>
+  <aq-button>Prev</aq-button>
+  <aq-button>Next</aq-button>
 </aq-button-group>
+
+```html
+<aq-button-group>
+  <aq-button>Prev</aq-button>
+  <aq-button>Next</aq-button>
+</aq-button-group>
+```
