@@ -19,11 +19,16 @@ export default {
   plugins: [],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
+  //If we face that we need all components directory to be global by default, we may change this only ~/components dir
   components: [
     '~/components',
     {
       path: path.resolve('../ui/src/components'),
       global: true
+    },
+    {
+      path: '~/components/examples',
+      global: true,
     }
   ],
 
@@ -49,7 +54,13 @@ export default {
   axios: {},
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
-  content: {},
+  content: {
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-material-oceanic.css'
+      }
+    }
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
