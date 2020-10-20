@@ -27,8 +27,6 @@ export default {
         classes.push(this.size);
       }
 
-      console.log(this.$parent)
-
       return classes.join(' ')
     }
   },
