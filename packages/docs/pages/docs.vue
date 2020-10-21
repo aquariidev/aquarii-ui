@@ -6,7 +6,7 @@
     <div class="flex flex-col w-0 flex-1 overflow-hidden">
       <navbar></navbar>
 
-      <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none" tabindex="0">
+      <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none">
         <nuxt-child></nuxt-child>
         <Footer/>
       </main>

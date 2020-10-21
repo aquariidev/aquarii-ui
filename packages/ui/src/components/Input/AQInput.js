@@ -34,18 +34,18 @@ export default {
     })
 
     const append = h('span', {
-      staticClass: 'add-on'
+      staticClass: 'add-on append'
     }, this.$slots.append)
 
     const content = h('div', {
-      staticClass: this.$slots.append || this.$slots.prepend ? 'flex' : ''
+      staticClass: this.$slots.append || this.$slots.prepend ? 'flex group' : ''
     }, [
       this.$slots.append && append,
       input
     ])
 
     return h('div', {
-      staticClass: 'mb-4'
+      staticClass: 'aq-form'
     }, [
       this.label && label,
       content
