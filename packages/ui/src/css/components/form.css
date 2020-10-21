@@ -4,8 +4,7 @@ label {
 }
 
 /* Base */
-
-.aq-forms .group{
+.aq-form {
     @apply mb-4;
 }
 
@@ -15,11 +14,12 @@ label {
 
 /* Form Control */
 .aq-form-control {
-    @apply bg-white appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 text-gray-900 leading-5 text-sm;
+    @apply appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 text-gray-900 leading-5 text-sm;
 }
 
-.aq-form-control:focus {
-    @apply border-primary outline-none border-blue-300;
+.aq-form-control:focus,
+.aq-form-control:focus ~ .add-on  {
+    @apply border-primary outline-none;
 }
 
 /* Stack Forms */
@@ -54,4 +54,19 @@ label {
 
 .aq-form-checkbox {
     @apply h-4 w-4 text-indigo-600;
+}
+
+/* Add on */
+.aq-form .group .add-on {
+    @apply inline-flex items-center px-3 border;
+}
+
+/* is better select the append one by one like below or straight to the addon append class? */
+
+.aq-form .group .add-on.append {
+    @apply rounded-l rounded-r-none border-r-0;
+}
+
+.aq-form .group .add-on.append + .aq-form-control {
+    @apply rounded-l-none;
 }

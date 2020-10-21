@@ -9,25 +9,36 @@ export default {
     },
     size: {
       required: false,
+      validator(value) {
+        return ['small', 'large'].includes(value)
+      }
+    },
+    block: {
+      required: false,
+    },
+    circle: {
+      required: false,
     }
   },
   computed: {
     btnClass() {
       const classes = [];
 
+      const propsWithoutValue = ['outline', 'block', 'circle'];
+
+      propsWithoutValue.map(v => {
+        if(this.$props[v] !== undefined) {
+          classes.push(v);
+        }
+      })
+
       if(this.type) {
         classes.push(this.type);
-      }
-
-      if(this.outline !== undefined) {
-        classes.push('outline')
       }
 
       if(this.size) {
         classes.push(this.size);
       }
-
-      console.log(this.$parent)
 
       return classes.join(' ')
     }

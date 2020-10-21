@@ -1,22 +1,24 @@
-.aq-card {
-    @apply bg-white rounded-lg shadow overflow-hidden;
-}
+@layer components {
+    .aq-card {
+        @apply bg-white rounded-lg shadow overflow-hidden;
+    }
 
-.aq-card.body, .aq-card .body, .aq-card .footer, .aq-card .header {
-    @apply px-5 py-3;
-}
+    .aq-card.body, .aq-card .body, .aq-card .footer, .aq-card .header {
+        @apply px-5 py-3;
+    }
 
-/* Header */
-.aq-card .header {
-    @apply border-b;
-}
+    /* Header */
+    .aq-card .header {
+        @apply border-b;
+    }
 
-/* Footer */
-.aq-card .footer {
-    @apply border-t bg-cool-gray-50;
-}
+    /* Footer */
+    .aq-card .footer {
+        @apply border-t bg-cool-gray-50;
+    }
 
-/* Media */
-.aq-card .media {
-    @apply w-full;
+    /* Media */
+    .aq-card .media {
+        @apply w-full;
+    }
 }

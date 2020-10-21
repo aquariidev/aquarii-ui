@@ -19,16 +19,6 @@ module.exports = {
         'full': '100%',
         '0': '0'
     },
-    borderRadius: {
-        'none': '0',
-        'sm': '.125rem',
-        'default': '.25rem',
-        'md': '0.375rem',
-        'lg': '.5rem',
-        'xl': '1rem',
-        'full': '9999px',
-        'large': '12px',
-    },
     backgroundColor: theme => ({
         ...theme('colors'),
         'primary': '#3289f7',
