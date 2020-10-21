@@ -23,8 +23,6 @@ You can also add any native html attributes in this component
 ```
 
 ## Label
-add **label** props to the component to add the label
-
 <aq-input placeholder="First Name" label="First Name"></aq-input>
 
 ```html
@@ -35,4 +33,12 @@ add **label** props to the component to add the label
 
 You can append or prepend or both append and prepend using icon or text.
 
-<aq-input placeholder="First Name"></aq-input>
+<example-input section="slot"></example-input>
+
+```html
+<aq-input placeholder="Website">
+  <template #append>
+    https://
+  </template>
+</aq-input>
+```

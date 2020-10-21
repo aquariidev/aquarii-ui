@@ -19,3 +19,9 @@ export default {
 
 }
 </script>
+
+<style>
+  code[class*="language-"], pre[class*="language-"] {
+    background: #253040;
+  }
+</style>

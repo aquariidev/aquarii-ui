@@ -33,13 +33,22 @@ export default {
       }
     })
 
-    const content = h('div', [
-      this.label && label,
+    const append = h('span', {
+      staticClass: 'inline-flex items-center px-3'
+    }, this.$slots.append)
+
+    const content = h('div', {
+      staticClass: this.$slots.append || this.$slots.prepend ? 'flex' : ''
+    }, [
+      this.$slots.append && append,
       input
     ])
 
     return h('div', {
       staticClass: 'mb-4'
-    }, [content])
+    }, [
+      this.label && label,
+      content
+    ])
   }
 }
