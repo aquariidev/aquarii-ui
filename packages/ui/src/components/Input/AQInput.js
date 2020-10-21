@@ -34,7 +34,7 @@ export default {
     })
 
     const append = h('span', {
-      staticClass: 'inline-flex items-center px-3'
+      staticClass: 'add-on'
     }, this.$slots.append)
 
     const content = h('div', {

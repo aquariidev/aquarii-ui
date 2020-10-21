@@ -4,11 +4,6 @@ label {
 }
 
 /* Base */
-
-.aq-forms .group{
-    @apply mb-4;
-}
-
 .aq-forms .aq-form-control {
     @apply rounded;
 }
@@ -54,4 +49,9 @@ label {
 
 .aq-form-checkbox {
     @apply h-4 w-4 text-indigo-600;
+}
+
+/* Add on */
+.aq-form .group .add-on {
+    @apply inline-flex items-center px-3 border;
 }
