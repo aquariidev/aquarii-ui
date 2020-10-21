@@ -18,7 +18,7 @@ label {
 }
 
 .aq-form-control:focus,
-.aq-form-control:focus + .add-on  {
+.aq-form-control:focus ~ .add-on  {
     @apply border-primary outline-none;
 }
 
