@@ -15,7 +15,7 @@ label {
 
 /* Form Control */
 .aq-form-control {
-    @apply bg-white appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 text-gray-900 leading-5 text-sm;
+    @apply appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 text-gray-900 leading-5 text-sm;
 }
 
 .aq-form-control:focus {

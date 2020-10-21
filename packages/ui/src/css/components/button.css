@@ -1,15 +1,15 @@
 @layer components {
-    /* Basic normal button */
+    /* Basic normal */
     .aq-btn {
-        @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded-md transition duration-150 ease-in-out font-medium bg-white border-gray-300;
+        @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded-md transition duration-150 ease-in-out font-medium bg-gray-100 border-gray-300;
     }
 
-    /* Basic small button */
+    /* Basic small */
     .aq-btn.small {
         @apply px-2 py-1;
     }
 
-    /* Basic large button */
+    /* Basic large */
     .aq-btn.large {
         @apply px-6 py-4;
     }
@@ -75,7 +75,7 @@
         @apply bg-red-600 border-red-600;
     }
 
-    /* Button Group */
+    /* Group */
     .aq-btn-group {
         @apply relative z-0 inline-flex shadow-sm rounded-md;
     }
@@ -94,5 +94,15 @@
 
     .aq-btn-group > .aq-btn:last-child {
         @apply rounded-r-md rounded-l-none;
+    }
+
+    /* Block */
+    .aq-btn.block {
+        @apply w-full;
+    }
+
+    /* Circle / rounded full */
+    .aq-btn.circle {
+        @apply rounded-full px-2 py-2;
     }
 }
