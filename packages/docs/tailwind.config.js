@@ -26,7 +26,7 @@ module.exports = {
     }),
     borderColor: theme => ({
         ...theme('colors'),
-        'default': '#eff2f3',
+        'default': theme('colors.gray.300'),
         'primary': '#408bd3',
     }),
     textColor: theme => ({

@@ -8,17 +8,33 @@ label {
     @apply mb-4;
 }
 
+.aq-form .group {
+    @apply flex;
+}
+
 .aq-forms .aq-form-control {
     @apply rounded;
 }
 
 /* Form Control */
 .aq-form-control {
-    @apply appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 text-gray-900 leading-5 text-sm;
+    @apply appearance-none rounded relative block w-full px-3 py-2 border text-gray-900 leading-6 text-base;
 }
 
-.aq-form-control:focus,
-.aq-form-control:focus ~ .add-on  {
+.aq-form-control.small {
+    @apply text-sm;
+}
+
+/* Filled Input */
+.aq-form-control.filled {
+    @apply bg-default border-transparent;
+}
+
+.aq-form-control.filled:focus {
+    @apply bg-white;
+}
+
+.aq-form-control:focus {
     @apply border-primary outline-none;
 }
 
@@ -62,11 +78,24 @@ label {
 }
 
 /* is better select the append one by one like below or straight to the addon append class? */
-
-.aq-form .group .add-on.append {
-    @apply rounded-l rounded-r-none border-r-0;
+.aq-form-control.append,
+.aq-form .group .add-on.prepend {
+    @apply rounded-r rounded-l-none;
 }
 
-.aq-form .group .add-on.append + .aq-form-control {
-    @apply rounded-l-none;
+.aq-form .group .add-on.append {
+    @apply border-r-0;
+}
+
+.aq-form .group .add-on.prepend {
+    @apply border-l-0;
+}
+
+.aq-form-control.prepend,
+.aq-form .group .add-on.append {
+    @apply rounded-l rounded-r-none;
+}
+
+.aq-form-control.append.prepend {
+    @apply rounded-none;
 }
