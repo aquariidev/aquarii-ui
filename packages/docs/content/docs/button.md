@@ -1,6 +1,7 @@
 ---
 title: Button
 description: Button are the core of every project
+order: 3
 ---
 
 ## Filled Button
@@ -18,7 +19,7 @@ description: Button are the core of every project
 ```
 
 ## Outline Button
-<aq-button>Standard Button</aq-button>
+<aq-button outline>Standard Button</aq-button>
 <aq-button type="primary" outline>Primary Button</aq-button>
 <aq-button type="success" outline>Success Button</aq-button>
 <aq-button type="danger" outline>Danger Button</aq-button>

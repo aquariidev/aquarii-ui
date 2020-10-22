@@ -27,13 +27,12 @@
 
 <script>
 export default {
-  scrollToTop: true,
   async asyncData({params, $content}) {
     const page = await $content('docs', params.slug).fetch()
 
     const [prev, next] = await $content('docs')
-      .only(['title', 'slug'])
-      .sortBy('title', 'asc')
+      .only(['title', 'slug', 'order'])
+      .sortBy('order', 'asc')
       .surround(params.slug)
       .fetch()
 
@@ -43,5 +42,10 @@ export default {
       next
     }
   },
+  head() {
+    return {
+      title: this.page.title
+    }
+  }
 }
 </script>
