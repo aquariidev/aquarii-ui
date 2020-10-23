@@ -25,7 +25,7 @@ export default {
     {
       path: path.resolve('../ui/src/components'),
       global: true,
-      extensions: ['vue', 'js', 'ts']
+      extensions: ['ts']
     },
     {
       path: '~/components/examples',
