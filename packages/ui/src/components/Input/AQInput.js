@@ -8,11 +8,36 @@ export default {
     label: {
       type: String,
       required: false,
+    },
+    filled: {
+      required: false
+    }
+  },
+  computed: {
+    inputClass() {
+      const classes = []
+      const propsWithoutValue = ['filled']
+
+      propsWithoutValue.map(v => {
+        if(this.$props[v] !== undefined) {
+          classes.push(v)
+        }
+      })
+
+      if(this.$slots.append) classes.push('append')
+      if(this.$slots.prepend) classes.push('prepend')
+
+      return classes.join(' ')
     }
   },
   render(h) {
+    const message = h('p', {
+      staticClass: 'message',
+    }, this.$slots.message)
+
     const input = h('input', {
       staticClass: 'aq-form-control',
+      class: this.inputClass,
       domProps: {
         value: this.value
       },
@@ -37,18 +62,24 @@ export default {
       staticClass: 'add-on append'
     }, this.$slots.append)
 
+    const prepend = h('span', {
+      staticClass: 'add-on prepend'
+    }, this.$slots.prepend)
+
     const content = h('div', {
-      staticClass: this.$slots.append || this.$slots.prepend ? 'flex group' : ''
+      staticClass: this.$slots.append || this.$slots.prepend ? 'group' : ''
     }, [
       this.$slots.append && append,
-      input
+      input,
+      this.$slots.prepend && prepend
     ])
 
     return h('div', {
       staticClass: 'aq-form'
     }, [
       this.label && label,
-      content
+      content,
+      this.$slots.message && message
     ])
   }
 }

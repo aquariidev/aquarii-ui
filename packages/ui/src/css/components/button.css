@@ -1,7 +1,7 @@
 @layer components {
     /* Basic normal */
     .aq-btn {
-        @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded-md transition duration-150 ease-in-out font-medium bg-gray-100 border-gray-300;
+        @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded transition duration-150 ease-in-out font-medium bg-default;
     }
 
     /* Basic small */
@@ -34,7 +34,7 @@
 
     /* Primary */
     .aq-btn.primary {
-        @apply bg-indigo-600 border-indigo-600;
+        @apply bg-primary border-primary;
     }
 
     .aq-btn.primary.outline {
@@ -81,7 +81,7 @@
     }
 
     .aq-btn-group > .aq-btn:first-child {
-        @apply rounded-l-md rounded-r-none;
+        @apply rounded-l rounded-r-none;
     }
 
     .aq-btn-group > .aq-btn {
@@ -89,11 +89,11 @@
     }
 
     .aq-btn-group > .aq-btn:first-child {
-        @apply rounded-l-md rounded-r-none;
+        @apply rounded-l rounded-r-none;
     }
 
     .aq-btn-group > .aq-btn:last-child {
-        @apply rounded-r-md rounded-l-none;
+        @apply rounded-r rounded-l-none;
     }
 
     /* Block */

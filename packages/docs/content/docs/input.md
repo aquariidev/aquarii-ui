@@ -1,14 +1,19 @@
 ---
 title: Input
-description: Input are the core of every project
+description: The component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
 order: 4
 ---
 
-## Basic Input
-<example-input></example-input>
+## Input Style
+
+<example-input placeholder="Standard Input"></example-input>
+
+<aq-input placeholder="Filled Input" filled></aq-input>
 
 ```html
 <aq-input v-model="name" />
+
+<aq-input v-model="name" filled/>
 ```
 
 You can also add any native html attributes in this component
@@ -30,16 +35,46 @@ You can also add any native html attributes in this component
 <aq-input placeholder="First Name" label="First Name" />
 ```
 
+## Input Message
+<example-input section="message" ></example-input>
+
+```html
+<aq-input placeholder="Password" type="password">
+  <template #message>
+    Make your password short and easy to guess
+  </template>
+</aq-input>
+```
+
 ## Input Group
 
 You can append or prepend or both append and prepend using icon or text.
 
-<example-input section="slot"></example-input>
+<example-input section="slot" placeholder="john_doe" slot-position="append"></example-input>
+
+<example-input section="slot" placeholder="johndoe@gmail" slot-position="prepend"></example-input>
+
+<example-input section="slot" placeholder="john-doe" slot-position="both"></example-input>
 
 ```html
-<aq-input placeholder="Website">
+<aq-input placeholder="john_doe">
+  <template #append>
+    @
+  </template>
+</aq-input>
+
+<aq-input placeholder="john-doe">
   <template #append>
     https://
+  </template>
+  <template #prepend>
+    .com
+  </template>
+</aq-input>
+
+<aq-input placeholder="johndoe@gmail">
+  <template #prepend>
+    .com
   </template>
 </aq-input>
 ```

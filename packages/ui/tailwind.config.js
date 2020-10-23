@@ -21,13 +21,13 @@ module.exports = {
     },
     backgroundColor: theme => ({
         ...theme('colors'),
-        'primary': '#3289f7',
-        'default': '#eff5fb',
+        'primary': '#408bd3',
+        'default': '#eff2f3',
     }),
     borderColor: theme => ({
         ...theme('colors'),
         'default': theme('colors.gray.300'),
-        'primary': '#3289f7',
+        'primary': '#408bd3',
     }),
     textColor: theme => ({
         ...theme('colors'),

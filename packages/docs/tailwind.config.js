@@ -19,25 +19,15 @@ module.exports = {
         'full': '100%',
         '0': '0'
     },
-    borderRadius: {
-        'none': '0',
-        'sm': '.125rem',
-        'default': '.25rem',
-        'md': '0.375rem',
-        'lg': '.5rem',
-        'xl': '1rem',
-        'full': '9999px',
-        'large': '12px',
-    },
     backgroundColor: theme => ({
         ...theme('colors'),
-        'primary': '#3289f7',
-        'default': '#eff5fb',
+        'primary': '#408bd3',
+        'default': '#eff2f3',
     }),
     borderColor: theme => ({
         ...theme('colors'),
         'default': theme('colors.gray.300'),
-        'primary': '#3289f7',
+        'primary': '#408bd3',
     }),
     textColor: theme => ({
         ...theme('colors'),
