@@ -24,6 +24,10 @@
               Button
             </nuxt-link>
 
+            <nuxt-link to="/docs/card">
+              Card
+            </nuxt-link>
+
             <nuxt-link to="/docs/input">
               Input
             </nuxt-link>

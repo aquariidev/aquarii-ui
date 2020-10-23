@@ -1,36 +1,29 @@
-export default {
-  name: 'AQInput',
-  inheritAttrs: false,
-  props: {
-    value: {
-      required: false,
-    },
-    label: {
-      type: String,
-      required: false,
-    },
-    filled: {
-      required: false
-    }
-  },
-  computed: {
-    inputClass() {
-      const classes = []
-      const propsWithoutValue = ['filled']
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
-      propsWithoutValue.map(v => {
-        if(this.$props[v] !== undefined) {
-          classes.push(v)
-        }
-      })
+@Component
+export default class AQInput extends Vue {
+  @Prop({required: false}) value: any
+  @Prop({type: String, required: false}) label: any
+  @Prop({required: false, default: undefined}) filled!: any
 
-      if(this.$slots.append) classes.push('append')
-      if(this.$slots.prepend) classes.push('prepend')
+  get inputClass(): string {
+    const classes = []
 
-      return classes.join(' ')
-    }
-  },
-  render(h) {
+    const propsWithoutValue = ['filled']
+
+    propsWithoutValue.map(v => {
+      if(this.$props[v] !== undefined) {
+        classes.push(v)
+      }
+    })
+
+    if(this.$slots.append) classes.push('append')
+    if(this.$slots.prepend) classes.push('prepend')
+
+    return classes.join(' ')
+  }
+
+  public render(h: any): any {
     const message = h('p', {
       staticClass: 'message',
     }, this.$slots.message)
@@ -43,7 +36,7 @@ export default {
       },
       on: {
         ...this.$listeners,
-        input: (e) => {
+        input: (e: any) => {
           this.$emit('input', e.target.value)
         }
       },
