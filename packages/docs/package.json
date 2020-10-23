@@ -21,6 +21,8 @@
     "prism-themes": "^1.4.1"
   },
   "devDependencies": {
+    "@nuxt/types": "^2.14.7",
+    "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/tailwindcss": "^3.1.0",
