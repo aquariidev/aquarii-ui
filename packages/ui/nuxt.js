@@ -1,10 +1,11 @@
 import { join } from 'path'
 
-export default function () {
+export default function (options) {
   this.nuxt.hook('components:dirs', (dirs) => {
     dirs.push({
       path: join(__dirname, 'src/components'),
-      prefix: 'aq'
+      extensions: ['ts', 'js'],
+      global: options.global || false,
     })
   })
 }

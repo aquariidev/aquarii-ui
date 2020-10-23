@@ -1,11 +1,13 @@
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
+import AQComponent from '../../mixins/component'
 
 @Component
-export default class AQInput extends Vue {
+export default class AQInput extends AQComponent {
   @Prop({required: false}) value: any
   @Prop({type: String, required: false}) label: any
   @Prop({required: false, default: undefined}) filled!: any
 
+  /** Computed input class */
   get inputClass(): string {
     const classes = []
 
@@ -23,11 +25,20 @@ export default class AQInput extends Vue {
     return classes.join(' ')
   }
 
-  public render(h: any): any {
-    const message = h('p', {
-      staticClass: 'message',
-    }, this.$slots.message)
+  /** Message element */
+  getMessage(type?: string): any|void {
+    const defaultMessage = this.$slots.message
 
+    const message = this.$slots[`message-${type}`]
+
+    if(defaultMessage || message) {
+      return this.$createElement('p', {
+        staticClass: 'message'
+      }, type ? message : defaultMessage)
+    }
+  }
+
+  public render(h: any): any {
     const input = h('input', {
       staticClass: 'aq-form-control',
       class: this.inputClass,
@@ -72,7 +83,7 @@ export default class AQInput extends Vue {
     }, [
       this.label && label,
       content,
-      this.$slots.message && message
+      this.getMessage()
     ])
   }
 }
