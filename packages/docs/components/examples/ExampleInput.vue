@@ -16,6 +16,12 @@
         .com
       </template>
     </aq-input>
+
+    <aq-input placeholder="Password" type="password" v-if="section === 'message'">
+      <template #message>
+        Make your password short and easy to guess
+      </template>
+    </aq-input>
   </div>
 </template>
 

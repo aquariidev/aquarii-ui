@@ -25,6 +25,11 @@ label {
     @apply text-sm;
 }
 
+/* Form message */
+.aq-form .message {
+    @apply mt-2 text-sm;
+}
+
 /* Filled Input */
 .aq-form-control.filled {
     @apply bg-default border-transparent;

@@ -31,6 +31,10 @@ export default {
     }
   },
   render(h) {
+    const message = h('p', {
+      staticClass: 'message',
+    }, this.$slots.message)
+
     const input = h('input', {
       staticClass: 'aq-form-control',
       class: this.inputClass,
@@ -74,7 +78,8 @@ export default {
       staticClass: 'aq-form'
     }, [
       this.label && label,
-      content
+      content,
+      this.$slots.message && message
     ])
   }
 }

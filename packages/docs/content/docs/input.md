@@ -35,6 +35,17 @@ You can also add any native html attributes in this component
 <aq-input placeholder="First Name" label="First Name" />
 ```
 
+## Input Message
+<example-input section="message" ></example-input>
+
+```html
+<aq-input placeholder="Password" type="password">
+  <template #message>
+    Make your password short and easy to guess
+  </template>
+</aq-input>
+```
+
 ## Input Group
 
 You can append or prepend or both append and prepend using icon or text.
