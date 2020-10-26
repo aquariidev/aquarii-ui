@@ -32,6 +32,10 @@
               Dropdown
             </nuxt-link>
 
+            <nuxt-link to="/docs/icon">
+              Icon
+            </nuxt-link>
+
             <nuxt-link to="/docs/input">
               Input
             </nuxt-link>

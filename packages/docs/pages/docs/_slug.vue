@@ -4,6 +4,31 @@
       <content-section :title="page.title" :desc="page.description">
         <nuxt-content :document="page" />
 
+        <!-- Component Options -->
+        <div v-if="page.options && page.options.length">
+          <h2 id="component-options">Component Options</h2>
+
+          <aq-card class="mt-4">
+            <aq-table>
+              <template #thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Value</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </template>
+
+              <tr v-for="option in page.options" :key="option.option">
+                <td>{{option.option}}</td>
+                <td>{{option.value}}</td>
+                <td>{{option.default}}</td>
+                <td>{{option.desc}}</td>
+              </tr>
+            </aq-table>
+          </aq-card>
+        </div>
+
         <div class="flex justify-between mt-8">
           <div>
             <nuxt-link v-if="prev" :to="{ name: 'docs-slug', params: { slug: prev.slug } }" class="flex items-center">
@@ -28,19 +53,21 @@
 <script>
 export default {
   async asyncData({params, $content}) {
-    const page = await $content('docs', params.slug).fetch()
+    const page = await $content('docs', params.slug).fetch();
+
+    console.log(page.options)
 
     const [prev, next] = await $content('docs')
       .only(['title', 'slug', 'order'])
       .sortBy('order', 'asc')
       .surround(params.slug)
-      .fetch()
+      .fetch();
 
     return {
       page,
       prev,
       next
-    }
+    };
   },
   head() {
     return {

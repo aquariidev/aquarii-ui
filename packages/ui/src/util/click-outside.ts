@@ -1,4 +1,4 @@
-export function onClickOutside(el: HTMLElement | Element, cb: Function) {
+export function onClickOutside(el: any, cb: Function) {
   // make a event handler for click event
   const event = function (e: any) {
     var itsChildren = el.contains(e.target);

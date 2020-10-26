@@ -1,4 +1,4 @@
-import { CreateElement } from 'vue'
+import { CreateElement, VNode } from 'vue'
 import { Vue, Component } from 'vue-property-decorator'
 import { onClickOutside } from '../../util/click-outside';
 
@@ -7,7 +7,7 @@ export default class AQDropdown extends Vue {
   isActive = false;
 
   /** When component mounted */
-  mounted() {
+  mounted(): void {
     onClickOutside(this.$el, () => this.isActive = false);
   }
 
@@ -16,7 +16,9 @@ export default class AQDropdown extends Vue {
     if(this.$scopedSlots.activator) {
       return this.$scopedSlots.activator({
         attrs: {
-          ...this.$attrs
+          ...this.$attrs,
+          role: 'button',
+          type: 'button'
         },
         on: {
           click: (e: any) => {
@@ -29,7 +31,7 @@ export default class AQDropdown extends Vue {
     throw new Error('No activator provided, try <template #activator="{on}"></template> inside dropdown component')
   }
 
-  public render(h: CreateElement): any {
+  public render(h: CreateElement): VNode {
     const nav = h('div', {
       staticClass: 'nav',
     }, this.$slots.default);
@@ -61,7 +63,7 @@ export default class AQDropdown extends Vue {
     ]);
 
     return h('div', {
-
+      staticClass: 'inline-block'
     }, [
       this.getActivator(),
       transition
