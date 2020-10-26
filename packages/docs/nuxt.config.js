@@ -22,15 +22,6 @@ export default {
   //If we face that we need all components directory to be global by default, we may change this only ~/components dir
   components: [
     '~/components',
-    {
-      path: path.resolve('../ui/src/components'),
-      global: true,
-      extensions: ['ts']
-    },
-    {
-      path: '~/components/examples',
-      global: true,
-    }
   ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
@@ -41,6 +32,7 @@ export default {
     // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    [path.resolve('../ui/nuxt'), {global: true}]
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -67,7 +59,15 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    extend(config) {
+      // Fix multiple instances of vue from aquarii module.
+
+      config.resolve.alias.vue$ = path.resolve(
+        __dirname, './node_modules/vue/dist/vue.esm.js'
+      )
+    }
+  },
   // Vue Router
   router: {
     linkActiveClass:'active',

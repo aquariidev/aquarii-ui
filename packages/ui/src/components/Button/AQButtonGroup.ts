@@ -1,8 +1,9 @@
+import { CreateElement, VNode } from 'vue'
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component
 export default class AQButtonGroup extends Vue {
-  public render(h: any): any {
+  public render(h: CreateElement): VNode {
     return h('div', {
       staticClass: 'aq-btn-group',
       on: {

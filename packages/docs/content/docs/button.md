@@ -2,9 +2,32 @@
 title: Button
 description: Button are the core of every project
 order: 3
+options:
+  - option: type
+    value: string
+    default: '-'
+    desc: The color of button component
+  - option: size
+    value: string['small', 'large']
+    default: '-'
+    desc: The size of button
+  - option: block
+    value: any
+    default: undefined
+    desc: Button block display
+  - option: circle
+    value: any
+    default: undefined
+    desc: Circle button
+  - option: icon
+    value: any
+    default: undefined
+    desc: Icon button
 ---
 
 ## Filled Button
+
+By default button will serve as filled button.
 
 <aq-button>Standard Button</aq-button>
 <aq-button type="primary">Primary Button</aq-button>
@@ -19,6 +42,9 @@ order: 3
 ```
 
 ## Outline Button
+
+Outline button will display only the border without background.
+
 <aq-button outline>Standard Button</aq-button>
 <aq-button type="primary" outline>Primary Button</aq-button>
 <aq-button type="success" outline>Success Button</aq-button>
@@ -30,8 +56,6 @@ order: 3
 <aq-button type="success" outline>Success Button</aq-button>
 <aq-button type="danger" outline>Danger Button</aq-button>
 ```
-
-By default Standard button ( without type props) will be serve as a outline button
 
 All event handler from html button or vue directive can be add to this component
 
@@ -79,13 +103,13 @@ Block buttons extend the full available width.
 
 ## Circle Button
 
-If the inner button does not have same height and size it will creat a pill button
+If the inner button does not have same height and size it will create a pill button, you can use this props to create icon button.
 
 <div class="flex items-center">
   <aq-button circle type="primary mr-2">Circle Button</aq-button>
 
   <aq-button circle type="primary">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
+    <aq-icon name="pencil"></aq-icon>
   </aq-button>
 </div>
 

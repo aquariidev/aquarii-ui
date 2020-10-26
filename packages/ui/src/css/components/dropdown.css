@@ -10,34 +10,52 @@
     }
 
     /* Dropdown Link, available for a and custom class element */
-    .aq-dropdown a, .aq-dropdown .nav .item {
-        @apply block px-4 py-2 text-sm text-gray-700 transition ease-in-out duration-150;
+    .aq-dropdown a,
+    .aq-dropdown .nav .item {
+        @apply flex items-center px-4 py-2 text-sm text-gray-700 transition ease-in-out duration-150;
     }
 
     /* Danger / red color for deleting or alert control */
-    .aq-dropdown a.danger, .aq-dropdown .nav .item.danger {
+    .aq-dropdown a.danger,
+    .aq-dropdown .nav .item.danger {
         @apply text-red-500;
     }
 
-    .aq-dropdown a:hover, .aq-dropdown .item:hover {
-        @apply bg-cool-gray-100;
+    .aq-dropdown a:hover,
+    .aq-dropdown .item:hover {
+        @apply bg-cool-gray-100 text-gray-900;
+    }
+
+    .aq-dropdown a:hover svg,
+    .aq-dropdown .item:hover svg,
+    .aq-dropdown a:hover .icon,
+    .aq-dropdown .item:hover .icon {
+        @apply text-gray-700;
+    }
+
+    /* Dropdown icon */
+    .aq-dropdown a svg,
+    .aq-dropdown a .icon {
+        @apply mr-3 h-5 w-5 text-gray-500;
     }
 
     /* purgecss start ignore */
     /* Transition */
-    .aq-dropdown-enter {
+    .aq-dropdown-enter-active {
         @apply transition ease-out duration-100;
     }
 
-    .aq-dropdown-enter-start, .aq-dropdown-leave-end {
+    .aq-dropdown-enter,
+    .aq-dropdown-leave-to {
         @apply transform opacity-0 scale-95;
     }
 
-    .aq-dropdown-leave {
+    .aq-dropdown-leave-active {
         @apply transition ease-in duration-75;
     }
 
-    .aq-dropdown-enter-end, .aq-dropdown-leave-start {
+    .aq-dropdown-enter-to,
+    .aq-dropdown-leave {
         @apply transform opacity-100 scale-100;
     }
     /* purgecss end ignore */
