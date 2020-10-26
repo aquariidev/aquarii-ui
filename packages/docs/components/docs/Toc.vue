@@ -10,6 +10,12 @@
         >
           <NuxtLink :to="`#${link.id}`" class="block transition-fast hover:translate-r-2px hover:text-gray-900 font-medium text-gray-600">{{ link.text }}</NuxtLink>
         </li>
+
+        <li class="mb-4" v-if="doc.options && doc.options.length">
+          <NuxtLink to="#component-options" class="block transition-fast hover:translate-r-2px hover:text-gray-900 font-medium text-gray-600">
+            Component Options
+          </NuxtLink>
+        </li>
       </ul>
     </div>
   </div>

@@ -1,8 +1,9 @@
 import { CreateElement, VNode } from 'vue';
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
+import AQComponent from '../../mixins/component';
 
 @Component
-export default class AQButton extends Vue {
+export default class AQButton extends AQComponent {
   @Prop({type: String, required: false}) type: any;
   @Prop({required: false}) outline: any;
   @Prop({
@@ -15,17 +16,13 @@ export default class AQButton extends Vue {
   @Prop({required: false}) circle: any;
   @Prop({required: false}) icon: any;
 
+  propsWithoutValue = ['outline', 'block', 'circle', 'icon'];
+
   /** Button computed class */
   get btnClass(): string {
     const classes = [];
 
-    const propsWithoutValue = ['outline', 'block', 'circle', 'icon'];
-
-    propsWithoutValue.map(v => {
-      if(this.$props[v] !== undefined) {
-        classes.push(v);
-      }
-    });
+    classes.push(...this.getPropsWithoutValue());
 
     if(this.type) {
       classes.push(this.type);

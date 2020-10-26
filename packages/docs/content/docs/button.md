@@ -5,11 +5,11 @@ order: 3
 options:
   - option: type
     value: string
-    default: '-'
+    default:
     desc: The color of button component
   - option: size
     value: string['small', 'large']
-    default: '-'
+    default:
     desc: The size of button
   - option: block
     value: any

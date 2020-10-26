@@ -1,9 +1,10 @@
 import { CreateElement, VNode } from 'vue'
-import { Vue, Component } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
+import AQComponent from '../../mixins/component';
 import { onClickOutside } from '../../util/click-outside';
 
 @Component({name: 'aq-dropdown'})
-export default class AQDropdown extends Vue {
+export default class AQDropdown extends AQComponent {
   isActive = false;
 
   /** When component mounted */

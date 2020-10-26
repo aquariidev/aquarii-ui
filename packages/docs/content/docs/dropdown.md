@@ -2,6 +2,11 @@
 title: Dropdown
 description: Component to display a lists of links and more
 order: 6
+options:
+  - option: pos
+    value: string
+    default:
+    desc: The position of dropdown nav will open from its activator position
 ---
 
 ## Basic Usage

@@ -1,8 +1,9 @@
 import { CreateElement, VNode } from 'vue';
-import { Vue, Component } from 'vue-property-decorator';
+import { Component } from 'vue-property-decorator';
+import AQComponent from '../../mixins/component';
 
 @Component({name: 'aq-table'})
-export default class AQTable extends Vue {
+export default class AQTable extends AQComponent {
   public render(h: CreateElement): VNode {
     const thead = h('thead', this.$slots.thead);
     const tbody = h('tbody', this.$slots.default);

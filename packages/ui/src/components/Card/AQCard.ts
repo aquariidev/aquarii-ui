@@ -1,11 +1,25 @@
 import { CreateElement, VNode } from 'vue'
-import { Vue, Component } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
+import AQComponent from '../../mixins/component';
 
 @Component
-export default class AQCard extends Vue {
+export default class AQCard extends AQComponent {
+  @Prop({required: false}) body: any;
+
+  propsWithoutValue = ['body']
+
+  get cardClass(): string {
+   const classes = [];
+
+   classes.push(...this.getPropsWithoutValue())
+
+   return classes.join(' ');
+  }
+
   public render(h: CreateElement): VNode {
     return h('div', {
-      staticClass: 'aq-card'
+      staticClass: 'aq-card',
+      class: this.cardClass
     }, this.$slots.default)
   }
 }

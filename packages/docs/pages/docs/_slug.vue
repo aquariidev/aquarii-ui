@@ -6,7 +6,7 @@
 
         <!-- Component Options -->
         <div v-if="page.options && page.options.length">
-          <h2 id="component-options">Component Options</h2>
+          <h2 id="component-options" class="my-4">Component Options</h2>
 
           <aq-card class="mt-4">
             <aq-table>
@@ -54,8 +54,6 @@
 export default {
   async asyncData({params, $content}) {
     const page = await $content('docs', params.slug).fetch();
-
-    console.log(page.options)
 
     const [prev, next] = await $content('docs')
       .only(['title', 'slug', 'order'])
