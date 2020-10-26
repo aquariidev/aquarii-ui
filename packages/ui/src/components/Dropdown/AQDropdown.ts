@@ -1,23 +1,52 @@
 import { CreateElement } from 'vue'
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
+import { onClickOutside } from '../../util/click-outside';
 
 @Component({name: 'aq-dropdown'})
 export default class AQDropdown extends Vue {
   isActive = false;
 
+  /** When component mounted */
+  mounted() {
+    onClickOutside(this.$el, () => this.isActive = false);
+  }
+
+  /** Activator */
+  getActivator() {
+    if(this.$scopedSlots.activator) {
+      return this.$scopedSlots.activator({
+        attrs: {
+          ...this.$attrs
+        },
+        on: {
+          click: (e: any) => {
+            this.isActive = !this.isActive;
+          }
+        }
+      });
+    }
+
+    throw new Error('No activator provided, try <template #activator="{on}"></template> inside dropdown component')
+  }
+
   public render(h: CreateElement): any {
     const nav = h('div', {
-      staticClass: 'nav'
+      staticClass: 'nav',
     }, this.$slots.default);
 
     const dropdown = h('div', {
       staticClass: 'aq-dropdown',
       ref: 'dropdown',
+      attrs: {
+        ...this.$attrs,
+        'aria-orientation': 'vertical',
+        role: 'menu',
+      },
       directives: [
         {
           name: 'show',
           value: this.isActive
-        }
+        },
       ]
     }, [
       nav
@@ -29,21 +58,12 @@ export default class AQDropdown extends Vue {
       }
     }, [
       dropdown
-    ])
+    ]);
 
     return h('div', {
 
     }, [
-      this.$scopedSlots.activator({
-        attrs: {
-          ...this.$attrs
-        },
-        on: {
-          click: (e: any) => {
-            this.isActive = !this.isActive;
-          }
-        }
-      }),
+      this.getActivator(),
       transition
     ]);
   }
