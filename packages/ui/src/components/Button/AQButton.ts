@@ -2,7 +2,7 @@ import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import AQComponent from '../../mixins/component';
 
-@Component
+@Component({name: 'aq-button'})
 export default class AQButton extends AQComponent {
   @Prop({type: String, required: false}) type: any;
   @Prop({required: false}) outline: any;

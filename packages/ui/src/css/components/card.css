@@ -17,8 +17,23 @@
         @apply border-t bg-cool-gray-50;
     }
 
+    /* Header and footer border color */
+    .aq-card .header,
+    .aq-card .footer {
+        @apply border-gray-200;
+    }
+
     /* Media */
     .aq-card .media {
         @apply w-full;
+    }
+
+    /* Raised card, add transform translate transition */
+    .aq-card.raised {
+        @apply transition duration-500 ease-in-out transform;
+    }
+
+    .aq-card.raised:hover {
+        @apply -translate-y-2 shadow-lg;
     }
 }

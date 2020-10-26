@@ -1,7 +1,7 @@
 import { Component, Prop } from 'vue-property-decorator'
 import AQComponent from '../../mixins/component'
 
-@Component
+@Component({name: 'aq-input'})
 export default class AQInput extends AQComponent {
   @Prop({required: false}) value: any;
   @Prop({type: String, required: false}) label: any;

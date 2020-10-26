@@ -1,11 +1,11 @@
 <template>
-  <div class="relative px-4 sm:px-6 lg:px-8">
+  <div class="relative px-4 sm:px-6 lg:px-8 max-w-prose">
     <div class="mx-auto">
       <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{title}}</h1>
 
       <p class="text-md text-gray-500">{{desc}}</p>
 
-      <hr class="mt-4 border-b-2 border-gray-200">
+      <hr class="my-4 border-b-2 border-gray-200">
     </div>
 
     <div class="markdown text-gray-500 mx-auto">
@@ -28,7 +28,7 @@ export default {
   .markdown h1,
   .markdown h2,
   .markdown h3 {
-    @apply mb-2;
+    @apply mb-4;
   }
 
   .markdown h2 {
@@ -36,7 +36,7 @@ export default {
   }
 
   .nuxt-content-highlight {
-    @apply my-4;
+    @apply my-6;
   }
 
   p > code {
