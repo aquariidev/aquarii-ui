@@ -77,6 +77,8 @@ export default {
 
 If you have options with array-object / array containing object, you can use `optionLabel` props to determine the option inner text.
 
+`optionLabel` are required if your options props contains array object
+
 <example-select section="optionLabel"></example-select>
 
 ```vue
