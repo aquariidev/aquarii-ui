@@ -1,5 +1,5 @@
 <template>
-  <div class="relative px-4 sm:px-6 lg:px-8 max-w-prose min-w-prose">
+  <div class="relative px-4 sm:px-6 lg:px-8 content-section">
     <div class="mx-auto">
       <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{title}}</h1>
 
@@ -21,6 +21,11 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+  .content-section {
+    min-width: 70ch;
+    max-width: 70ch;
+  }
+
   .markdown p {
     @apply mb-4;
   }

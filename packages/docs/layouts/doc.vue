@@ -1,7 +1,7 @@
 <template>
   <div class="antialiased">
     <navbar></navbar>
-    <div class="w-full max-w-screen-xl mx-auto">
+    <div class="w-full container mx-auto">
       <div class="flex">
         <sidebar></sidebar>
         <sidebar-mobile></sidebar-mobile>

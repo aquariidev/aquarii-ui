@@ -2,7 +2,12 @@
 title: Select
 description: Select menus can be used to select between choices in a form
 order: 8
+group: components
 props:
+  - option: value
+    value: string|array|array-object|integer
+    default:
+    desc: The value of selected option
   - option: label
     value: string
     default:
@@ -49,8 +54,6 @@ Add `custom` props with `true` value to activate custom select, and add `options
 
 <example-select section="custom"></example-select>
 
-### Full Example
-
 ```vue
 <template>
   <aq-select v-model="value"
@@ -74,10 +77,14 @@ export default {
 }
 </script>
 ```
+## Option Label
+If you have options with array-object / array containing object, you can use `option-label` props to determine the option inner text.
 
-If you have options with array-object / array containing object, you can use `optionLabel` props to determine the option inner text.
-
-`optionLabel` are required if your options props contains array object
+<div class="mb-4">
+  <aq-alert type="warning">
+    option-label are required if your options props contains array object
+  </aq-alert>
+</div>
 
 <example-select section="optionLabel"></example-select>
 

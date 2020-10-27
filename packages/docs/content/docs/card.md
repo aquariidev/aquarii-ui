@@ -1,6 +1,7 @@
 ---
 title: Card
 description: Create layout boxes with different styles
+group: components
 order: 5
 props:
   - option: body
@@ -11,6 +12,11 @@ props:
     value:
     default:
     desc: Raise the card above the page
+slots:
+  - name: header
+    values:
+    default:
+    desc: Card header
 ---
 
 ## Default Card

@@ -19,29 +19,9 @@
         <div class="mt-8">
           <h3 class="headline">Components</h3>
 
-          <div class="mt-1 link-group">
-            <nuxt-link to="/docs/button">
-              Button
-            </nuxt-link>
-
-            <nuxt-link to="/docs/card">
-              Card
-            </nuxt-link>
-
-            <nuxt-link to="/docs/dropdown">
-              Dropdown
-            </nuxt-link>
-
-            <nuxt-link to="/docs/icon">
-              Icon
-            </nuxt-link>
-
-            <nuxt-link to="/docs/input">
-              Input
-            </nuxt-link>
-
-            <nuxt-link to="/docs/select">
-              Select
+          <div class="mt-1 link-group" v-for="component in components" :key="component.slug">
+            <nuxt-link :to="{ name: 'docs-slug', params: { slug: component.slug } }">
+              {{component.title}}
             </nuxt-link>
           </div>
         </div>
@@ -54,11 +34,15 @@
 export default {
   data() {
     return {
-      pages: []
+      components: []
     }
   },
   async fetch() {
-    const data = await this.$content('docs').fetch()
+    this.components = await this.$content('docs')
+      .where({group: 'components'})
+      .sortBy('title')
+      .only(['title', 'slug'])
+      .fetch();
   }
 }
 </script>

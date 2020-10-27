@@ -1,6 +1,7 @@
 ---
 title: Dropdown
 description: Component to display a lists of links and more
+group: components
 order: 6
 options:
   - option: pos
