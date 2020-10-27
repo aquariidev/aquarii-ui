@@ -2,6 +2,15 @@
 title: Card
 description: Create layout boxes with different styles
 order: 5
+props:
+  - option: body
+    value:
+    default:
+    desc: Add padding inside the card base component
+  - option: raised
+    value:
+    default:
+    desc: Raise the card above the page
 ---
 
 ## Default Card
@@ -83,8 +92,8 @@ it will append to the default slot of `aq-card` component.
 You can format the card to raise above the page.
 
 <div class="grid lg:grid-cols-2 gap-2">
-  <example-card section="media"></example-card>
-  <example-card section="media"></example-card>
+  <example-card section="raised"></example-card>
+  <example-card section="raised"></example-card>
 </div>
 
 ```html

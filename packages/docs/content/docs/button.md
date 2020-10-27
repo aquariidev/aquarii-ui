@@ -2,7 +2,7 @@
 title: Button
 description: Button are the core of every project
 order: 3
-options:
+props:
   - option: type
     value: string
     default:
