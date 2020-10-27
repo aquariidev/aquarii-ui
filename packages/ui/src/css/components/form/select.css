@@ -4,11 +4,11 @@
   }
 
   .aq-form-select .selected-content {
-    @apply inline-block w-full rounded-md shadow-sm;
+    @apply inline-block w-full rounded shadow-sm;
   }
 
   .aq-form-select .selected-content button {
-    @apply cursor-default relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left transition ease-in-out duration-150;
+    @apply cursor-default relative w-full rounded border border-gray-300 bg-white pl-3 pr-10 py-2 text-left transition ease-in-out duration-150;
   }
 
   .aq-form-select .selected-content button:focus {
@@ -16,7 +16,7 @@
   }
 
   .aq-form-select .select-content {
-    @apply absolute mt-1 w-full rounded-md bg-white shadow-lg z-50;
+    @apply absolute mt-1 w-full rounded bg-white shadow-lg z-50;
   }
 
   .aq-form-select .select-content li:hover,

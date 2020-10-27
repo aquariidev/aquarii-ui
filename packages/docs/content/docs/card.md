@@ -12,6 +12,11 @@ props:
     value:
     default:
     desc: Raise the card above the page
+slots:
+  - name: header
+    values:
+    default:
+    desc: Card header
 ---
 
 ## Default Card

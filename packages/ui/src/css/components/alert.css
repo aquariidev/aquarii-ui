@@ -1,6 +1,6 @@
 @layer components {
   .aq-alert {
-    @apply p-4;
+    @apply p-4 border-l-2;
   }
 
   .aq-alert .content {

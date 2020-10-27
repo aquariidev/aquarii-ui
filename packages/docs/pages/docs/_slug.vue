@@ -31,6 +31,29 @@
               </aq-table>
             </aq-card-media>
           </aq-card>
+
+
+          <aq-card class="mt-4" v-if="page.slots">
+            <h3 slot="header">Slots</h3>
+
+            <aq-card-media class="overflow-auto">
+              <aq-table>
+                <template #thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Values</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </template>
+
+                <tr v-for="prop in page.slots" :key="prop.name">
+                  <td>{{slot.name}}</td>
+                  <td></td>
+                </tr>
+              </aq-table>
+            </aq-card-media>
+          </aq-card>
         </div>
 
         <div class="flex justify-between mt-8">
