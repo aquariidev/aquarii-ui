@@ -4,28 +4,32 @@
       <content-section :title="page.title" :desc="page.description">
         <nuxt-content :document="page" />
 
-        <!-- Component Options -->
-        <div v-if="page.options && page.options.length">
-          <h2 id="component-options">Component Options</h2>
+        <!-- Component API -->
+        <div v-if="hasPropsOrSlots()">
+          <h2 id="component-api" class="my-4">API</h2>
 
           <aq-card class="mt-4">
-            <aq-table>
-              <template #thead>
-                <tr>
-                  <th>Option</th>
-                  <th>Value</th>
-                  <th>Default</th>
-                  <th>Description</th>
-                </tr>
-              </template>
+            <h3 slot="header">Props</h3>
 
-              <tr v-for="option in page.options" :key="option.option">
-                <td>{{option.option}}</td>
-                <td>{{option.value}}</td>
-                <td>{{option.default}}</td>
-                <td>{{option.desc}}</td>
-              </tr>
-            </aq-table>
+            <aq-card-media class="overflow-auto">
+              <aq-table>
+                <template #thead>
+                  <tr>
+                    <th>Option</th>
+                    <th>Value</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </template>
+
+                <tr v-for="prop in page.props" :key="prop.option">
+                  <td>{{prop.option}}</td>
+                  <td>{{prop.value}}</td>
+                  <td>{{prop.default}}</td>
+                  <td>{{prop.desc}}</td>
+                </tr>
+              </aq-table>
+            </aq-card-media>
           </aq-card>
         </div>
 
@@ -55,8 +59,6 @@ export default {
   async asyncData({params, $content}) {
     const page = await $content('docs', params.slug).fetch();
 
-    console.log(page.options)
-
     const [prev, next] = await $content('docs')
       .only(['title', 'slug', 'order'])
       .sortBy('order', 'asc')
@@ -72,6 +74,11 @@ export default {
   head() {
     return {
       title: `${this.page.title} - Aquarii`
+    }
+  },
+  methods: {
+    hasPropsOrSlots() {
+      return (this.page.props && this.page.props.length) || (this.page.slots && this.page.slots.length);
     }
   }
 }

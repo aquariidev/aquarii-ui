@@ -2,14 +2,14 @@
 title: Button
 description: Button are the core of every project
 order: 3
-options:
+props:
   - option: type
     value: string
-    default: '-'
+    default:
     desc: The color of button component
   - option: size
     value: string['small', 'large']
-    default: '-'
+    default:
     desc: The size of button
   - option: block
     value: any

@@ -1,9 +1,10 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
+import AQComponent from '../../mixins/component';
 import Icons from '../../util/icons';
 
 @Component({name: 'aq-icon'})
-export default class AQIcon extends Vue {
+export default class AQIcon extends AQComponent {
   @Prop({required: true, type: String}) name!: string;
 
   /** Get component by given default slot */

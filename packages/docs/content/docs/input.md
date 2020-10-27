@@ -2,6 +2,15 @@
 title: Input
 description: The component gives you a baseline to create your own custom inputs. It consists of a prepend/append slot, messages, and a default slot.
 order: 4
+options:
+  - option: label
+    value: string
+    default:
+    desc: Add label to input component
+  - option: filled
+    value: any
+    default:
+    desc: Filled the input with gray background
 ---
 
 ## Input Style

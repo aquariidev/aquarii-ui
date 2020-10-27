@@ -1,7 +1,7 @@
 @layer components {
     /* Basic normal */
     .aq-btn {
-        @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded transition duration-150 ease-in-out font-medium bg-default;
+        @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded transition duration-150 ease-in-out font-medium bg-white;
     }
 
     /* Basic small */

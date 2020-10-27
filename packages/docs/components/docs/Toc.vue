@@ -10,6 +10,12 @@
         >
           <NuxtLink :to="`#${link.id}`" class="block transition-fast hover:translate-r-2px hover:text-gray-900 font-medium text-gray-600">{{ link.text }}</NuxtLink>
         </li>
+
+        <li class="mb-4" v-if="hasPropsOrSlots()">
+          <NuxtLink to="#component-api" class="block transition-fast hover:translate-r-2px hover:text-gray-900 font-medium text-gray-600">
+            API
+          </NuxtLink>
+        </li>
       </ul>
     </div>
   </div>
@@ -28,6 +34,11 @@ export default {
   },
   watch: {
     '$route': '$fetch'
+  },
+  methods: {
+    hasPropsOrSlots() {
+      return (this.doc.props && this.doc.props.length) || (this.doc.slots && this.doc.slots.length);
+    }
   }
 }
 </script>
