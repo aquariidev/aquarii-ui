@@ -1,0 +1,30 @@
+@layer components {
+  .aq-form-select {
+    @apply relative;
+  }
+
+  .aq-form-select .selected-content {
+    @apply inline-block w-full rounded-md shadow-sm;
+  }
+
+  .aq-form-select .selected-content button {
+    @apply cursor-default relative w-full rounded-md border border-gray-300 bg-white pl-3 pr-10 py-2 text-left transition ease-in-out duration-150;
+  }
+
+  .aq-form-select .selected-content button:focus {
+    @apply outline-none;
+  }
+
+  .aq-form-select .select-content {
+    @apply absolute mt-1 w-full rounded-md bg-white shadow-lg z-50;
+  }
+
+  .aq-form-select .select-content li:hover,
+  .aq-form-select .select-content li:hover .aq-option-icon {
+    @apply text-white bg-indigo-600;
+  }
+
+  .aq-form-select .aq-option-icon {
+    @apply text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4;
+  }
+}

@@ -1,10 +1,10 @@
-import { Component, Prop } from 'vue-property-decorator'
-import AQComponent from '../../mixins/component'
+import { CreateElement } from 'vue';
+import { Component, Prop, Mixins } from 'vue-property-decorator'
+import FormMixin from '../../mixins/form.mixin';
 
-@Component({name: 'aq-input'})
-export default class AQInput extends AQComponent {
+@Component({name: 'aq-form-input'})
+export default class AQFormInput extends Mixins(FormMixin) {
   @Prop({required: false}) value: any;
-  @Prop({type: String, required: false}) label: any;
   @Prop({required: false, default: undefined}) filled!: any;
 
   propsWithoutValue = ['filled'];
@@ -21,20 +21,7 @@ export default class AQInput extends AQComponent {
     return classes.join(' ');
   }
 
-  /** Message element */
-  getMessage(type?: string): any|void {
-    const defaultMessage = this.$slots.message;
-
-    const message = this.$slots[`message-${type}`];
-
-    if(defaultMessage || message) {
-      return this.$createElement('p', {
-        staticClass: 'message'
-      }, type ? message : defaultMessage);
-    }
-  }
-
-  public render(h: any): any {
+  public render(h: CreateElement): any {
     const input = h('input', {
       staticClass: 'aq-form-control',
       class: this.inputClass,
@@ -49,12 +36,6 @@ export default class AQInput extends AQComponent {
       },
       attrs: {
         ...this.$attrs
-      }
-    });
-
-    const label = h('label', {
-      domProps: {
-        innerHTML: this.label
       }
     });
 
@@ -75,9 +56,9 @@ export default class AQInput extends AQComponent {
     ]);
 
     return h('div', {
-      staticClass: 'aq-form'
+      staticClass: 'aq-form space-y-1'
     }, [
-      this.label && label,
+      this.getLabel(),
       content,
       this.getMessage()
     ]);

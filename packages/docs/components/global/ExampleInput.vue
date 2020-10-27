@@ -2,12 +2,12 @@
   <!-- Default -->
   <div>
     <div v-if="!section">
-      <aq-input v-model="name" :placeholder="placeholder" />
+      <aq-form-input v-model="name" :placeholder="placeholder" />
 
       <span>{{name}}</span>
     </div>
 
-    <aq-input :placeholder="placeholder" v-if="section === 'slot'">
+    <aq-form-input :placeholder="placeholder" v-if="section === 'slot'">
       <template #append v-if="slotPosition == 'append' || slotPosition == 'both'">
         {{slotPosition == 'both' ? 'https://' : '@'}}
       </template>
@@ -15,13 +15,13 @@
       <template #prepend v-if="slotPosition == 'prepend' || slotPosition == 'both'">
         .com
       </template>
-    </aq-input>
+    </aq-form-input>
 
-    <aq-input placeholder="Password" type="password" v-if="section === 'message'">
+    <aq-form-input placeholder="Password" type="password" v-if="section === 'message'">
       <template #message>
         Make your password short and easy to guess
       </template>
-    </aq-input>
+    </aq-form-input>
   </div>
 </template>
 
