@@ -16,7 +16,19 @@ slots:
   - name: header
     values:
     default:
-    desc: Card header
+    desc: Card header contain padding and border bottom
+  - name: default
+    values:
+    default:
+    desc: The default slots, usually use to create a media image
+  - name: body
+    values:
+    default:
+    desc: Card body contain padding
+  - name: footer
+    values:
+    default:
+    desc: Card footer contain padding and border top
 ---
 
 ## Default Card

@@ -24,6 +24,10 @@ export default class AQSelect extends Mixins(FormMixin) {
     }
   }
 
+  private optIdentifier(option: any) {
+    return this.optionLabel ? option[this.optionLabel] : option;
+  }
+
   /** Render element */
   public render(h: CreateElement): VNode {
     const checkIcon = (option: any) => {
@@ -43,9 +47,14 @@ export default class AQSelect extends Mixins(FormMixin) {
     }
 
     const optionLists = () => {
-      return this.options.map((option: any) => (
+      return this.options.map((option: any, index: number) => (
         h('li', {
           staticClass: 'text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9',
+          attrs: {
+            role: 'option',
+            id: `${this.optIdentifier(option).replace(' ', '')}-item-${index}`,
+            'aria-selected': this.value == this.optIdentifier(option)
+          },
           on: {
             click: (e: any) => {
               this.$emit('input', e.target.innerText);
@@ -56,7 +65,7 @@ export default class AQSelect extends Mixins(FormMixin) {
           h('span', {
             staticClass: 'truncate font-normal block',
             attrs: {
-              'aq-option-value': this.optionLabel ? option[this.optionLabel] : option,
+              'aq-option-value': this.optIdentifier(option)
             },
             domProps: {
               innerText: this.optionLabel ? option[this.optionLabel] : option,
@@ -72,10 +81,24 @@ export default class AQSelect extends Mixins(FormMixin) {
     }, [
       h('button', {
         staticClass: 'form-select',
+        attrs: {
+          type: 'button',
+          'aria-haspopup': 'listbox',
+          'aria-expanded': this.isOpen ? 'true' : 'false',
+          'aria-multiselectable': this.multiple
+        },
         on: {
           click: (e: Event) => {
             e.stopPropagation();
             this.isOpen = !this.isOpen;
+          },
+          keyup: (e: any) => {
+            if(e.keyCode === 27) {
+              this.isOpen = false;
+            }
+          },
+          keydown: (e: any) => {
+            e.preventDefault();
           }
         }
       }, [

@@ -8,11 +8,11 @@
           class="mb-4"
           :class="{ 'toc2': link.depth === 2, 'toc3': link.depth === 3 }"
         >
-          <NuxtLink :to="`#${link.id}`" class="block transition-fast hover:translate-r-2px hover:text-gray-900 font-medium text-gray-600">{{ link.text }}</NuxtLink>
+          <NuxtLink :to="`#${link.id}`" class="toc-link">{{ link.text }}</NuxtLink>
         </li>
 
         <li class="mb-4" v-if="hasPropsOrSlots()">
-          <NuxtLink to="#component-api" class="block transition-fast hover:translate-r-2px hover:text-gray-900 font-medium text-gray-600">
+          <NuxtLink to="#component-api" class="toc-link">
             API
           </NuxtLink>
         </li>
@@ -42,3 +42,18 @@ export default {
   }
 }
 </script>
+
+<style lang="postcss" scoped>
+  .toc-link {
+    @apply block font-medium text-gray-500 transition duration-150 ease-in-out transform;
+  }
+
+  .toc-link.active,
+  .toc-link:hover {
+    @apply text-gray-900;
+  }
+
+  .toc-link:hover {
+    @apply translate-x-1;
+  }
+</style>
