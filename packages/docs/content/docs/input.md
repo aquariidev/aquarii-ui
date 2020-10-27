@@ -1,6 +1,7 @@
 ---
 title: Forms
 description: The form components include input, select, radio and many
+group: components
 order: 4
 props:
   - option: label

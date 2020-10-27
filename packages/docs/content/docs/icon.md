@@ -1,6 +1,7 @@
 ---
 title: Icon
 description: Icon Component
+group: components
 order: 7
 ---
 

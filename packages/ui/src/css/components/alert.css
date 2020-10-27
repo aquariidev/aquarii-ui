@@ -1,0 +1,13 @@
+@layer components {
+  .aq-alert {
+    @apply p-4;
+  }
+
+  .aq-alert .content {
+    @apply flex;
+  }
+
+  .aq-alert.warning {
+    @apply bg-yellow-50 border-yellow-400;
+  }
+}

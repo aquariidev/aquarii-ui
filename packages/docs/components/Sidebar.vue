@@ -54,11 +54,14 @@
 export default {
   data() {
     return {
-      pages: []
+      components: []
     }
   },
   async fetch() {
-    const data = await this.$content('docs').fetch()
+    this.components = await this.$content('docs')
+      .where({group: 'components'})
+      .sortBy('title')
+      .fetch();
   }
 }
 </script>
