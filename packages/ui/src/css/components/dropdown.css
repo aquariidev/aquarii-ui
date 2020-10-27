@@ -1,7 +1,7 @@
 @layer components {
     /* Base Dropdown */
     .aq-dropdown {
-        @apply origin-top-right absolute mt-2 w-48 rounded-md shadow-lg z-50;
+        @apply origin-top absolute mt-2 w-48 rounded-md shadow-lg z-50;
     }
 
     /* Dropdown Nav */

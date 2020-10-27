@@ -39,6 +39,10 @@
             <nuxt-link to="/docs/input">
               Input
             </nuxt-link>
+
+            <nuxt-link to="/docs/select">
+              Select
+            </nuxt-link>
           </div>
         </div>
       </nav>

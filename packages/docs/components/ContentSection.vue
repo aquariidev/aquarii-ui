@@ -1,5 +1,5 @@
 <template>
-  <div class="relative px-4 sm:px-6 lg:px-8 max-w-prose">
+  <div class="relative px-4 sm:px-6 lg:px-8 max-w-prose min-w-prose">
     <div class="mx-auto">
       <h1 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">{{title}}</h1>
 

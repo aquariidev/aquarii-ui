@@ -9,7 +9,11 @@ const Icons = [
   },
   {
     name: 'exclamation-circle',
-    d: 'M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+    d: `M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z`
+  },
+  {
+    name: 'check',
+    d: `M5 13l4 4L19 7`
   }
 ];
 
