@@ -47,9 +47,11 @@
                   </tr>
                 </template>
 
-                <tr v-for="prop in page.slots" :key="prop.name">
+                <tr v-for="slot in page.slots" :key="slot.name">
                   <td>{{slot.name}}</td>
-                  <td></td>
+                  <td>{{slot.values}}</td>
+                  <td>{{slot.default}}</td>
+                  <td>{{slot.desc}}</td>
                 </tr>
               </aq-table>
             </aq-card-media>
