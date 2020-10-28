@@ -1,56 +1,58 @@
-/* purgecss start ignore */
-.aq-modal {
-    @apply fixed inset-0 overflow-y-auto bg-gray-500 bg-opacity-75 p-4 flex flex-col items-center justify-center;
-    z-index: 1055;
-}
+@layer components {
+    /* purgecss start ignore */
+    .aq-modal {
+        @apply fixed inset-0 overflow-y-auto bg-gray-500 bg-opacity-75 p-4 flex flex-col items-center justify-center;
+        z-index: 1055;
+    }
 
-.aq-modal.aq-open {
-    @apply flex;
-}
+    .aq-modal.aq-open {
+        @apply flex;
+    }
 
-.aq-modal .dialog {
-    @apply inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl;
-}
-/* Modal transition */
-.aq-modal-enter-active {
-    @apply transition ease-out duration-300;
-}
+    .aq-modal .dialog {
+        @apply inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl max-w-sm;
+    }
+    /* Modal transition */
+    .aq-modal-enter-active {
+        @apply transition ease-out duration-300;
+    }
 
-.aq-modal-enter,
-.aq-modal-leave-to {
-    @apply transform opacity-0;
-}
+    .aq-modal-enter,
+    .aq-modal-leave-to {
+        @apply transform opacity-0;
+    }
 
-.aq-modal-enter-to,
-.aq-modal-leave {
-    @apply transform opacity-100;
-}
+    .aq-modal-enter-to,
+    .aq-modal-leave {
+        @apply transform opacity-100;
+    }
 
-.aq-modal-leave-active {
-    @apply transition ease-in duration-200;
-}
+    .aq-modal-leave-active {
+        @apply transition ease-in duration-200;
+    }
 
-.aq-modal-dialog-enter-active {
-    @apply transition-all ease-out duration-300;
-}
+    .aq-modal-dialog-enter-active {
+        @apply transition-all ease-out duration-300;
+    }
 
-.aq-modal-dialog-enter {
-    @apply transform opacity-0 translate-y-0 scale-95;
-}
+    .aq-modal-dialog-enter {
+        @apply transform opacity-0 translate-y-0 scale-95;
+    }
 
-.aq-modal-dialog-enter-to {
-    @apply transform opacity-100 translate-y-0 scale-100;
-}
+    .aq-modal-dialog-enter-to {
+        @apply transform opacity-100 translate-y-0 scale-100;
+    }
 
-.aq-modal-dialog-leave-active {
-    @apply transition-all ease-in duration-200;
-}
+    .aq-modal-dialog-leave-active {
+        @apply transition-all ease-in duration-200;
+    }
 
-.aq-modal-dialog-leave {
-    @apply transform opacity-100 translate-y-0 scale-100;
-}
+    .aq-modal-dialog-leave {
+        @apply transform opacity-100 translate-y-0 scale-100;
+    }
 
-.aq-modal-dialog-leave-to {
-    @apply transform opacity-0 translate-y-0 scale-95;
+    .aq-modal-dialog-leave-to {
+        @apply transform opacity-0 translate-y-0 scale-95;
+    }
+    /* purgecss end ignore */
 }
-/* purgecss end ignore */
