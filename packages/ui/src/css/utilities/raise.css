@@ -1,0 +1,10 @@
+@layer utilities {
+  /* Make the component raise above the page */
+  .aq-raised {
+    @apply transition duration-300 ease-in-out transform;
+  }
+
+  .aq-raised:hover {
+    @apply -translate-y-1 shadow-lg;
+  }
+}

@@ -24,6 +24,10 @@ props:
     value: any
     default:
     desc: Icon button
+  - option: raised
+    value: any
+    default:
+    desc: Raise the button above page
   - option: loading
     value: boolean
     default: false
@@ -120,6 +124,15 @@ If the inner button does not have same height and size it will create a pill but
 
 ```html
 <aq-button circle type="primary">Circle Button</aq-button>
+```
+
+## Raised Button
+add `aq-raised` props to make the button raise above the page.
+
+<aq-button raised type="primary">Raised Button</aq-button>
+
+```html
+<aq-button raised type="primary">Raised Button</aq-button>
 ```
 
 ## Loading Button
