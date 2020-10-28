@@ -14,16 +14,24 @@ props:
     desc: The size of button
   - option: block
     value: any
-    default: undefined
+    default:
     desc: Button block display
   - option: circle
     value: any
-    default: undefined
+    default:
     desc: Circle button
   - option: icon
     value: any
-    default: undefined
+    default:
     desc: Icon button
+  - option: raised
+    value: any
+    default:
+    desc: Raise the button above page
+  - option: loading
+    value: boolean
+    default: false
+    desc: Loading indicator
 ---
 
 ## Filled Button
@@ -78,7 +86,7 @@ there is a 3 types of button size, standard ( without props), small and large
 
 ## Button Groups
 
-Button groups will add border radius on first and last buttons
+Button groups will add border radius on first and last buttons.
 
 <aq-button-group>
   <aq-button>Prev</aq-button>
@@ -117,3 +125,18 @@ If the inner button does not have same height and size it will create a pill but
 ```html
 <aq-button circle type="primary">Circle Button</aq-button>
 ```
+
+## Raised Button
+add `aq-raised` props to make the button raise above the page.
+
+<aq-button raised type="primary">Raised Button</aq-button>
+
+```html
+<aq-button raised type="primary">Raised Button</aq-button>
+```
+
+## Loading Button
+
+add `icon` props and set `loading` props to true to display the loading indicator.
+
+<aq-button type="primary" icon :loading="true">Circle Button</aq-button>
