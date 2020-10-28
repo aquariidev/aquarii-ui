@@ -19,7 +19,9 @@ export default class AQDropdown extends AQComponent {
         attrs: {
           ...this.$attrs,
           role: 'button',
-          type: 'button'
+          type: 'button',
+          'aria-expanded': this.isActive ? 'true' : 'false',
+          'aria-haspopup': 'true',
         },
         on: {
           click: (e: any) => {

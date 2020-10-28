@@ -2,6 +2,7 @@ import { CreateElement, VNode } from 'vue';
 import { Component, Mixins, Prop } from 'vue-property-decorator';
 import FormMixin from '../../mixins/form.mixin';
 import { onClickOutside } from '../../util/click-outside';
+import AQIcon from '../Icon/AQIcon';
 
 @Component({name: 'aq-select'})
 export default class AQSelect extends Mixins(FormMixin) {
@@ -37,7 +38,7 @@ export default class AQSelect extends Mixins(FormMixin) {
         return h('span', {
           staticClass: 'aq-option-icon',
         }, [
-          h('aq-icon', {
+          h(AQIcon, {
             props: {
               name: 'check'
             }
@@ -58,6 +59,10 @@ export default class AQSelect extends Mixins(FormMixin) {
           on: {
             click: (e: any) => {
               this.$emit('input', e.target.innerText);
+
+              const elem = this.$refs.listBox as HTMLElement;
+              elem.setAttribute('aria-activedescendant', `${this.optIdentifier(option).replace(' ', '')}-item-${index}`);
+
               if(this.closeOnSelect) this.isOpen = false;
             }
           }
@@ -84,7 +89,7 @@ export default class AQSelect extends Mixins(FormMixin) {
         attrs: {
           type: 'button',
           'aria-haspopup': 'listbox',
-          'aria-expanded': this.isOpen ? 'true' : 'false',
+          'aria-expanded': String(this.isOpen),
           'aria-multiselectable': this.multiple
         },
         on: {
@@ -123,9 +128,11 @@ export default class AQSelect extends Mixins(FormMixin) {
     }, [
       h('ul', {
         staticClass: 'max-h-60 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5',
+        ref: 'listBox',
         attrs: {
           tabindex: '-1',
           role: 'listbox',
+          'aria-activedescendant': ''
         }
       }, [
         this.options && optionLists()

@@ -8,12 +8,8 @@ export default class AQComponent extends Vue {
 
   /** Get props without value */
   getPropsWithoutValue(): any[] {
-    const data = this.propsWithoutValue.map(v => {
-      if(this.$props[v] !== undefined) {
-        return v;
-      }
-    })
+    const data = this.propsWithoutValue.filter(v => this.$props[v] !== undefined);
 
-    return data
+    return data;
   }
 }
