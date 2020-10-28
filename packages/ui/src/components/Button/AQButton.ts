@@ -1,6 +1,7 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import AQComponent from '../../mixins/component';
+import AQLoading from '../Icon/AQLoading';
 
 @Component({name: 'aq-button'})
 export default class AQButton extends AQComponent {
@@ -15,6 +16,7 @@ export default class AQButton extends AQComponent {
   @Prop({required: false}) block: any;
   @Prop({required: false}) circle: any;
   @Prop({required: false}) icon: any;
+  @Prop({required: false, default: false, type: Boolean}) loading: any;
 
   propsWithoutValue = ['outline', 'block', 'circle', 'icon'];
 
@@ -42,6 +44,9 @@ export default class AQButton extends AQComponent {
       on: {
         ...this.$listeners
       }
-    }, this.$slots.default);
+    }, [
+      this.loading && h(AQLoading),
+      this.$slots.default
+    ]);
   }
 }
