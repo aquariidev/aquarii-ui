@@ -133,7 +133,10 @@ export default class AQSelect extends Mixins(FormMixin) {
     ])
 
     const formSelect = h('div', {
-      staticClass: 'aq-form-select'
+      staticClass: 'aq-form-select',
+      attrs: {
+        tabindex: "0"
+      }
     }, [currentValue, selectContent])
 
     const select = h('select', {
