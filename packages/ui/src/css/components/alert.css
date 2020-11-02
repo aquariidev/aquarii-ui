@@ -1,13 +1,26 @@
 @layer components {
   .aq-alert {
-    @apply p-4 border-l-2;
+    @apply p-4 bg-gray-50 relative rounded border-l-2 border-gray-400;
   }
 
   .aq-alert .content {
     @apply flex;
   }
 
-  .aq-alert.warning {
+  .aq-alert .aq-close {
+    @apply absolute right-0 pr-2;
+  }
+
+  /* Variants */
+  .aq-alert.aq-warning {
     @apply bg-yellow-50 border-yellow-400;
+  }
+
+  .aq-alert.aq-success {
+    @apply bg-green-50 border-green-400 text-green-800;
+  }
+
+  .aq-alert.aq-danger {
+    @apply bg-red-50 text-red-700 border-red-400;
   }
 }
