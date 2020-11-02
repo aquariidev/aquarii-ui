@@ -1,12 +1,25 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Mixins } from 'vue-property-decorator';
+import { Component, Mixins, Prop, Watch } from 'vue-property-decorator';
 import Activable from '../../mixins/activable.mixin';
 import { onClickOutside } from '../../util/click-outside';
+import AQIcon from '../Icon/AQIcon';
 
 @Component({name: 'aq-modal'})
 export default class AQModal extends Mixins(Activable) {
+  @Prop({required: false, type: Boolean}) closeable?: boolean;
+  @Prop({required: false, type: Boolean, default: true}) bgClose?: boolean;
+
+  @Watch('isActive')
+  onIsActiveChange(value: boolean, oldValue: boolean) {
+    if(document) {
+      document.body.classList[value ? 'add': 'remove']('aq-modal-page');
+    }
+  }
+
   mounted(): void {
-    onClickOutside(this.$refs.dialog, () => this.isActive = false);
+    if(this.bgClose) {
+      onClickOutside(this.$refs.dialog, () => this.isActive = false);
+    }
   }
 
   public render(h: CreateElement): VNode {
@@ -14,6 +27,27 @@ export default class AQModal extends Mixins(Activable) {
       name: 'show',
       value: this.isActive
     };
+
+    const closeButton = h('div', {
+      staticClass: 'aq-close'
+    }, [
+      h('button', {
+        staticClass: 'aq-close-button',
+        attrs: {
+          'aria-label': 'Close',
+          type: 'button'
+        },
+        on: {
+          click: () => this.isActive = false
+        }
+      }, [
+        h(AQIcon, {
+          props: {
+            name: 'x'
+          }
+        })
+      ])
+    ])
 
     const dialog = h('transition', {
       props: {
@@ -28,7 +62,10 @@ export default class AQModal extends Mixins(Activable) {
           'aria-modal': 'true'
         },
         directives: [directive]
-      }, this.$slots.default)
+      }, [
+        this.closeable && closeButton,
+        this.$slots.default
+      ])
     ])
 
     const modal = h('transition', {

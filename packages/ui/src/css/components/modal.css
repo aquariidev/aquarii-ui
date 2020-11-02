@@ -5,13 +5,32 @@
         z-index: 1055;
     }
 
-    .aq-modal.aq-open {
-        @apply flex;
+    .aq-modal-page {
+        @apply overflow-hidden;
     }
 
     .aq-modal .dialog {
-        @apply inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl max-w-sm;
+        @apply relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl;
     }
+
+    .aq-modal .aq-close {
+        @apply hidden absolute top-0 right-0 pt-4 pr-4
+    }
+
+    .aq-modal .aq-close-button {
+        @apply text-gray-400 transition ease-in-out duration-150;
+    }
+
+    .aq-modal .aq-close-button:hover {
+        @apply text-gray-500;
+    }
+
+    @screen sm {
+        .aq-modal .aq-close {
+            @apply block;
+        }
+    }
+
     /* Modal transition */
     .aq-modal-enter-active {
         @apply transition ease-out duration-300;
@@ -31,28 +50,23 @@
         @apply transition ease-in duration-200;
     }
 
+    /* Modal dialog transition */
     .aq-modal-dialog-enter-active {
         @apply transition-all ease-out duration-300;
     }
 
-    .aq-modal-dialog-enter {
+    .aq-modal-dialog-enter,
+    .aq-modal-dialog-leave-to {
         @apply transform opacity-0 translate-y-0 scale-95;
     }
 
-    .aq-modal-dialog-enter-to {
+    .aq-modal-dialog-enter-to,
+    .aq-modal-dialog-leave {
         @apply transform opacity-100 translate-y-0 scale-100;
     }
 
     .aq-modal-dialog-leave-active {
         @apply transition-all ease-in duration-200;
-    }
-
-    .aq-modal-dialog-leave {
-        @apply transform opacity-100 translate-y-0 scale-100;
-    }
-
-    .aq-modal-dialog-leave-to {
-        @apply transform opacity-0 translate-y-0 scale-95;
     }
     /* purgecss end ignore */
 }

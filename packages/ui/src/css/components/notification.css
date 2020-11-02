@@ -1,3 +1,10 @@
-.aq-notification {
-    @apply fixed inset-0 flex items-end justify-center px-4 py-6 pointer-events-none z-50;
+@layer components {
+  .aq-notification {
+    @apply fixed inset-0 flex items-end px-4 py-6 pointer-events-none flex-col;
+    z-index: 200;
+  }
+
+  .aq-notification .aq-dialog {
+    @apply max-w-sm w-full shadow-lg rounded-lg pointer-events-auto my-4;
+  }
 }
