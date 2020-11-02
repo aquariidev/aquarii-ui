@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <aq-button type="primary" @click="open" v-if="!section">Notification</aq-button>
-  </div>
+  <aq-button type="primary" @click="open(params)" v-if="!section">{{text || 'Notification'}}</aq-button>
 </template>
 
 <script>
 export default {
-  props: ['section'],
+  props: ['section', 'params', 'text'],
   methods: {
-    open() {
-      this.$aq.notification({message: 'Notification without message'})
+    open(params) {
+      this.$aq.notification(params)
     }
   }
 }

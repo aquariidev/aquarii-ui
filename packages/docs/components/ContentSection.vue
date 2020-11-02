@@ -46,7 +46,11 @@ export default {
     @apply my-6;
   }
 
-  p > code {
+  p > code, li > code {
     @apply bg-red-100 px-1;
+  }
+
+  ul {
+    @apply my-4;
   }
 </style>

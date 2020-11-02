@@ -14,16 +14,18 @@ export default class AQNotification extends Vue {
   title = '';
   message = '';
   status = 'success';
-  timeOut = 5000;
+  icon = null;
+  timeout = 5000;
+  pos = 'top-right';
 
   /** Mounted */
   mounted(): void {
     this.isShow = true;
 
-    if(this.timeOut) {
+    if(this.timeout) {
       setTimeout(() => {
         this.close();
-      }, this.timeOut);
+      }, this.timeout);
     }
   }
 
@@ -66,6 +68,16 @@ export default class AQNotification extends Vue {
       }
     });
 
+    const icon = h('div', {
+      staticClass: 'aq-icon-content'
+    }, [
+      h(AQIcon, {
+        props: {
+          name: this.icon
+        }
+      })
+    ])
+
     const message = h('p', {
       class: 'aq-message',
       domProps: {
@@ -100,7 +112,10 @@ export default class AQNotification extends Vue {
     const innerDialog = h('div', {
       class: 'aq-inner-dialog',
       key: Math.random().toString(),
-    }, [body, closeButtonContent])
+    }, [
+      this.icon && icon,
+      body,
+      closeButtonContent])
 
     const dialog = h('div', {
       staticClass: 'aq-dialog',

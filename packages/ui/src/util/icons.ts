@@ -18,6 +18,10 @@ const Icons = [
   {
     name: 'x',
     d: `M6 18L18 6M6 6l12 12`
+  },
+  {
+    name: 'check-circle',
+    d: `M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z`
   }
 ];
 

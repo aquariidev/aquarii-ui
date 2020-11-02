@@ -3,4 +3,7 @@ export default interface ParamsInteface {
   message: string;
   status: string;
   selector: any;
+  icon: string;
+  timeout: any;
+  pos: any;
 }

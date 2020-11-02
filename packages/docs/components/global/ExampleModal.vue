@@ -15,7 +15,7 @@
         <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
       </template>
 
-      <div class="mt-5">
+      <div>
         <h2 class="text-center text-2xl">My Dialog Title</h2>
         <p class="text-sm leading-5 text-gray-500">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.

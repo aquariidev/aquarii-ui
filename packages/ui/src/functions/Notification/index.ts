@@ -7,15 +7,23 @@ const Notification = Vue.extend(AQNotification);
 export default function(params: ParamsInteface): any {
   const instance = new Notification();
 
-  instance.$data.title = params.title;
-  instance.$data.message = params.message;
-  instance.$data.status = params.status;
+  for(let [key, value] of Object.entries(params)) {
+    if(value !== undefined) {
+      instance.$data[key] = value;
+
+      if(key === 'pos') {
+        instance.$data[key] = `aq-${value}`;
+      }
+    }
+  }
+
+  const selector = `.aq-notification.${instance.$data.pos}`;
 
   const parent: HTMLElement =
-    document.querySelector(`.aq-notification`) || document.createElement('div');
+    document.querySelector(selector) || document.createElement('div');
 
-  if(!parent.classList.contains('aq-notification')) {
-    parent.className = 'aq-notification';
+  if(!parent.classList.contains(selector)) {
+    parent.className = `aq-notification ${instance.$data.pos}`;
   }
 
   parent.appendChild(instance.$mount().$el);

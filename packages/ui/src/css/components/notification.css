@@ -5,7 +5,7 @@
   }
 
   .aq-notification .aq-dialog {
-    @apply max-w-sm w-full shadow-lg rounded-lg pointer-events-auto my-4;
+    @apply max-w-sm w-full shadow-lg rounded-lg pointer-events-auto my-1;
   }
 
   .aq-notification .aq-title {
@@ -17,7 +17,7 @@
   }
 
   .aq-notification .aq-body {
-    @apply ml-3 w-0 flex-1 pt-1;
+    @apply ml-3 w-0 flex-1;
   }
 
   .aq-notification .aq-close-content {
@@ -28,12 +28,33 @@
     @apply inline-flex text-gray-400 transition ease-in-out duration-150;
   }
 
+  .aq-notification .aq-icon-content {
+    @apply flex-shrink-0;
+  }
+
   .aq-notification .aq-close:focus {
     @apply outline-none text-gray-500;
   }
 
   .aq-notification .aq-inner-dialog {
     @apply rounded-lg shadow-xs overflow-hidden p-4 flex items-start;
+  }
+
+  /* Position */
+  .aq-notification.aq-top-center,
+  .aq-notification.aq-bottom-center {
+    @apply items-center;
+  }
+
+  .aq-notification.aq-top-left,
+  .aq-notification.aq-bottom-left {
+    @apply items-start;
+  }
+
+  .aq-notification.aq-bottom-right,
+  .aq-notification.aq-bottom-center,
+  .aq-notification.aq-bottom-left {
+    @apply justify-end;
   }
 
   /* purgecss start ignore */
@@ -71,6 +92,5 @@
       @apply translate-x-0;
     }
   }
-
   /* purgecss end ignore */
 }
