@@ -112,7 +112,7 @@ Block buttons extend the full available width.
 
 ## Circle Button
 
-If the inner button does not have same height and size it will create a pill button, you can use this props to create icon button.
+If the inner button does not have same height and width size it will create a pill button, you can use this props to create icon button.
 
 <div class="flex items-center">
   <aq-button circle type="primary mr-2">Circle Button</aq-button>

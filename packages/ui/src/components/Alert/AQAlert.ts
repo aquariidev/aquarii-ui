@@ -33,7 +33,7 @@ export default class AQAlert extends Mixins(Closeable) {
         role: 'alert'
       }
     }, [
-      this.aqClose !== undefined && closeButton,
+      this.closeable && closeButton,
       this.$slots.default
     ])
   }
