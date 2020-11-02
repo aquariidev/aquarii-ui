@@ -17,7 +17,7 @@ export default class AQAlert extends Mixins(Closeable) {
     const closeButton = h('button', {
       staticClass: 'aq-close',
       on: {
-        click: (e: any) => this.close()
+        click: this.close
       }
     }, [
       h(AQIcon, {

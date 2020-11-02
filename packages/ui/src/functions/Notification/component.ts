@@ -4,12 +4,13 @@ import {
 } from 'vue';
 import {
   Component,
-  Vue
+  Mixins
 } from 'vue-property-decorator';
 import AQIcon from '../../components/Icon/AQIcon';
+import Closeable from '../../mixins/closeable.mixin';
 
 @Component
-export default class AQNotification extends Vue {
+export default class AQNotification extends Mixins(Closeable) {
   isShow = false;
   title = '';
   message = '';

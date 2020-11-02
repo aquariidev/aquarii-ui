@@ -1,8 +1,7 @@
-import { Component, Prop } from 'vue-property-decorator';
-import AQComponent from './component';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Closeable extends AQComponent {
+export default class Closeable extends Vue {
   @Prop({required: false}) aqClose: any;
 
   /**
