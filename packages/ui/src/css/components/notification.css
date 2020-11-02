@@ -7,4 +7,70 @@
   .aq-notification .aq-dialog {
     @apply max-w-sm w-full shadow-lg rounded-lg pointer-events-auto my-4;
   }
+
+  .aq-notification .aq-title {
+    @apply text-sm leading-5 font-medium text-gray-900 mb-1;
+  }
+
+  .aq-notification .aq-message {
+    @apply text-sm leading-5 text-gray-500;
+  }
+
+  .aq-notification .aq-body {
+    @apply ml-3 w-0 flex-1 pt-1;
+  }
+
+  .aq-notification .aq-close-content {
+    @apply ml-4 flex-shrink-0 flex;
+  }
+
+  .aq-notification .aq-close {
+    @apply inline-flex text-gray-400 transition ease-in-out duration-150;
+  }
+
+  .aq-notification .aq-close:focus {
+    @apply outline-none text-gray-500;
+  }
+
+  .aq-notification .aq-inner-dialog {
+    @apply rounded-lg shadow-xs overflow-hidden p-4 flex items-start;
+  }
+
+  /* purgecss start ignore */
+  /* Transition */
+  .aq-notification-enter-active {
+    @apply transform ease-out duration-300 transition;
+  }
+
+  .aq-notification-enter {
+    @apply translate-y-2 opacity-0;
+  }
+
+  .aq-notification-enter-to {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .aq-notification-leave-active {
+    @apply transition ease-in duration-100;
+  }
+
+  .aq-notification-leave {
+    @apply opacity-100;
+  }
+
+  .aq-notification-leave-to {
+    @apply opacity-0;
+  }
+
+  @screen sm {
+    .aq-notification-enter {
+      @apply translate-y-0 translate-x-2
+    }
+
+    .aq-notification-enter-to {
+      @apply translate-x-0;
+    }
+  }
+
+  /* purgecss end ignore */
 }
