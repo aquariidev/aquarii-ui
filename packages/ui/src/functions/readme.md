@@ -1,0 +1,1 @@
+This function dir are use to call vue component from method / function

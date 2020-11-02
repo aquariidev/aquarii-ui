@@ -14,6 +14,10 @@ const Icons = [
   {
     name: 'check',
     d: `M5 13l4 4L19 7`
+  },
+  {
+    name: 'x',
+    d: `M6 18L18 6M6 6l12 12`
   }
 ];
 
