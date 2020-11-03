@@ -1,7 +1,7 @@
 ---
 title: Select
 description: Select menus can be used to select between choices in a form
-order: 8
+order: 14
 group: components
 props:
   - option: value

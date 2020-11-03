@@ -1,0 +1,46 @@
+@layer components {
+  .aq-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-gray-100 text-gray-800;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+  }
+
+  .aq-badge.aq-large {
+    @apply leading-5 text-sm px-3;
+    min-width: 2rem;
+    min-height: 2rem;
+  }
+
+  .aq-badge.aq-rounded {
+    @apply rounded;
+  }
+
+  .aq-badge .aq-close {
+    @apply flex-shrink-0 -mr-0.5 ml-1.5 inline-flex text-indigo-500;
+  }
+
+  .aq-badge .aq-close:focus {
+    @apply outline-none;
+  }
+
+  .aq-badge .aq-close svg {
+    @apply h-4 w-4;
+  }
+
+  /* Variants */
+  .aq-badge.aq-primary {
+    @apply bg-indigo-100 text-indigo-800;
+  }
+
+  .aq-badge.aq-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .aq-badge.aq-danger {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .aq-badge.aq-success {
+    @apply bg-green-100 text-green-800;
+  }
+}

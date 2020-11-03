@@ -2,7 +2,7 @@
 title: Card
 description: Create layout boxes with different styles
 group: components
-order: 5
+order: 6
 props:
   - option: body
     value:

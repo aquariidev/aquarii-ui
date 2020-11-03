@@ -2,6 +2,7 @@
 title: Modal
 description: A component that block interactions with the main view.
 group: components
+order: 12
 props:
   - option: closeable
     value: boolean

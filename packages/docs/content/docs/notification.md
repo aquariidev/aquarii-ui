@@ -2,6 +2,7 @@
 title: Notification
 description: A pop up that appear at the main view site
 group: components
+order: 13
 props:
   - option: title
     value: string
