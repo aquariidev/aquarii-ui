@@ -15,7 +15,7 @@ export default class AQSelect extends Mixins(FormMixin) {
   @Prop({required: false}) value: any;
   @Prop({required: false, type: String, default: 'Select option'}) placeholder: any;
   @Prop({required: false, type: String, default: 'default'}) type: any;
-  @Prop({required: false, default: false, type: Boolean}) custom!: boolean;
+  @Prop({required: false, default: true, type: Boolean}) custom!: boolean;
   @Prop({required: false, default: false, type: Boolean}) multiple!: boolean;
   @Prop({required: false, type: Array}) options: any;
   @Prop({required: false, type: String}) optionLabel: any;
@@ -39,7 +39,9 @@ export default class AQSelect extends Mixins(FormMixin) {
   }
 
   searchOption() {
-
+    this.selectedOptions = this.options.filter((option: any) => {
+      return option[this.optionLabel].toLowerCase().indexOf(this.searchValue) > -1;
+    })
   }
 
   /** Render element */
@@ -63,9 +65,8 @@ export default class AQSelect extends Mixins(FormMixin) {
     const optionLists = () => {
       const options = this.searchValue ? this.selectedOptions : this.options;
 
-      return options.map((option: any, index: number) => (
+      return options.length ? options.map((option: any, index: number) => (
         h('li', {
-          staticClass: 'text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9',
           attrs: {
             role: 'option',
             id: `${this.optIdentifier(option).replace(' ', '')}-item-${index}`,
@@ -88,16 +89,24 @@ export default class AQSelect extends Mixins(FormMixin) {
               'aq-option-value': this.optIdentifier(option)
             },
             domProps: {
-              innerText: this.optionLabel ? option[this.optionLabel] : option,
+              innerText: this.optIdentifier(option),
             }
           }),
           checkIcon(option)
         ])
-      ));
+      ))
+      :
+      h('li', [
+        h('p', {
+          domProps: {
+            innerText: 'No options found'
+          }
+        })
+      ])
     }
 
     const input = h('input', {
-      staticClass: 'aq-form-control',
+      staticClass: 'aq-form-control aq-form-select',
       domProps: {
         value: this.isOpen ? this.searchValue : this.value
       },
@@ -112,9 +121,7 @@ export default class AQSelect extends Mixins(FormMixin) {
         input: (e: any) => {
           this.searchValue = e.target.value;
 
-          this.selectedOptions = this.options.filter((option: any) => {
-            return option[this.optionLabel].toLowerCase().indexOf(this.searchValue) > -1;
-          })
+          this.searchOption();
         }
       }
     });

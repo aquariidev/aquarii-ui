@@ -18,8 +18,8 @@ props:
     desc: A Placeholder when value not selected / null
   - option: custom
     value: boolean
-    default: false
-    desc: Turn select into custom input instead native
+    default: true
+    desc: Turn the select component into native or custom component
   - option: multiple
     value: boolean
     default: false
@@ -36,21 +36,13 @@ props:
     value: boolean
     default: true
     desc: Close option lists after option selected
+  - option: searchable
+    value: boolean
+    default: true
+    desc: Add or remove search input
 ---
 
-## Simple Native
-
-<example-select section="native"></example-select>
-
-```html
-<aq-select v-model="value">
-  <option value="Jimmy Proton">Jimmy Proton</option>
-  <option value="Jimmy Neutron">Jimmy Neutron</option>
-</aq-select>
-```
-
-## Simple Custom
-Add `custom` props with `true` value to activate custom select, and add `options` props for the options list, it could be array or array-object.
+## Basic Usage
 
 <example-select section="custom"></example-select>
 
@@ -77,6 +69,7 @@ export default {
 }
 </script>
 ```
+
 ## Option Label
 If you have options with array-object / array containing object, you can use `option-label` props to determine the option inner text.
 
@@ -110,4 +103,37 @@ export default {
   }
 }
 </script>
+```
+
+## Search Options
+
+By default the input are searchable, you can deactivate the search input by adding `searchable` props and set it to `false`.
+
+<example-select section="search"></example-select>
+
+<aq-alert type="warning">
+  <p>The searchable props will search depend on the optionLabel props</p>
+</aq-alert>
+
+```html
+<aq-select v-model="value"
+  :custom="true"
+  :options="options"
+  :searchable="false"
+/>
+```
+
+## Simple Native
+
+If you just have a simple options without need to search or select multiple. you can use native html `select` by adding `custom` props and set it to `false`.
+
+then you can add `v-model` to control the value.
+
+<example-select section="native"></example-select>
+
+```html
+<aq-select v-model="value" :custom="true">
+  <option value="Jimmy Proton">Jimmy Proton</option>
+  <option value="Jimmy Neutron">Jimmy Neutron</option>
+</aq-select>
 ```
