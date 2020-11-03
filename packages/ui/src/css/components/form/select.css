@@ -1,6 +1,22 @@
 @layer components {
+  select.aq-form-control,
+  .aq-form-select {
+    @apply bg-no-repeat;
+    background-size: 1.5em 1.5em;
+    background-position: right .5rem center;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke='%239fa6b2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+
   .aq-form-select {
     @apply relative;
+  }
+
+  .aq-form-select .aq-listbox {
+    @apply max-h-60 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto;
+  }
+
+  .aq-form-select .aq-listbox:focus {
+    @apply outline-none;
   }
 
   .aq-form-select .selected-content {
@@ -24,7 +40,21 @@
     @apply text-white bg-indigo-600;
   }
 
+  .aq-form-select .select-content li {
+    @apply text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9;
+  }
+
   .aq-form-select .aq-option-icon {
     @apply text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4;
+  }
+
+  .aq-form-select .aq-option-caret {
+    @apply absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none;
+  }
+
+  @screen sm {
+    .aq-form-select .aq-listbox {
+      @apply text-sm leading-5;
+    }
   }
 }
