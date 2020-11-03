@@ -182,7 +182,7 @@ export default class AQSelect extends Mixins(FormMixin) {
       staticClass: 'aq-form-select',
       ref: 'formSelect',
       attrs: {
-        tabindex: "0"
+        tabindex: '0'
       }
     }, [currentValue, selectContent])
 
