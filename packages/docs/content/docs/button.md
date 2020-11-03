@@ -2,7 +2,7 @@
 title: Button
 description: Button are the core of every project
 group: components
-order: 3
+order: 5
 props:
   - option: type
     value: string

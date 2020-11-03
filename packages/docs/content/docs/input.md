@@ -2,7 +2,7 @@
 title: Input
 description: Input component
 group: components
-order: 4
+order: 9
 props:
   - option: label
     value: string

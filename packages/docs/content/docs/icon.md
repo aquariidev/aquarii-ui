@@ -2,7 +2,7 @@
 title: Icon
 description: Icon packages from heroicons
 group: components
-order: 7
+order: 8
 props:
   - option: name
     value: string
