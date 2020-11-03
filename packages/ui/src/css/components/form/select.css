@@ -11,6 +11,14 @@
     @apply relative;
   }
 
+  .aq-form-select .aq-listbox {
+    @apply max-h-60 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto;
+  }
+
+  .aq-form-select .aq-listbox:focus {
+    @apply outline-none;
+  }
+
   .aq-form-select .selected-content {
     @apply inline-block w-full rounded shadow-sm;
   }
@@ -38,5 +46,15 @@
 
   .aq-form-select .aq-option-icon {
     @apply text-indigo-600 absolute inset-y-0 right-0 flex items-center pr-4;
+  }
+
+  .aq-form-select .aq-option-caret {
+    @apply absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none;
+  }
+
+  @screen sm {
+    .aq-form-select .aq-listbox {
+      @apply text-sm leading-5;
+    }
   }
 }

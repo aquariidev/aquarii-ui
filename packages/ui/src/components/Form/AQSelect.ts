@@ -149,11 +149,18 @@ export default class AQSelect extends Mixins(FormMixin) {
       }
     }, [
       h('span', {
-        staticClass: 'option',
+        staticClass: 'aq-option',
         domProps: {
           innerHTML: this.value
         }
-      })
+      }),
+      h('span', {
+        staticClass: 'aq-option-caret'
+      }, [
+        h(AQIcon, {
+          props: {name: 'double-direction'}
+        })
+      ])
     ]);
 
     const currentValue = h('span', {
@@ -173,7 +180,7 @@ export default class AQSelect extends Mixins(FormMixin) {
       ]
     }, [
       h('ul', {
-        staticClass: 'max-h-60 rounded-md py-1 text-base leading-6 shadow-xs overflow-auto focus:outline-none sm:text-sm sm:leading-5',
+        staticClass: 'aq-listbox',
         ref: 'listBox',
         attrs: {
           tabindex: '-1',
