@@ -15,6 +15,18 @@
     @apply rounded;
   }
 
+  .aq-badge .aq-close {
+    @apply flex-shrink-0 -mr-0.5 ml-1.5 inline-flex text-indigo-500;
+  }
+
+  .aq-badge .aq-close:focus {
+    @apply outline-none;
+  }
+
+  .aq-badge .aq-close svg {
+    @apply h-4 w-4;
+  }
+
   /* Variants */
   .aq-badge.aq-primary {
     @apply bg-indigo-100 text-indigo-800;

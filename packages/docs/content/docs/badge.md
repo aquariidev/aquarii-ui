@@ -89,3 +89,12 @@ By default badge border radius are circle/pill, add `rounded` props to turn the 
 <aq-badge rounded>Rounded Badge</aq-badge>
 <aq-badge large rounded>Large Rounded Badge</aq-badge>
 ```
+
+## Remove Button
+
+Add `closeable` props and set to `true` to destroy / remove the badge.
+
+<aq-card body>
+  <aq-badge :closeable="true">Remove Tag</aq-badge>
+  <aq-badge :closeable="true" rounded type="primary">Remove Tag</aq-badge>
+</aq-card>

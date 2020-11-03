@@ -1,9 +1,11 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Prop } from 'vue-property-decorator';
+import { Component, Mixins, Prop } from 'vue-property-decorator';
+import Closeable from '../../mixins/closeable.mixin';
 import AQComponent from '../../mixins/component';
+import AQIcon from '../Icon/AQIcon';
 
 @Component({name: 'aq-badge'})
-export default class AQBadge extends AQComponent {
+export default class AQBadge extends Mixins(Closeable, AQComponent) {
   @Prop({required: false, type: String}) type: any;
   @Prop({required: false}) large: any;
   @Prop({required: false}) rounded: any;
@@ -24,9 +26,26 @@ export default class AQBadge extends AQComponent {
 
   /** Render component */
   public render(h: CreateElement): VNode {
+    const closeButton = h('button', {
+      staticClass: 'aq-close',
+      attrs: {
+        type: 'button',
+      },
+      on: {
+        click: this.close
+      }
+    }, [
+      h(AQIcon, {
+        props: { name: 'x'}
+      })
+    ])
+
     return h('span', {
       staticClass: 'aq-badge',
       class: this.badgeClass
-    }, this.$slots.default);
+    }, [
+      this.$slots.default,
+      this.closeable && closeButton
+    ]);
   }
 }
