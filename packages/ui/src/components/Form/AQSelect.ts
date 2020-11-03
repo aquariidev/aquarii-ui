@@ -4,6 +4,12 @@ import FormMixin from '../../mixins/form.mixin';
 import { onClickOutside } from '../../util/click-outside';
 import AQIcon from '../Icon/AQIcon';
 
+/**
+ * Note
+ * im struggling to naming the component because my english are bad,
+ * please help me rename for each component part
+ */
+
 @Component({name: 'aq-select'})
 export default class AQSelect extends Mixins(FormMixin) {
   @Prop({required: false}) value: any;
@@ -14,12 +20,15 @@ export default class AQSelect extends Mixins(FormMixin) {
   @Prop({required: false, type: Array}) options: any;
   @Prop({required: false, type: String}) optionLabel: any;
   @Prop({required: false, default: true, type: Boolean}) closeOnSelect!: boolean;
+  @Prop({required: false, default: true, type: Boolean}) searchable: any;
 
+  searchValue = '';
+  selectedOptions = [];
   isOpen = false;
 
   mounted() {
-    if(this.$refs.selectContent) {
-      onClickOutside(this.$refs.selectContent, (e: any) => {
+    if(this.$refs.formSelect) {
+      onClickOutside(this.$refs.formSelect, (e: any) => {
         this.isOpen = false;
       })
     }
@@ -27,6 +36,10 @@ export default class AQSelect extends Mixins(FormMixin) {
 
   private optIdentifier(option: any) {
     return this.optionLabel ? option[this.optionLabel] : option;
+  }
+
+  searchOption() {
+
   }
 
   /** Render element */
@@ -48,7 +61,9 @@ export default class AQSelect extends Mixins(FormMixin) {
     }
 
     const optionLists = () => {
-      return this.options.map((option: any, index: number) => (
+      const options = this.searchValue ? this.selectedOptions : this.options;
+
+      return options.map((option: any, index: number) => (
         h('li', {
           staticClass: 'text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9',
           attrs: {
@@ -81,39 +96,63 @@ export default class AQSelect extends Mixins(FormMixin) {
       ));
     }
 
+    const input = h('input', {
+      staticClass: 'aq-form-control',
+      domProps: {
+        value: this.isOpen ? this.searchValue : this.value
+      },
+      attrs: {
+        ...this.$attrs,
+        placeholder: this.value || this.placeholder
+      },
+      on: {
+        focus: (e: any) => {
+          this.isOpen = true;
+        },
+        input: (e: any) => {
+          this.searchValue = e.target.value;
+
+          this.selectedOptions = this.options.filter((option: any) => {
+            return option[this.optionLabel].toLowerCase().indexOf(this.searchValue) > -1;
+          })
+        }
+      }
+    });
+
+    const selectedContentButton = h('button', {
+      attrs: {
+        type: 'button',
+        'aria-haspopup': 'listbox',
+        'aria-expanded': String(this.isOpen),
+        'aria-multiselectable': this.multiple
+      },
+      on: {
+        click: (e: Event) => {
+          e.stopPropagation();
+          this.isOpen = !this.isOpen;
+        },
+        keyup: (e: any) => {
+          if(e.keyCode === 27) {
+            this.isOpen = false;
+          }
+        },
+        keydown: (e: any) => {
+          e.preventDefault();
+        }
+      }
+    }, [
+      h('span', {
+        staticClass: 'option',
+        domProps: {
+          innerHTML: this.value
+        }
+      })
+    ]);
+
     const currentValue = h('span', {
       staticClass: 'selected-content'
     }, [
-      h('button', {
-        staticClass: 'form-select',
-        attrs: {
-          type: 'button',
-          'aria-haspopup': 'listbox',
-          'aria-expanded': String(this.isOpen),
-          'aria-multiselectable': this.multiple
-        },
-        on: {
-          click: (e: Event) => {
-            e.stopPropagation();
-            this.isOpen = !this.isOpen;
-          },
-          keyup: (e: any) => {
-            if(e.keyCode === 27) {
-              this.isOpen = false;
-            }
-          },
-          keydown: (e: any) => {
-            e.preventDefault();
-          }
-        }
-      }, [
-        h('span', {
-          staticClass: 'option',
-          domProps: {
-            innerHTML: this.value
-          }
-        })
-      ])
+      this.searchable ? input : selectedContentButton
     ]);
 
     const selectContent = h('div', {
@@ -141,13 +180,14 @@ export default class AQSelect extends Mixins(FormMixin) {
 
     const formSelect = h('div', {
       staticClass: 'aq-form-select',
+      ref: 'formSelect',
       attrs: {
         tabindex: "0"
       }
     }, [currentValue, selectContent])
 
     const select = h('select', {
-      staticClass: 'aq-form-control form-select',
+      staticClass: 'aq-form-control',
       attrs: {
         ...this.$attrs
       },
