@@ -3,31 +3,31 @@
     @apply bg-white rounded-lg shadow overflow-hidden;
   }
 
-  .aq-card.body,
-  .aq-card .body,
-  .aq-card .footer,
-  .aq-card .header {
+  .aq-card.aq-body,
+  .aq-card .aq-body,
+  .aq-card .aq-footer,
+  .aq-card .aq-header {
     @apply px-5 py-3;
   }
 
   /* Header */
-  .aq-card .header {
+  .aq-card .aq-header {
     @apply border-b;
   }
 
   /* Footer */
-  .aq-card .footer {
+  .aq-card .aq-footer {
     @apply border-t bg-cool-gray-50;
   }
 
   /* Header and footer border color */
-  .aq-card .header,
-  .aq-card .footer {
+  .aq-card .aq-header,
+  .aq-card .aq-footer {
     @apply border-gray-200;
   }
 
   /* Media */
-  .aq-card .media {
+  .aq-card .aq-media {
     @apply w-full;
   }
 }

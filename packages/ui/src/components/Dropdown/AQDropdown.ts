@@ -12,7 +12,7 @@ export default class AQDropdown extends Mixins(Activable) {
 
   public render(h: CreateElement): VNode {
     const nav = h('div', {
-      staticClass: 'nav',
+      staticClass: 'aq-dropdown-nav',
     }, this.$slots.default);
 
     const dropdown = h('div', {
@@ -41,9 +41,7 @@ export default class AQDropdown extends Mixins(Activable) {
       dropdown
     ]);
 
-    return h('div', {
-      staticClass: 'inline-block'
-    }, [
+    return h('div', [
       this.getActivator(),
       transition
     ]);

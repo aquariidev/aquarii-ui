@@ -7,7 +7,7 @@ export default class AQCard extends AQComponent {
   @Prop({required: false}) body: any;
   @Prop({required: false}) raised: any;
 
-  propsWithoutValue = ['body', {name: 'raised'}];
+  propsWithoutValue = ['body', 'raised'];
 
   get cardClass(): string {
    const classes = [];
@@ -19,15 +19,15 @@ export default class AQCard extends AQComponent {
 
   public render(h: CreateElement): VNode {
     const header = h('div', {
-      staticClass: 'header'
+      staticClass: 'aq-header'
     }, this.$slots.header);
 
     const body = h('div', {
-      staticClass: 'body'
+      staticClass: 'aq-body'
     }, this.$slots.body);
 
     const footer = h('div', {
-      staticClass: 'footer'
+      staticClass: 'aq-footer'
     }, this.$slots.footer)
 
     return h('div', {

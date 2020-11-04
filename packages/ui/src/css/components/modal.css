@@ -9,7 +9,7 @@
         @apply overflow-hidden;
     }
 
-    .aq-modal .dialog {
+    .aq-modal .aq-dialog {
         @apply relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl;
     }
 

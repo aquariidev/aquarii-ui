@@ -5,37 +5,37 @@
     }
 
     /* Dropdown Nav */
-    .aq-dropdown .nav {
+    .aq-dropdown .aq-dropdown-nav {
         @apply py-1 rounded-md bg-white shadow-xs;
     }
 
     /* Dropdown Link, available for a and custom class element */
     .aq-dropdown a,
-    .aq-dropdown .nav .item {
+    .aq-dropdown .aq-dropdown-nav .aq-item {
         @apply flex items-center px-4 py-2 text-sm text-gray-700 transition ease-in-out duration-150;
     }
 
     /* Danger / red color for deleting or alert control */
     .aq-dropdown a.danger,
-    .aq-dropdown .nav .item.danger {
+    .aq-dropdown .aq-dropdown-nav .aq-item.danger {
         @apply text-red-500;
     }
 
     .aq-dropdown a:hover,
-    .aq-dropdown .item:hover {
+    .aq-dropdown .aq-item:hover {
         @apply bg-cool-gray-100 text-gray-900;
     }
 
     .aq-dropdown a:hover svg,
-    .aq-dropdown .item:hover svg,
-    .aq-dropdown a:hover .icon,
-    .aq-dropdown .item:hover .icon {
+    .aq-dropdown .aq-item:hover svg,
+    .aq-dropdown a:hover .aq-icon,
+    .aq-dropdown .aq-item:hover .aq-icon {
         @apply text-gray-700;
     }
 
     /* Dropdown icon */
     .aq-dropdown a svg,
-    .aq-dropdown a .icon {
+    .aq-dropdown a .aq-icon {
         @apply mr-3 h-5 w-5 text-gray-500;
     }
 

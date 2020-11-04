@@ -3,7 +3,7 @@
     @apply p-4 bg-gray-50 relative rounded border-l-2 border-gray-400;
   }
 
-  .aq-alert .content {
+  .aq-alert .aq-content {
     @apply flex;
   }
 
