@@ -25,15 +25,15 @@ export default class AQButton extends AQComponent {
   get btnClass(): string {
     const classes = [];
 
-    classes.push(...this.getPropsWithoutValue());
-
     if(this.type) {
-      classes.push(this.type);
+      classes.push(`aq-${this.type}`);
     }
 
     if(this.size) {
-      classes.push(this.size);
+      classes.push(`aq-${this.size}`);
     }
+
+    classes.push(...this.getPropsWithoutValue());
 
     return classes.join(' ');
   }

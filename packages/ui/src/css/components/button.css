@@ -4,6 +4,10 @@
         @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded transition duration-150 ease-in-out font-medium bg-white;
     }
 
+    .aq-btn:hover {
+        @apply text-gray-500;
+    }
+
     /* Basic small */
     .aq-btn.aq-small {
         @apply px-2 py-1;
@@ -23,8 +27,8 @@
         @apply text-white;
     }
 
-    button:disabled {
-        @apply cursor-not-allowed;
+    .aq-button:disabled {
+        @apply cursor-not-allowed bg-opacity-25;
     }
 
     /* Outline button */
@@ -71,7 +75,7 @@
         @apply bg-red-500 border-red-500;
     }
 
-    .aq-btn.aq-danger.outline {
+    .aq-btn.aq-danger.aq-outline {
         @apply text-red-500;
     }
 
