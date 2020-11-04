@@ -106,7 +106,7 @@ export default class AQSelect extends Mixins(FormMixin) {
     }
 
     const input = h('input', {
-      staticClass: 'aq-form-control aq-form-select',
+      staticClass: 'aq-form-control aq-select',
       domProps: {
         value: this.isOpen ? this.searchValue : this.value
       },
@@ -135,6 +135,8 @@ export default class AQSelect extends Mixins(FormMixin) {
       },
       on: {
         click: (e: Event) => {
+          const elem = this.$refs.listBox as HTMLElement;
+          elem.focus();
           e.stopPropagation();
           this.isOpen = !this.isOpen;
         },
@@ -193,7 +195,7 @@ export default class AQSelect extends Mixins(FormMixin) {
     ])
 
     const formSelect = h('div', {
-      staticClass: 'aq-form-select',
+      staticClass: 'aq-select',
       ref: 'formSelect',
       attrs: {
         tabindex: '0'

@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator'
-import { isObject } from '../util/object';
 
 @Component
 export default class AQComponent extends Vue {
