@@ -5,19 +5,19 @@
     }
 
     /* Dropdown Nav */
-    .aq-dropdown .aq-nav {
+    .aq-dropdown .aq-dropdown-nav {
         @apply py-1 rounded-md bg-white shadow-xs;
     }
 
     /* Dropdown Link, available for a and custom class element */
     .aq-dropdown a,
-    .aq-dropdown .aq-nav .aq-item {
+    .aq-dropdown .aq-dropdown-nav .aq-item {
         @apply flex items-center px-4 py-2 text-sm text-gray-700 transition ease-in-out duration-150;
     }
 
     /* Danger / red color for deleting or alert control */
     .aq-dropdown a.danger,
-    .aq-dropdown .aq-nav .aq-item.danger {
+    .aq-dropdown .aq-dropdown-nav .aq-item.danger {
         @apply text-red-500;
     }
 
