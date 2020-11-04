@@ -135,6 +135,8 @@ export default class AQSelect extends Mixins(FormMixin) {
       },
       on: {
         click: (e: Event) => {
+          const elem = this.$refs.listBox as HTMLElement;
+          elem.focus();
           e.stopPropagation();
           this.isOpen = !this.isOpen;
         },
