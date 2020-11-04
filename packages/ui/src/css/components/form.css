@@ -34,7 +34,7 @@ label {
 
 /* Filled Input */
 .aq-form-control.aq-filled {
-    @apply bg-default border-transparent border-gray-300;
+    @apply bg-gray-100;
 }
 
 .aq-form-control.aq-filled:focus {
