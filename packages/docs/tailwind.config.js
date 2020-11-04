@@ -22,11 +22,11 @@ module.exports = {
     backgroundColor: theme => ({
         ...theme('colors'),
         'primary': '#408bd3',
-        'default': '#eff2f3',
+        'default': theme('colors.gray.200'),
     }),
     borderColor: theme => ({
         ...theme('colors'),
-        'default': theme('colors.gray.300'),
+        'default': theme('colors.gray.200'),
         'primary': '#408bd3',
     }),
     textColor: theme => ({

@@ -23,21 +23,21 @@ label {
     @apply appearance-none rounded relative block w-full px-3 py-2 border text-gray-900 leading-6 text-base;
 }
 
-.aq-form-control.small {
+.aq-form-control.aq-small {
     @apply text-sm;
 }
 
 /* Form message */
-.aq-form .message {
+.aq-form .aq-message {
     @apply mt-2 text-sm;
 }
 
 /* Filled Input */
-.aq-form-control.filled {
-    @apply bg-default border-transparent;
+.aq-form-control.aq-filled {
+    @apply bg-default border-transparent border-gray-300;
 }
 
-.aq-form-control.filled:focus {
+.aq-form-control.aq-filled:focus {
     @apply bg-white;
 }
 
