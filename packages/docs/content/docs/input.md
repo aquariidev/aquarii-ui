@@ -12,6 +12,16 @@ props:
     value: any
     default:
     desc: Filled the input with gray background
+slots:
+  - name: append
+    default:
+    desc: Append input element
+  - name: prepend
+    default:
+    desc: Prepend input element
+  - name: message
+    default:
+    desc: Input message in the bottom
 ---
 
 ## Input Style

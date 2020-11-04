@@ -3,11 +3,10 @@ title: Dropdown
 description: Component to display a lists of links and more
 group: components
 order: 7
-options:
-  - option: pos
-    value: string
+slots:
+  - name: activator
     default:
-    desc: The position of dropdown nav will open from its activator position
+    desc: Component or html element to toggle the dropdown display
 ---
 
 ## Basic Usage
