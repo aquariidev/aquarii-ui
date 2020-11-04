@@ -41,7 +41,6 @@
                 <template #thead>
                   <tr>
                     <th>Name</th>
-                    <th>Values</th>
                     <th>Default</th>
                     <th>Description</th>
                   </tr>
@@ -49,7 +48,6 @@
 
                 <tr v-for="slot in page.slots" :key="slot.name">
                   <td>{{slot.name}}</td>
-                  <td>{{slot.values}}</td>
                   <td>{{slot.default}}</td>
                   <td>{{slot.desc}}</td>
                 </tr>

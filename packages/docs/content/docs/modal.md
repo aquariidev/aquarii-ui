@@ -14,7 +14,6 @@ props:
     desc: Choose to dismiss the modal when clicking the overlay background
 slots:
   - name: activator
-    value: html element | aquarii component | vue component
     default:
     desc: Element to activate the modal
 ---
