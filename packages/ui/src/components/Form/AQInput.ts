@@ -2,8 +2,8 @@ import { CreateElement } from 'vue';
 import { Component, Prop, Mixins } from 'vue-property-decorator'
 import FormMixin from '../../mixins/form.mixin';
 
-@Component({name: 'aq-form-input'})
-export default class AQFormInput extends Mixins(FormMixin) {
+@Component({name: 'aq-input'})
+export default class AQInput extends Mixins(FormMixin) {
   @Prop({required: false}) value: any;
   @Prop({required: false, default: undefined}) filled!: any;
 
