@@ -92,3 +92,26 @@ for better styling the table, you can add `aq-card` component as `parent` compon
 Add an empty `striped` props to display a striped table.
 
 <example-table section="striped"></example-table>
+
+```html
+<aq-card>
+  <aq-table striped>
+    <template #thead>
+      <tr>
+        <th>Table Heading</th>
+        <th>Table Heading</th>
+      </tr>
+    </template>
+
+    <tr>
+      <td>Table Data</td>
+      <td>Table Data</td>
+    </tr>
+
+    <tr>
+      <td>Table Data</td>
+      <td>Table Data</td>
+    </tr>
+  </aq-table>
+</aq-card>
+```
