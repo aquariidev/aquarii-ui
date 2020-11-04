@@ -10,7 +10,7 @@ export default class AQBadge extends Mixins(Closeable, AQComponent) {
   @Prop({required: false}) large: any;
   @Prop({required: false}) rounded: any;
 
-  propsWithoutValue = [{name: 'large'}, {name: 'rounded'}];
+  propsWithoutValue = ['large', 'rounded'];
 
   get badgeClass() {
     const classes = [];

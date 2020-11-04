@@ -7,7 +7,7 @@ export default class AQCard extends AQComponent {
   @Prop({required: false}) body: any;
   @Prop({required: false}) raised: any;
 
-  propsWithoutValue = ['body', {name: 'raised'}];
+  propsWithoutValue = ['body', 'raised'];
 
   get cardClass(): string {
    const classes = [];

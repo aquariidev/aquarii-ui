@@ -19,7 +19,7 @@ export default class AQButton extends AQComponent {
   @Prop({required: false}) raised: any;
   @Prop({required: false, default: false, type: Boolean}) loading: any;
 
-  propsWithoutValue = ['outline', 'block', 'circle', 'icon', { name: 'raised' }];
+  propsWithoutValue = ['outline', 'block', 'circle', 'icon', 'raised'];
 
   /** Button computed class */
   get btnClass(): string {

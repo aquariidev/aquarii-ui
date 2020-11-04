@@ -12,7 +12,7 @@ export default class AQDropdown extends Mixins(Activable) {
 
   public render(h: CreateElement): VNode {
     const nav = h('div', {
-      staticClass: 'nav',
+      staticClass: 'aq-nav',
     }, this.$slots.default);
 
     const dropdown = h('div', {

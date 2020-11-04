@@ -55,7 +55,7 @@ export default class AQModal extends Mixins(Activable) {
       }
     }, [
       h('div', {
-        staticClass: 'dialog',
+        staticClass: 'aq-dialog',
         ref: 'dialog',
         attrs: {
           role: 'dialog',
