@@ -1,0 +1,33 @@
+@layer components {
+  .aq-toggle {
+    @apply bg-gray-200 relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200;
+  }
+
+  .aq-toggle:focus {
+    @apply outline-none;
+  }
+
+  .aq-toggle .aq-toggle-circle {
+    @apply inline-block h-5 w-5 rounded-full bg-white shadow transform transition ease-in-out duration-200;
+  }
+
+  .aq-toggle .aq-toggle-icon {
+    @apply opacity-100 ease-in duration-200 absolute inset-0 h-full w-full flex items-center justify-center transition-opacity;
+  }
+
+  .aq-toggle .aq-icon {
+    @apply h-3 w-3;
+  }
+
+  .aq-toggle.aq-toggle-on {
+    @apply bg-indigo-600;
+  }
+
+  .aq-toggle.aq-toggle-off .aq-toggle-circle {
+    @apply translate-x-0;
+  }
+
+  .aq-toggle.aq-toggle-on .aq-toggle-circle {
+    @apply translate-x-5;
+  }
+}
