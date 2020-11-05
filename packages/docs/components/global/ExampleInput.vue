@@ -17,11 +17,19 @@
       </template>
     </aq-input>
 
-    <aq-input placeholder="Password" type="password" v-if="section === 'message'">
-      <template #message>
-        Make your password short and easy to guess
-      </template>
-    </aq-input>
+    <div v-if="section === 'message'">
+      <aq-input placeholder="Password" type="password">
+        <template #message>
+          Make your password short and easy to guess
+        </template>
+      </aq-input>
+
+      <aq-input placeholder="Password" type="password">
+        <template #message-error>
+          Password must be at least 8 characters
+        </template>
+      </aq-input>
+    </div>
   </div>
 </template>
 

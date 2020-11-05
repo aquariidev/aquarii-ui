@@ -115,7 +115,7 @@ Block buttons extend the full available width.
 If the inner button does not have same height and width size it will create a pill button, you can use this props to create icon button.
 
 <div class="flex items-center">
-  <aq-button circle type="primary mr-2">Circle Button</aq-button>
+  <aq-button circle type="primary mr-2">Pill Button</aq-button>
 
   <aq-button circle type="primary">
     <aq-icon name="pencil"></aq-icon>
@@ -123,7 +123,7 @@ If the inner button does not have same height and width size it will create a pi
 </div>
 
 ```html
-<aq-button circle type="primary">Circle Button</aq-button>
+<aq-button circle type="primary">Pill Button</aq-button>
 ```
 
 ## Raised Button
@@ -137,6 +137,14 @@ add `aq-raised` props to make the button raise above the page.
 
 ## Loading Button
 
-add `icon` props and set `loading` props to true to display the loading indicator.
+Add `icon` props and set `loading` props to true to display the loading indicator.
 
-<aq-button type="primary" icon :loading="true">Circle Button</aq-button>
+If you need to disable the button when loading, you can add `disabled` attribute too.
+
+<aq-button type="primary" icon :loading="true">Loading Button</aq-button>
+<aq-button type="primary" icon :loading="true" disabled>Loading Button</aq-button>
+
+```html
+<aq-button type="primary" icon :loading="true">Loading Button</aq-button>
+<aq-button type="primary" icon :loading="true" disabled>Loading Button</aq-button>
+```

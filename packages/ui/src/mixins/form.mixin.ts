@@ -24,7 +24,8 @@ export default class FormMixin extends AQComponent {
 
     if(defaultMessage || message) {
       return this.$createElement('p', {
-        staticClass: 'message'
+        staticClass: 'aq-message',
+        class: type && `aq-${type}`
       }, type ? message : defaultMessage);
     }
   }

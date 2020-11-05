@@ -56,11 +56,12 @@ export default class AQInput extends Mixins(FormMixin) {
     ]);
 
     return h('div', {
-      staticClass: 'aq-form space-y-1'
+      staticClass: 'aq-form'
     }, [
       this.getLabel(),
       content,
-      this.getMessage()
+      this.getMessage(),
+      this.getMessage('error')
     ]);
   }
 }

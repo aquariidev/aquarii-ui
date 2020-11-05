@@ -27,10 +27,6 @@
         @apply text-white;
     }
 
-    .aq-button:disabled {
-        @apply cursor-not-allowed bg-opacity-25;
-    }
-
     /* Outline button */
     .aq-btn.aq-outline {
         @apply bg-transparent !important;
@@ -51,10 +47,6 @@
 
     .aq-btn.aq-primary:hover {
         @apply bg-indigo-500 border-indigo-500;
-    }
-
-    .aq-btn.aq-primary:disabled {
-        @apply bg-indigo-300 border-indigo-300;
     }
 
     /* Success */
@@ -112,5 +104,9 @@
     /* Circle / rounded full */
     .aq-btn.aq-circle {
         @apply rounded-full px-2 py-2;
+    }
+
+    .aq-btn:disabled {
+        @apply pointer-events-none bg-opacity-50 border-transparent;
     }
 }

@@ -35,6 +35,10 @@ label {
     @apply mt-2 text-sm;
 }
 
+.aq-form .aq-message.aq-error {
+    @apply text-red-500;
+}
+
 /* Filled Input */
 .aq-form-control.aq-filled {
     @apply bg-gray-100;

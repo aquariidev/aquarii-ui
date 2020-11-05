@@ -21,7 +21,10 @@ slots:
     desc: Prepend input element
   - name: message
     default:
-    desc: Input message in the bottom
+    desc: Default input message
+  - name: message-error
+    default:
+    desc: Error input message
 ---
 
 ## Input Style
