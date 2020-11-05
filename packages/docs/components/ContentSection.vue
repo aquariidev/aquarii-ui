@@ -47,7 +47,7 @@ export default {
   }
 
   p > code, li > code {
-    @apply bg-red-100 px-1;
+    @apply bg-red-100 px-1 rounded;
   }
 
   ul {

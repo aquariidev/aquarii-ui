@@ -13,6 +13,17 @@ export default class AQAlert extends Mixins(Closeable) {
     }
   }) type!: string;
 
+  /** Computed alert class */
+  get alertClass() {
+    const classes = [];
+
+    if(this.type) {
+      classes.push(`aq-${this.type}`);
+    }
+
+    return classes.join(' ');
+  }
+
   public render(h: CreateElement): VNode {
     const closeButton = h('button', {
       staticClass: 'aq-close',
@@ -27,7 +38,7 @@ export default class AQAlert extends Mixins(Closeable) {
 
     return h('div', {
       staticClass: 'aq-alert',
-      class: this.type && `aq-${this.type}`,
+      class: this.alertClass,
       attrs: {
         ...this.$attrs,
         role: 'alert'

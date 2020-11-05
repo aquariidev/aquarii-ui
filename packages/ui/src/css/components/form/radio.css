@@ -1,0 +1,31 @@
+@layer components {
+  .aq-radio {
+    @apply flex items-center;
+  }
+
+  .aq-radio:not(:first-child) {
+    @apply mt-1;
+  }
+
+  .aq-radio label {
+    @apply mb-0 ml-3 cursor-pointer;
+  }
+
+  .aq-radio-input {
+    @apply appearance-none inline-block align-middle select-none flex-shrink-0 border bg-white h-5 w-5 cursor-pointer transition duration-150 ease-in-out;
+    background-origin: border-box;
+    border-radius: 100%;
+    color: #3f83f8;
+  }
+
+  .aq-radio-input:checked {
+    @apply bg-no-repeat;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 16 16' fill='%233f83f8' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='8' cy='8' r='3'/%3E%3C/svg%3E");
+    background-size: 100% 100%;
+    background-position: 50%;
+  }
+
+  .aq-radio-input:focus {
+    @apply outline-none;
+  }
+}
