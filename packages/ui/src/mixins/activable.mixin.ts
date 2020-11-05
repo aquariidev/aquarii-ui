@@ -1,8 +1,9 @@
-import { Component } from 'vue-property-decorator';
+import { Component, Prop } from 'vue-property-decorator';
 import AQComponent from './component';
 
 @Component
 export default class Activable extends AQComponent {
+  @Prop({required: false}) value: any;
   isActive = false;
 
    /** Activator */
@@ -24,7 +25,5 @@ export default class Activable extends AQComponent {
         }
       });
     }
-
-    throw new Error(`No activator provided, try <template #activator="{on}"></template> inside ${this.$options.name} component`)
   }
 }

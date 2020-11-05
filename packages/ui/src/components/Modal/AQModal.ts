@@ -1,24 +1,47 @@
 import { CreateElement, VNode } from 'vue';
 import { Component, Mixins, Prop, Watch } from 'vue-property-decorator';
 import Activable from '../../mixins/activable.mixin';
+import AQComponent from '../../mixins/component';
 import { onClickOutside } from '../../util/click-outside';
 import AQIcon from '../Icon/AQIcon';
 
 @Component({name: 'aq-modal'})
-export default class AQModal extends Mixins(Activable) {
+export default class AQModal extends Mixins(Activable, AQComponent) {
+  @Prop({default: false, type: Boolean}) value: any;
   @Prop({required: false, type: Boolean}) closeable?: boolean;
   @Prop({required: false, type: Boolean, default: true}) bgClose?: boolean;
+  @Prop({required: false}) full: any;
 
-  @Watch('isActive')
-  onIsActiveChange(value: boolean, oldValue: boolean) {
+  propsWithoutValue = ['full'];
+
+  /** Computed modal class */
+  get modalClass() {
+    const classes = [];
+
+    classes.push(...this.getPropsWithoutValue());
+
+    return classes.join(' ');
+  }
+
+  @Watch('value')
+  watchValue(value: boolean) {
+    this.isActive = value;
+
     if(document) {
       document.body.classList[value ? 'add': 'remove']('aq-modal-page');
     }
   }
 
+  @Watch('isActive')
+  watchIsActive(value: boolean) {
+    this.$emit('input', value);
+  }
+
   mounted(): void {
     if(this.bgClose) {
-      onClickOutside(this.$refs.dialog, () => this.isActive = false);
+      onClickOutside(this.$refs.dialog, () => {
+        this.isActive = false;
+      });
     }
   }
 
@@ -38,7 +61,7 @@ export default class AQModal extends Mixins(Activable) {
           type: 'button'
         },
         on: {
-          click: () => this.isActive = false
+          click: () => this.isActive = false,
         }
       }, [
         h(AQIcon, {
@@ -47,7 +70,7 @@ export default class AQModal extends Mixins(Activable) {
           }
         })
       ])
-    ])
+    ]);
 
     const dialog = h('transition', {
       props: {
@@ -66,7 +89,7 @@ export default class AQModal extends Mixins(Activable) {
         this.closeable && closeButton,
         this.$slots.default
       ])
-    ])
+    ]);
 
     const modal = h('transition', {
       props: {
@@ -75,13 +98,16 @@ export default class AQModal extends Mixins(Activable) {
     }, [
       h('div', {
         staticClass: 'aq-modal',
+        class: this.modalClass,
         directives: [directive],
-      }, [dialog])
-    ])
+      }, [
+        dialog
+      ])
+    ]);
 
     return h('div', [
       this.getActivator(),
       modal
-    ])
+    ]);
   }
 }

@@ -6,8 +6,9 @@ import AQComponent from '../../mixins/component';
 export default class AQCard extends AQComponent {
   @Prop({required: false}) body: any;
   @Prop({required: false}) raised: any;
+  @Prop({required: false}) squared: any;
 
-  propsWithoutValue = ['body', 'raised'];
+  propsWithoutValue = ['body', 'raised', 'squared'];
 
   get cardClass(): string {
    const classes = [];

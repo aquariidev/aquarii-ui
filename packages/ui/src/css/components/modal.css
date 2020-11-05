@@ -1,5 +1,4 @@
 @layer components {
-    /* purgecss start ignore */
     .aq-modal {
         @apply fixed inset-0 overflow-y-auto bg-gray-500 bg-opacity-75 p-4 flex flex-col items-center justify-center;
         z-index: 1055;
@@ -9,10 +8,29 @@
         @apply overflow-hidden;
     }
 
-    .aq-modal .aq-dialog {
-        @apply relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl;
+    .aq-modal.aq-full {
+        @apply p-0 block;
     }
 
+    /* Dialog */
+    .aq-modal.aq-full .aq-dialog {
+        @apply flex h-full max-w-full;
+    }
+
+    .aq-modal .aq-dialog > *:not(.aq-close) {
+        @apply max-h-full overflow-y-auto;
+    }
+
+    .aq-modal.aq-full .aq-dialog > *:not(.aq-close) {
+        @apply min-w-full min-h-full;
+    }
+
+    .aq-modal .aq-dialog {
+        @apply relative inline-block align-bottom text-left overflow-hidden;
+        max-width: 600px;
+    }
+
+    /* Close Button */
     .aq-modal .aq-close {
         @apply hidden absolute top-0 right-0 pt-4 pr-4
     }
@@ -31,6 +49,7 @@
         }
     }
 
+    /* purgecss start ignore */
     /* Modal transition */
     .aq-modal-enter-active {
         @apply transition ease-out duration-300;

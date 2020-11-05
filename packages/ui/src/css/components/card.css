@@ -30,4 +30,9 @@
   .aq-card .aq-media {
     @apply w-full;
   }
+
+  /* Square Card */
+  .aq-card.aq-squared {
+    @apply rounded-none;
+  }
 }

@@ -5,13 +5,17 @@ group: components
 order: 6
 props:
   - option: body
-    value:
+    value: any
     default:
     desc: Add padding inside the card base component
   - option: raised
     value:
     default:
     desc: Raise the card above the page
+  - option: squared
+    value: any
+    default:
+    desc: Remove the rounded corner of card
 slots:
   - name: header
     default:

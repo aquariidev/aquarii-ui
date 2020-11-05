@@ -12,6 +12,10 @@ props:
     value: boolean
     default: false
     desc: Choose to dismiss the modal when clicking the overlay background
+  - option: full
+    value: any
+    default:
+    desc: Make the modal fill the entire page
 slots:
   - name: activator
     default:
@@ -30,9 +34,9 @@ As same as [Dropdown](/docs/dropdown) Component, modal need `activator` like but
     <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
   </template>
 
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
-  </p>
+  <aq-card body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.</p>
+  </aq-card>
 </aq-modal>
 ```
 
@@ -48,18 +52,14 @@ You can add close button to the modal dialog by adding `closeable` to `true`.
     <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
   </template>
 
-  <div class="your-margin-top-class">
-    <h2>My Dialog Title</h2>
-    <p>
+  <aq-card>
+    <h2 class="text-center text-2xl" slot="header">My Dialog Title</h2>
+    <p class="text-sm leading-5 text-gray-500" slot="body">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
     </p>
-  </div>
+  </aq-card>
 </aq-modal>
 ```
-
-<aq-alert type="warning">
-  make sure to add some padding/margin inside your dialog content, we don't provide it yet.
-</aq-alert>
 
 ## Background Close
 
@@ -74,11 +74,49 @@ to prevent this action you can turn it off by setting `bg-close` to `false`
     <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
   </template>
 
-  <div class="your-margin-top-class">
-    <h2>My Dialog Title</h2>
-    <p>
+  <aq-card>
+    <h2 class="text-center text-2xl" slot="header">My Dialog Title</h2>
+    <p class="text-sm leading-5 text-gray-500" slot="body">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
     </p>
-  </div>
+  </aq-card>
 </aq-modal>
 ```
+
+## Full Screen Modal
+
+Add `full` props to fills the modal to entire page.
+
+<example-modal section="full"></example-modal>
+
+```html
+<aq-modal full :closeable="true">
+  <template #activator="{on, attrs}">
+    <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
+  </template>
+
+  <aq-card squared>
+    <h2 class="text-center text-2xl" slot="header">My Dialog Title</h2>
+    <p class="text-sm leading-5 text-gray-500" slot="body">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
+    </p>
+  </aq-card>
+</aq-modal>
+```
+
+## Overflow Modal
+
+By default The dialog content will scroll if its content exceeds the window height.
+
+<div class="my-4">
+  <example-modal section="overflow"></example-modal>
+</div>
+
+## Without Activator
+
+Instead using `activator` to activate the modal, you can also use `v-model` inside `aq-modal` component.
+This model can replace the `activator` functionality.
+
+But to prevent the modal blink or dissapeared, add `.stop` modifier to the component that triggers the modal.
+
+<example-modal section="no-activator"></example-modal>
