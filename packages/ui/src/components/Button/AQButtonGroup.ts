@@ -1,9 +1,8 @@
 import { CreateElement, VNode } from 'vue'
-import { Component } from 'vue-property-decorator'
-import AQComponent from '../../mixins/component'
+import { Component, Vue } from 'vue-property-decorator'
 
 @Component({name: 'aq-button-group'})
-export default class AQButtonGroup extends AQComponent {
+export default class AQButtonGroup extends Vue {
   public render(h: CreateElement): VNode {
     return h('div', {
       staticClass: 'aq-btn-group',

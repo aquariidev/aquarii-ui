@@ -68,8 +68,14 @@ Add `type` props to change the style of the alert.
 
 ## Close Button
 
-To add close button inside alert component, add `aq-close` props, it will automatically add close button in the right corner of the alert.
+To add close button inside alert component, add `closeable` props and set to true.
 
 <aq-alert type="success" :closeable="true">
   <h3>Successfully Login</h3>
 </aq-alert>
+
+```html
+<aq-alert type="success" :closeable="true">
+  <h3>Successfully Login</h3>
+</aq-alert>
+```
