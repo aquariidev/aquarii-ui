@@ -1,8 +1,7 @@
-import { Component, Prop } from 'vue-property-decorator';
-import AQComponent from './component';
+import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
-export default class Activable extends AQComponent {
+export default class Activable extends Vue {
   @Prop({required: false}) value: any;
   isActive = false;
 

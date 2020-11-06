@@ -1,0 +1,20 @@
+/* purgecss start ignore */
+/* Transition */
+.aq-tooltip-enter-active {
+    @apply transition ease-out duration-100;
+}
+
+.aq-tooltip-enter,
+.aq-tooltip-leave-to {
+    @apply transform opacity-0 scale-95;
+}
+
+.aq-tooltip-leave-active {
+    @apply transition ease-in duration-75;
+}
+
+.aq-tooltip-enter-to,
+.aq-tooltip-leave {
+    @apply transform opacity-100 scale-100;
+}
+/* purgecss end ignore */
