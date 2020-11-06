@@ -89,7 +89,7 @@ label {
 /* Add on */
 .aq-form .aq-add-on.aq-append,
 .aq-form .aq-add-on.aq-prepend {
-    @apply inline-flex items-center px-3 border bg-gray-50;
+    @apply inline-flex items-center border bg-gray-50 px-3;
 }
 
 /* is better select the append one by one like below or straight to the addon append class? */

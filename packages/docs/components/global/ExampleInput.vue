@@ -1,5 +1,4 @@
 <template>
-  <!-- Default -->
   <div>
     <div v-if="!section">
       <aq-input v-model="name" :placeholder="placeholder" />
@@ -7,16 +6,18 @@
       <span>{{name}}</span>
     </div>
 
-    <aq-input :placeholder="placeholder" v-if="section === 'group'">
-      <template #append v-if="slotPosition == 'append' || slotPosition == 'both'">
-        <aq-icon name="user" v-if="slotPosition !== 'both'"></aq-icon>
-        <span v-else>https://</span>
-      </template>
+    <div v-if="section === 'group'">
+       <aq-input :placeholder="placeholder">
+        <template #append v-if="slotPosition == 'append' || slotPosition == 'both'">
+          <aq-icon name="user" v-if="slotPosition !== 'both'"></aq-icon>
+          <span v-else>https://</span>
+        </template>
 
-      <template #prepend v-if="slotPosition == 'prepend' || slotPosition == 'both'">
-        .com
-      </template>
-    </aq-input>
+        <template #prepend v-if="slotPosition == 'prepend' || slotPosition == 'both'">
+          .com
+        </template>
+      </aq-input>
+    </div>
 
     <div v-if="section === 'message'">
       <aq-input placeholder="Password" type="password">

@@ -6,12 +6,20 @@ order: 9
 props:
   - option: label
     value: string
-    default:
+    default: undefined
     desc: Add label to input component
   - option: filled
     value: any
-    default:
+    default: undefined
     desc: Filled the input with gray background
+  - option: inline-append | inlineAppend
+    value: boolean
+    default: false
+    desc: Make append add on to be inline with input
+  - option: inline-prepend | inlinePrepend
+    value: boolean
+    default: false
+    desc: Make prepend add on to be inline with input
 slots:
   - name: append
     default:
@@ -111,9 +119,29 @@ it also can mix with input group.
 <example-input section="inline-group" placeholder="0"></example-input>
 
 ```html
-<aq-input placeholder="0" :append-inline="true">
+<aq-input :append-inline="true">
   <template #append>
-    <span class="text-gray-500">$</span>
+    $
+  </template>
+</aq-input>
+
+<aq-input :append-inline="true">
+  <template #append>
+    $
+  </template>
+
+  <template #prepend>
+    USD
+  </template>
+</aq-input>
+
+<aq-input :append-inline="true" :prepend-inline="true">
+  <template #append>
+    $
+  </template>
+
+  <template #prepend>
+    USD
   </template>
 </aq-input>
 ```
