@@ -31,6 +31,34 @@
         </template>
       </aq-input>
     </div>
+
+    <div v-if="section === 'inline-group'">
+      <aq-input :placeholder="placeholder" :append-inline="true">
+        <template #append>
+          $
+        </template>
+      </aq-input>
+
+      <aq-input :placeholder="placeholder" :append-inline="true">
+        <template #append>
+          $
+        </template>
+
+        <template #prepend>
+          USD
+        </template>
+      </aq-input>
+
+      <aq-input :placeholder="placeholder" :append-inline="true" :prepend-inline="true">
+        <template #append>
+          $
+        </template>
+
+        <template #prepend>
+          USD
+        </template>
+      </aq-input>
+    </div>
   </div>
 </template>
 

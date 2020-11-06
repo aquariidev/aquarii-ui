@@ -13,7 +13,7 @@ label {
 }
 
 .aq-form .aq-form-group {
-    @apply flex;
+    @apply flex relative;
 }
 
 .aq-forms .aq-form-control {
@@ -22,7 +22,7 @@ label {
 
 /* Form Control */
 .aq-form-control {
-    @apply appearance-none rounded-md relative block w-full px-3 py-2 border text-gray-900 leading-6 text-base;
+    @apply appearance-none rounded-md block w-full px-3 py-2 border text-gray-900 leading-6 text-base;
     height: 2.75rem;
 }
 
@@ -87,14 +87,15 @@ label {
 }
 
 /* Add on */
-.aq-form .aq-add-on {
+.aq-form .aq-add-on.aq-append,
+.aq-form .aq-add-on.aq-prepend {
     @apply inline-flex items-center px-3 border bg-gray-50;
 }
 
 /* is better select the append one by one like below or straight to the addon append class? */
 .aq-form-control.aq-append,
 .aq-form .aq-add-on.aq-prepend {
-    @apply rounded-r rounded-l-none;
+    @apply rounded-r-md rounded-l-none;
 }
 
 .aq-form .aq-add-on.aq-append {
@@ -107,9 +108,31 @@ label {
 
 .aq-form-control.aq-prepend,
 .aq-form .aq-add-on.aq-append {
-    @apply rounded-l rounded-r-none;
+    @apply rounded-l-md rounded-r-none;
 }
 
 .aq-form-control.aq-append.aq-prepend {
     @apply rounded-none;
+}
+
+/* Inline Addon */
+.aq-form .aq-add-on.aq-append-inline,
+.aq-form .aq-add-on.aq-prepend-inline {
+    @apply absolute inset-y-0 flex items-center
+}
+
+.aq-form .aq-add-on.aq-append-inline {
+    @apply left-0 pl-3
+}
+
+.aq-form .aq-add-on.aq-prepend-inline {
+    @apply right-0 pr-3;
+}
+
+.aq-form-group.aq-append-inline .aq-form-control {
+    @apply rounded-l-md;
+}
+
+.aq-form-group.aq-prepend-inline .aq-form-control {
+    @apply rounded-r-md;
 }

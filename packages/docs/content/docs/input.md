@@ -75,18 +75,18 @@ You can also add any native html attributes in this component
 
 You can append or prepend or both append and prepend using icon or text.
 
-<example-input section="group" placeholder="john_doe" slot-position="append"></example-input>
-<example-input section="group" placeholder="johndoe@gmail" slot-position="prepend"></example-input>
-<example-input section="group" placeholder="john-doe" slot-position="both"></example-input>
+<example-input section="group" placeholder="jimmy_proton" slot-position="append"></example-input>
+<example-input section="group" placeholder="jimmy_proton@gmail" slot-position="prepend"></example-input>
+<example-input section="group" placeholder="jimmy-proton" slot-position="both"></example-input>
 
 ```html
-<aq-input placeholder="john_doe">
+<aq-input placeholder="jimmy_proton">
   <template #append>
     <aq-icon name="user"></aq-icon>
   </template>
 </aq-input>
 
-<aq-input placeholder="john-doe">
+<aq-input placeholder="jimmy-proton">
   <template #append>
     https://
   </template>
@@ -95,11 +95,25 @@ You can append or prepend or both append and prepend using icon or text.
   </template>
 </aq-input>
 
-<aq-input placeholder="johndoe@gmail">
+<aq-input placeholder="jimmy_proton@gmail">
   <template #prepend>
     .com
   </template>
 </aq-input>
 ```
 
-## Inline Group
+## Inline Input Group
+
+Inline group will append or prepend content inside the input. To activate the inline group, you can set `inline-append` or/and `inline-prepend` props to true.
+
+it also can mix with input group.
+
+<example-input section="inline-group" placeholder="0"></example-input>
+
+```html
+<aq-input placeholder="0" :append-inline="true">
+  <template #append>
+    <span class="text-gray-500">$</span>
+  </template>
+</aq-input>
+```
