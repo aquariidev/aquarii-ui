@@ -5,7 +5,7 @@ import AQLoading from '../Icon/AQLoading';
 
 @Component({name: 'aq-button'})
 export default class AQButton extends AQComponent {
-  @Prop({type: String, required: false}) type: any;
+  @Prop({type: String, required: false}) color: any;
   @Prop({required: false}) outline: any;
   @Prop({
     required: false,
@@ -25,8 +25,8 @@ export default class AQButton extends AQComponent {
   get btnClass(): string {
     const classes = [];
 
-    if(this.type) {
-      classes.push(`aq-${this.type}`);
+    if(this.color) {
+      classes.push(`aq-${this.color}`);
     }
 
     if(this.size) {

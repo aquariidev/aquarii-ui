@@ -1,5 +1,5 @@
 <template>
-  <aq-button @click="showAlert" type="primary">
+  <aq-button @click="showAlert" color="primary">
     <slot></slot>
   </aq-button>
 </template>

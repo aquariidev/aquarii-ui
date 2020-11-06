@@ -4,7 +4,7 @@ description: Button are the core of every project
 group: components
 order: 5
 props:
-  - option: type
+  - option: color
     value: string
     default:
     desc: The color of button component
@@ -39,15 +39,15 @@ props:
 By default button will serve as filled button.
 
 <aq-button>Standard Button</aq-button>
-<aq-button type="primary">Primary Button</aq-button>
-<aq-button type="success">Success Button</aq-button>
-<aq-button type="danger">Danger Button</aq-button>
+<aq-button color="primary">Primary Button</aq-button>
+<aq-button color="success">Success Button</aq-button>
+<aq-button color="danger">Danger Button</aq-button>
 
 ```html
 <aq-button>Standard Button</aq-button>
-<aq-button type="primary">Primary Button</aq-button>
-<aq-button type="success">Success Button</aq-button>
-<aq-button type="danger">Danger Button</aq-button>
+<aq-button color="primary">Primary Button</aq-button>
+<aq-button color="success">Success Button</aq-button>
+<aq-button color="danger">Danger Button</aq-button>
 ```
 
 ## Outline Button
@@ -55,15 +55,15 @@ By default button will serve as filled button.
 Outline button will display only the border without background.
 
 <aq-button outline>Standard Button</aq-button>
-<aq-button type="primary" outline>Primary Button</aq-button>
-<aq-button type="success" outline>Success Button</aq-button>
-<aq-button type="danger" outline>Danger Button</aq-button>
+<aq-button color="primary" outline>Primary Button</aq-button>
+<aq-button color="success" outline>Success Button</aq-button>
+<aq-button color="danger" outline>Danger Button</aq-button>
 
 ```html
 <aq-button>Standard Button</aq-button>
-<aq-button type="primary" outline>Primary Button</aq-button>
-<aq-button type="success" outline>Success Button</aq-button>
-<aq-button type="danger" outline>Danger Button</aq-button>
+<aq-button color="primary" outline>Primary Button</aq-button>
+<aq-button color="success" outline>Success Button</aq-button>
+<aq-button color="danger" outline>Danger Button</aq-button>
 ```
 
 All event handler from html button or vue directive can be add to this component
@@ -71,18 +71,18 @@ All event handler from html button or vue directive can be add to this component
 <example-alert-button>Show Alert</example-alert-button>
 
 ```html
-<aq-button @click="showAlert" type="primary">
+<aq-button @click="showAlert" color="primary">
   Show Alert
 </aq-button>
 ```
 
 ## Button Size
 
-there is a 3 types of button size, standard ( without props), small and large
+there is a 3 colors of button size, standard ( without props), small and large
 
-<aq-button type="primary" size="small">Small Button</aq-button>
-<aq-button type="primary">Standard Button</aq-button>
-<aq-button type="primary" size="large">Large Button</aq-button>
+<aq-button color="primary" size="small">Small Button</aq-button>
+<aq-button color="primary">Standard Button</aq-button>
+<aq-button color="primary" size="large">Large Button</aq-button>
 
 ## Button Groups
 
@@ -104,7 +104,7 @@ Button groups will add border radius on first and last buttons.
 
 Block buttons extend the full available width.
 
-<aq-button block type="primary">Block Button</aq-button>
+<aq-button block color="primary">Block Button</aq-button>
 
 ```html
 <aq-button block>Next</aq-button>
@@ -115,24 +115,24 @@ Block buttons extend the full available width.
 If the inner button does not have same height and width size it will create a pill button, you can use this props to create icon button.
 
 <div class="flex items-center">
-  <aq-button circle type="primary mr-2">Pill Button</aq-button>
+  <aq-button circle color="primary mr-2">Pill Button</aq-button>
 
-  <aq-button circle type="primary">
+  <aq-button circle color="primary">
     <aq-icon name="pencil"></aq-icon>
   </aq-button>
 </div>
 
 ```html
-<aq-button circle type="primary">Pill Button</aq-button>
+<aq-button circle color="primary">Pill Button</aq-button>
 ```
 
 ## Raised Button
 add `aq-raised` props to make the button raise above the page.
 
-<aq-button raised type="primary">Raised Button</aq-button>
+<aq-button raised color="primary">Raised Button</aq-button>
 
 ```html
-<aq-button raised type="primary">Raised Button</aq-button>
+<aq-button raised color="primary">Raised Button</aq-button>
 ```
 
 ## Loading Button
@@ -141,10 +141,10 @@ Add `icon` props and set `loading` props to true to display the loading indicato
 
 If you need to disable the button when loading, you can add `disabled` attribute too.
 
-<aq-button type="primary" icon :loading="true">Loading Button</aq-button>
-<aq-button type="primary" icon :loading="true" disabled>Loading Button</aq-button>
+<aq-button color="primary" icon :loading="true">Loading Button</aq-button>
+<aq-button color="primary" icon :loading="true" disabled>Loading Button</aq-button>
 
 ```html
-<aq-button type="primary" icon :loading="true">Loading Button</aq-button>
-<aq-button type="primary" icon :loading="true" disabled>Loading Button</aq-button>
+<aq-button color="primary" icon :loading="true">Loading Button</aq-button>
+<aq-button color="primary" icon :loading="true" disabled>Loading Button</aq-button>
 ```
