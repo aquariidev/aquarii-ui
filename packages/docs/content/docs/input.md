@@ -6,12 +6,20 @@ order: 9
 props:
   - option: label
     value: string
-    default:
+    default: undefined
     desc: Add label to input component
   - option: filled
     value: any
-    default:
+    default: undefined
     desc: Filled the input with gray background
+  - option: inline-append | inlineAppend
+    value: boolean
+    default: false
+    desc: Make append add on to be inline with input
+  - option: inline-prepend | inlinePrepend
+    value: boolean
+    default: false
+    desc: Make prepend add on to be inline with input
 slots:
   - name: append
     default:
@@ -31,7 +39,9 @@ slots:
 
 <example-input placeholder="Standard Input"></example-input>
 
-<aq-input placeholder="Filled Input" filled></aq-input>
+<aq-card body>
+  <aq-input placeholder="Filled Input" filled></aq-input>
+</aq-card>
 
 ```html
 <aq-input v-model="name" />
@@ -73,20 +83,18 @@ You can also add any native html attributes in this component
 
 You can append or prepend or both append and prepend using icon or text.
 
-<example-input section="slot" placeholder="john_doe" slot-position="append"></example-input>
-
-<example-input section="slot" placeholder="johndoe@gmail" slot-position="prepend"></example-input>
-
-<example-input section="slot" placeholder="john-doe" slot-position="both"></example-input>
+<example-input section="group" placeholder="jimmy_proton" slot-position="append"></example-input>
+<example-input section="group" placeholder="jimmy_proton@gmail" slot-position="prepend"></example-input>
+<example-input section="group" placeholder="jimmy-proton" slot-position="both"></example-input>
 
 ```html
-<aq-input placeholder="john_doe">
+<aq-input placeholder="jimmy_proton">
   <template #append>
-    @
+    <aq-icon name="user"></aq-icon>
   </template>
 </aq-input>
 
-<aq-input placeholder="john-doe">
+<aq-input placeholder="jimmy-proton">
   <template #append>
     https://
   </template>
@@ -95,9 +103,45 @@ You can append or prepend or both append and prepend using icon or text.
   </template>
 </aq-input>
 
-<aq-input placeholder="johndoe@gmail">
+<aq-input placeholder="jimmy_proton@gmail">
   <template #prepend>
     .com
+  </template>
+</aq-input>
+```
+
+## Inline Input Group
+
+Inline group will append or prepend content inside the input. To activate the inline group, you can set `inline-append` or/and `inline-prepend` props to true.
+
+it also can mix with input group.
+
+<example-input section="inline-group" placeholder="0"></example-input>
+
+```html
+<aq-input :append-inline="true">
+  <template #append>
+    $
+  </template>
+</aq-input>
+
+<aq-input :append-inline="true">
+  <template #append>
+    $
+  </template>
+
+  <template #prepend>
+    USD
+  </template>
+</aq-input>
+
+<aq-input :append-inline="true" :prepend-inline="true">
+  <template #append>
+    $
+  </template>
+
+  <template #prepend>
+    USD
   </template>
 </aq-input>
 ```

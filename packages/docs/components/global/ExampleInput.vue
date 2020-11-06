@@ -1,5 +1,4 @@
 <template>
-  <!-- Default -->
   <div>
     <div v-if="!section">
       <aq-input v-model="name" :placeholder="placeholder" />
@@ -7,15 +6,18 @@
       <span>{{name}}</span>
     </div>
 
-    <aq-input :placeholder="placeholder" v-if="section === 'slot'">
-      <template #append v-if="slotPosition == 'append' || slotPosition == 'both'">
-        {{slotPosition == 'both' ? 'https://' : '@'}}
-      </template>
+    <div v-if="section === 'group'">
+       <aq-input :placeholder="placeholder">
+        <template #append v-if="slotPosition == 'append' || slotPosition == 'both'">
+          <aq-icon name="user" v-if="slotPosition !== 'both'"></aq-icon>
+          <span v-else>https://</span>
+        </template>
 
-      <template #prepend v-if="slotPosition == 'prepend' || slotPosition == 'both'">
-        .com
-      </template>
-    </aq-input>
+        <template #prepend v-if="slotPosition == 'prepend' || slotPosition == 'both'">
+          .com
+        </template>
+      </aq-input>
+    </div>
 
     <div v-if="section === 'message'">
       <aq-input placeholder="Password" type="password">
@@ -25,8 +27,36 @@
       </aq-input>
 
       <aq-input placeholder="Password" type="password">
-        <template #message-error>
+        <template #message-error :name="name">
           Password must be at least 8 characters
+        </template>
+      </aq-input>
+    </div>
+
+    <div v-if="section === 'inline-group'">
+      <aq-input :placeholder="placeholder" :append-inline="true">
+        <template #append>
+          $
+        </template>
+      </aq-input>
+
+      <aq-input :placeholder="placeholder" :append-inline="true">
+        <template #append>
+          $
+        </template>
+
+        <template #prepend>
+          USD
+        </template>
+      </aq-input>
+
+      <aq-input :placeholder="placeholder" :append-inline="true" :prepend-inline="true">
+        <template #append>
+          $
+        </template>
+
+        <template #prepend>
+          USD
         </template>
       </aq-input>
     </div>
