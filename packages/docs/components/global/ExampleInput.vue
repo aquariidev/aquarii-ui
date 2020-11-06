@@ -7,9 +7,10 @@
       <span>{{name}}</span>
     </div>
 
-    <aq-input :placeholder="placeholder" v-if="section === 'slot'">
+    <aq-input :placeholder="placeholder" v-if="section === 'group'">
       <template #append v-if="slotPosition == 'append' || slotPosition == 'both'">
-        {{slotPosition == 'both' ? 'https://' : '@'}}
+        <aq-icon name="user" v-if="slotPosition !== 'both'"></aq-icon>
+        <span v-else>https://</span>
       </template>
 
       <template #prepend v-if="slotPosition == 'prepend' || slotPosition == 'both'">
@@ -25,7 +26,7 @@
       </aq-input>
 
       <aq-input placeholder="Password" type="password">
-        <template #message-error>
+        <template #message-error :name="name">
           Password must be at least 8 characters
         </template>
       </aq-input>

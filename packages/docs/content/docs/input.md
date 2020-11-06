@@ -31,7 +31,9 @@ slots:
 
 <example-input placeholder="Standard Input"></example-input>
 
-<aq-input placeholder="Filled Input" filled></aq-input>
+<aq-card body>
+  <aq-input placeholder="Filled Input" filled></aq-input>
+</aq-card>
 
 ```html
 <aq-input v-model="name" />
@@ -73,16 +75,14 @@ You can also add any native html attributes in this component
 
 You can append or prepend or both append and prepend using icon or text.
 
-<example-input section="slot" placeholder="john_doe" slot-position="append"></example-input>
-
-<example-input section="slot" placeholder="johndoe@gmail" slot-position="prepend"></example-input>
-
-<example-input section="slot" placeholder="john-doe" slot-position="both"></example-input>
+<example-input section="group" placeholder="john_doe" slot-position="append"></example-input>
+<example-input section="group" placeholder="johndoe@gmail" slot-position="prepend"></example-input>
+<example-input section="group" placeholder="john-doe" slot-position="both"></example-input>
 
 ```html
 <aq-input placeholder="john_doe">
   <template #append>
-    @
+    <aq-icon name="user"></aq-icon>
   </template>
 </aq-input>
 
@@ -101,3 +101,5 @@ You can append or prepend or both append and prepend using icon or text.
   </template>
 </aq-input>
 ```
+
+## Inline Group

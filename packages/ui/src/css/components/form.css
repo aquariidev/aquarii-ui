@@ -41,11 +41,11 @@ label {
 
 /* Filled Input */
 .aq-form-control.aq-filled {
-    @apply bg-gray-100;
+    @apply bg-gray-100 border-gray-100;
 }
 
 .aq-form-control.aq-filled:focus {
-    @apply bg-white;
+    @apply bg-white border-indigo-500;
 }
 
 .aq-form-control:focus {
@@ -88,7 +88,7 @@ label {
 
 /* Add on */
 .aq-form .group .add-on {
-    @apply inline-flex items-center px-3 border;
+    @apply inline-flex items-center px-3 border bg-gray-50;
 }
 
 /* is better select the append one by one like below or straight to the addon append class? */

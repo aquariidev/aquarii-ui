@@ -26,6 +26,10 @@ const Icons = [
   {
     name: 'double-direction',
     d: `M7 7l3-3 3 3m0 6l-3 3-3-3`
+  },
+  {
+    name: 'user',
+    d: `M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z`
   }
 ];
 
