@@ -24,7 +24,6 @@ export default {
   .content-section {
     @apply rounded;
     background-color: #f8faff;
-    min-width: 70ch;
     max-width: 70ch;
   }
 
