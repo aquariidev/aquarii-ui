@@ -36,7 +36,12 @@
   }
 
   .aq-select .select-content li:hover,
-  .aq-select .select-content li:hover .aq-option-icon {
+  .aq-select .select-content li.selection {
+    @apply bg-cool-gray-100;
+  }
+
+  .aq-select .select-content li[aria-selected=true],
+  .aq-select .select-content li[aria-selected=true] .aq-option-icon {
     @apply text-white bg-indigo-600;
   }
 

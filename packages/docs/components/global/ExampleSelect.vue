@@ -10,17 +10,17 @@
     </div>
 
     <div v-if="section === 'custom'">
-      <aq-select v-model="value" :custom="true" :options="arr" :searchable="false">
+      <aq-select v-model="value" :options="arr" :searchable="true">
       </aq-select>
     </div>
 
     <div v-if="section === 'optionLabel'">
-      <aq-select v-model="value" :searchable="false" :custom="true" :options="options" option-label="name" label="Jimmy Name">
+      <aq-select v-model="value" track-by="name" :searchable="false" :options="options" option-label="name" label="Jimmy Name">
       </aq-select>
     </div>
 
     <div v-if="section === 'search'">
-      <aq-select v-model="value" :custom="true" :options="options" option-label="name" label="Jimmy Name">
+      <aq-select v-model="value" :options="options" :searchable="false" option-label="name" label="Jimmy Name">
       </aq-select>
     </div>
   </div>

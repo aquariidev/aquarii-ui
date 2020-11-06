@@ -28,10 +28,14 @@ props:
     value: array
     default:
     desc: Options for the select component
-  - option: optionLabel | option-label
+  - option: option-label | optionLabel
     value: string
-    default: from option value
+    default:
     desc: Label or name to put inside the option inner text, only available for array-object
+  - option: track-by | trackBy
+    value: string
+    default:
+    desc: The value that will be track for search and emit to value / v-model
   - option: closeOnSelect | close-on-select
     value: boolean
     default: true
@@ -49,7 +53,6 @@ props:
 ```vue
 <template>
   <aq-select v-model="value"
-    :custom="true"
     :options="options"
   />
 </template>
@@ -75,7 +78,7 @@ If you have options with array-object / array containing object, you can use `op
 
 <div class="mb-4">
   <aq-alert type="warning">
-    option-label are required if your options props contains array object
+    option-label and track-by are required if your options props contains array object
   </aq-alert>
 </div>
 
@@ -84,7 +87,6 @@ If you have options with array-object / array containing object, you can use `op
 ```vue
 <template>
   <aq-select v-model="value"
-    :custom="true"
     :options="options"
     option-label="name" />
 </template>
@@ -117,7 +119,6 @@ By default the input are searchable, you can deactivate the search input by addi
 
 ```html
 <aq-select v-model="value"
-  :custom="true"
   :options="options"
   :searchable="false"
 />
@@ -132,7 +133,7 @@ then you can add `v-model` to control the value.
 <example-select section="native"></example-select>
 
 ```html
-<aq-select v-model="value" :custom="true">
+<aq-select v-model="value" :custom="false">
   <option value="Jimmy Proton">Jimmy Proton</option>
   <option value="Jimmy Neutron">Jimmy Neutron</option>
 </aq-select>

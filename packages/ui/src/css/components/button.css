@@ -38,7 +38,7 @@
 
     /* Primary */
     .aq-btn.aq-primary {
-        @apply bg-primary border-primary;
+        @apply bg-indigo-600 border-transparent;
     }
 
     .aq-btn.aq-primary.aq-outline {
