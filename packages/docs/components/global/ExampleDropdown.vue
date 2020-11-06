@@ -2,7 +2,7 @@
   <div>
     <aq-dropdown v-if="!type">
       <template #activator="{on, attrs}">
-        <aq-button v-on="on" v-bind="attrs" type="primary">Dropdown</aq-button>
+        <aq-button v-on="on" v-bind="attrs" color="primary">Dropdown</aq-button>
       </template>
       <a href="#" role="menu">Details</a>
       <a href="#" role="menu">Edit</a>
@@ -10,7 +10,7 @@
 
     <aq-dropdown v-if="type === 'icon'">
       <template #activator="{on, attrs}">
-        <aq-button v-on="on" v-bind="attrs" type="primary">
+        <aq-button v-on="on" v-bind="attrs" color="primary">
           Dropdown
         </aq-button>
       </template>
