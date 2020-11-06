@@ -2,7 +2,7 @@
   <div>
     <aq-modal v-if="!section">
       <template #activator="{on, attrs}">
-        <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
+        <aq-button v-on="on" v-bind="attrs" color="primary">Open Modal</aq-button>
       </template>
 
       <aq-card body>
@@ -12,7 +12,7 @@
 
     <aq-modal v-if="section === 'close-button'" :closeable="true" :bg-close="bgClose">
       <template #activator="{on, attrs}">
-        <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
+        <aq-button v-on="on" v-bind="attrs" color="primary">Open Modal</aq-button>
       </template>
 
       <aq-card>
@@ -25,7 +25,7 @@
 
     <aq-modal v-if="section === 'full'" full :closeable="true">
       <template #activator="{on, attrs}">
-        <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
+        <aq-button v-on="on" v-bind="attrs" color="primary">Open Modal</aq-button>
       </template>
 
       <aq-card squared>
@@ -38,7 +38,7 @@
 
     <aq-modal v-if="section === 'overflow'">
       <template #activator="{on, attrs}">
-        <aq-button v-on="on" v-bind="attrs" type="primary">Open Modal</aq-button>
+        <aq-button v-on="on" v-bind="attrs" color="primary">Open Modal</aq-button>
       </template>
 
       <aq-card body>
@@ -49,7 +49,7 @@
     </aq-modal>
 
     <div v-if="section === 'no-activator'" >
-      <aq-button type="primary" @click.stop="isOpen = true">Open Modal</aq-button>
+      <aq-button color="primary" @click.stop="isOpen = true">Open Modal</aq-button>
 
       <aq-modal v-model="isOpen">
         <aq-card body>

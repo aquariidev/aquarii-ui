@@ -35,6 +35,10 @@ export default class AQModal extends Mixins(Activable, AQComponent) {
   @Watch('isActive')
   watchIsActive(value: boolean) {
     this.$emit('input', value);
+
+    if(document) {
+      document.body.classList[value ? 'add': 'remove']('aq-modal-page');
+    }
   }
 
   mounted(): void {
