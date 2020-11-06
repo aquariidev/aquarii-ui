@@ -6,6 +6,8 @@ import FormMixin from '../../mixins/form.mixin';
 export default class AQInput extends Mixins(FormMixin) {
   @Prop({required: false}) value: any;
   @Prop({required: false, default: undefined}) filled!: any;
+  @Prop({required: false, default: false, type: Boolean }) appendInline?: boolean;
+  @Prop({required: false, default: false, type: Boolean}) prependInline?: boolean;
 
   propsWithoutValue = ['filled'];
 
@@ -15,8 +17,8 @@ export default class AQInput extends Mixins(FormMixin) {
 
     classes.push(...this.getPropsWithoutValue());
 
-    if(this.$slots.append) classes.push('append');
-    if(this.$slots.prepend) classes.push('prepend');
+    if(this.$slots.append) classes.push('aq-append');
+    if(this.$slots.prepend) classes.push('aq-prepend');
 
     return classes.join(' ');
   }
@@ -40,15 +42,17 @@ export default class AQInput extends Mixins(FormMixin) {
     });
 
     const append = h('span', {
-      staticClass: 'add-on append'
+      staticClass: 'aq-add-on aq-append',
+      class: this.appendInline && 'aq-append-inline',
     }, this.$slots.append);
 
     const prepend = h('span', {
-      staticClass: 'add-on prepend'
+      staticClass: 'aq-add-on aq-prepend',
+      class: this.prependInline && 'aq-prepend-inline',
     }, this.$slots.prepend);
 
     const content = h('div', {
-      staticClass: this.$slots.append || this.$slots.prepend ? 'group' : ''
+      staticClass: this.$slots.append || this.$slots.prepend ? 'aq-form-group' : ''
     }, [
       this.$slots.append && append,
       input,

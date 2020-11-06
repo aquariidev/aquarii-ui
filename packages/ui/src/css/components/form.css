@@ -12,7 +12,7 @@ label {
     @apply mb-4;
 }
 
-.aq-form .group {
+.aq-form .aq-form-group {
     @apply flex;
 }
 
@@ -87,29 +87,29 @@ label {
 }
 
 /* Add on */
-.aq-form .group .add-on {
+.aq-form .aq-add-on {
     @apply inline-flex items-center px-3 border bg-gray-50;
 }
 
 /* is better select the append one by one like below or straight to the addon append class? */
-.aq-form-control.append,
-.aq-form .group .add-on.prepend {
+.aq-form-control.aq-append,
+.aq-form .aq-add-on.aq-prepend {
     @apply rounded-r rounded-l-none;
 }
 
-.aq-form .group .add-on.append {
+.aq-form .aq-add-on.aq-append {
     @apply border-r-0;
 }
 
-.aq-form .group .add-on.prepend {
+.aq-form .aq-add-on.aq-prepend {
     @apply border-l-0;
 }
 
-.aq-form-control.prepend,
-.aq-form .group .add-on.append {
+.aq-form-control.aq-prepend,
+.aq-form .aq-add-on.aq-append {
     @apply rounded-l rounded-r-none;
 }
 
-.aq-form-control.append.prepend {
+.aq-form-control.aq-append.aq-prepend {
     @apply rounded-none;
 }
