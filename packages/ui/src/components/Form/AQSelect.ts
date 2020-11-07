@@ -47,7 +47,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
           attrs: {
             role: 'option',
             id: `${this.optIdentifier(option).replace(' ', '')}-item-${index}`,
-            'aria-selected': this.value == this.optIdentifier(option)
+            'aria-selected': this.isOptionSelected(option)
           },
           on: {
             click: (e: any) => {

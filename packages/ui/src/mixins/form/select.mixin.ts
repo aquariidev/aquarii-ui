@@ -23,7 +23,7 @@ export default class SelectMixin extends Vue {
   isOpen = false;
 
   optIdentifier(option: any) {
-    return this.optionLabel ? option[this.optionLabel] : option;
+    return this.trackBy ? option[this.trackBy] : option;
   }
 
   /** Handle Keyboard Event */
@@ -212,5 +212,16 @@ export default class SelectMixin extends Vue {
     }, [
       element
     ]);
+  }
+
+  /** Is option selected */
+  isOptionSelected(option: any) {
+    if(this.trackBy) {
+      const value = option[this.trackBy];
+
+      return (this.multiple && Array.isArray(this.value)) ? this.value.includes(value) : this.value === value;
+    }
+
+    return this.value === this.optIdentifier(option);
   }
 }
