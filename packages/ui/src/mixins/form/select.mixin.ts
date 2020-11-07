@@ -124,13 +124,19 @@ export default class SelectMixin extends Vue {
 
   /** Select option, depend on the multipe props */
   selectOption(value: any) {
-    const data = [];
+    let data = [];
 
-    if (Array.isArray(this.value) && this.multiple) {
-      data.push(...this.value);
+    if (this.multiple) {
+      if(Array.isArray(this.value)) {
+        data.push(...this.value);
+      }
+
+      if(data.includes(value)) {
+        data = data.filter((d: any) => d !== value);
+      } else {
+        data.push(value);
+      }
     }
-
-    data.push(value);
 
     this.$emit('input', this.multiple ? data : value);
 

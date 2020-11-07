@@ -23,9 +23,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
   /** Render element */
   public render(h: CreateElement): VNode {
     const checkIcon = (option: any) => {
-      option = this.optIdentifier(option);
-
-      if(option === this.value) {
+      if(this.isOptionSelected(option)) {
         return h('span', {
           staticClass: 'aq-option-icon',
         }, [
