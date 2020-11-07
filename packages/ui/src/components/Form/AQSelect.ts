@@ -18,6 +18,10 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
         this.isOpen = false;
       })
     }
+
+    this.$on('remove', function() {
+      console.log('something removed')
+    })
   }
 
   /** Render element */
@@ -140,7 +144,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
       h('span', {
         staticClass: 'aq-option-caret'
       }, [
-        h(AQIcon, {
+        h('aq-icon', {
           props: {name: 'double-direction'}
         })
       ])

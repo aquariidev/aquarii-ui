@@ -161,12 +161,13 @@ export default class SelectMixin extends Vue {
     ]);
   }
 
-  removeSelect(index: any) {
+  removeSelect(value: any) {
     if(this.multiple) {
-      const values = [].concat(this.value);
+
+      const values = [...this.value];
 
       const newValue = values.filter((n: any, i: any) => {
-        return i !== index;
+        return n !== value;
       });
 
       this.$emit('input', newValue);
@@ -176,17 +177,27 @@ export default class SelectMixin extends Vue {
 
   /** Get tag component for multiple selection */
   getTag(value: any, index: any) {
-    return this.$createElement(AQBadge, {
+    return this.$createElement('span', {
+      staticClass: 'aq-badge',
       key: value,
-      props: {
-        closeable: true,
-      },
-      on: {
-        remove: () => {
-          this.$nextTick(() => this.removeSelect(index));
+    }, [
+      value,
+      this.$createElement('button', {
+        staticClass: 'aq-close',
+        on: {
+          click: (e: any) => {
+
+            this.removeSelect(value)
+          }
         }
-      }
-    }, [value])
+      }, [
+        this.$createElement('aq-icon', {
+          props: {
+            name: 'x'
+          }
+        }),
+      ])
+    ])
   }
 
   /** Get Select content on multiple selection */
