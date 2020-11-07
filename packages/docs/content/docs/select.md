@@ -155,3 +155,13 @@ To add multiple selection, set `multiple` props to `true`, the value from your v
     Remember options that contains array-object required to add track-by props
   </aq-alert>
 </div>
+
+```html
+<aq-select v-model="values" :options="options" track-by="name" :multiple="true" option-label="name" />
+```
+
+## Close On Select
+
+If you dont want to close the option list box, set `close-on-select` props to `false`
+
+<example-select section="multiple" :close-on-select="false"></example-select>

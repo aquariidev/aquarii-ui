@@ -25,7 +25,7 @@
     </div>
 
     <div v-if="section === 'multiple'">
-      <aq-select v-model="values" :options="options" track-by="name" :multiple="true" option-label="name" label="Jimmy Name">
+      <aq-select v-model="values" :close-on-select="closeOnSelect" :options="options" track-by="name" :multiple="true" option-label="name">
       </aq-select>
     </div>
   </div>
@@ -33,7 +33,7 @@
 
 <script>
 export default {
-  props: ['section'],
+  props: ['section', 'closeOnSelect'],
   data() {
     return {
       custom: null,
