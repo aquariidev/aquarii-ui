@@ -16,6 +16,10 @@ props:
     value: string
     default: undefined
     desc: Tooltip text if you dont use tooltip slot
+slots:
+  - name: default
+    default:
+    desc: Component or HTML element to show or hide the tooltip
 ---
 
 ## Basic Usage
