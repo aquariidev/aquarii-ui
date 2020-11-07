@@ -1,6 +1,5 @@
 @layer components {
-  select.aq-form-control,
-  .aq-select {
+  select.aq-form-control {
     @apply bg-no-repeat;
     background-size: 1.5em 1.5em;
     background-position: right .5rem center;
@@ -8,7 +7,7 @@
   }
 
   .aq-select {
-    @apply relative;
+    @apply relative w-auto;
   }
 
   .aq-select .aq-listbox {

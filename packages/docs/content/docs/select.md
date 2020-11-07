@@ -23,7 +23,7 @@ props:
   - option: multiple
     value: boolean
     default: false
-    desc: Add multiple select to the select input
+    desc: Add multiple selection functionality
   - option: options
     value: array
     default:
@@ -36,7 +36,7 @@ props:
     value: string
     default:
     desc: The value that will be track for search and emit to value / v-model
-  - option: closeOnSelect | close-on-select
+  - option: close-on-select | closeOnSelect
     value: boolean
     default: true
     desc: Close option lists after option selected
@@ -86,9 +86,12 @@ If you have options with array-object / array containing object, you can use `op
 
 ```vue
 <template>
-  <aq-select v-model="value"
+  <aq-select
+    v-model="value"
+    track-by="name"
+    :searchable="false"
     :options="options"
-    option-label="name" />
+    option-label="name" label="Jimmy Name" />
 </template>
 
 <script>
@@ -138,3 +141,9 @@ then you can add `v-model` to control the value.
   <option value="Jimmy Neutron">Jimmy Neutron</option>
 </aq-select>
 ```
+
+## Multiple Selection
+
+To add multiple selection, set `multiple` props to `true`, the value from your v-model will be turn to array instead single selection.
+
+<example-select section="multiple"></example-select>

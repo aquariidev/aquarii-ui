@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import { Component, Prop } from 'vue-property-decorator'
+import AQBadge from '../../components/Badge/AQBadge';
 import { isObject } from '../../util/object';
 
 @Component
@@ -19,6 +20,10 @@ export default class SelectMixin extends Vue {
   selectedOptions = [];
   pointer = -1;
   isOpen = false;
+
+  optIdentifier(option: any) {
+    return this.optionLabel ? option[this.optionLabel] : option;
+  }
 
   /** Handle Keyboard Event */
   handleKeydown(e: any): void {
@@ -90,16 +95,99 @@ export default class SelectMixin extends Vue {
     this.selectedOptions = this.options.filter((option: any) => {
       const optionVal = isObject(option) ? option[this.optionLabel] : option;
 
-      if(!isObject(option)) {
-        console.log(option);
-      }
-
-      return optionVal.toLowerCase().indexOf(this.searchValue) > -1;
+      return optionVal.toLowerCase().indexOf(this.searchValue);
     })
   }
 
   /** Close the options list only when `closeOnSelect` Props is true */
   closeOptionsList() {
     if(this.closeOnSelect) this.isOpen = false;
+  }
+
+  /**
+   * Set focus to search input
+   */
+  inputFocus() {
+    if(this.isOpen && this.searchable) {
+      this.$nextTick(() => {
+        const input = this.$refs.input as HTMLElement;
+        input.focus();
+      });
+    }
+  }
+
+  /** Select option, depend on the multipe props */
+  selectOption(option: any, value: any) {
+    const data = [];
+
+    if (Array.isArray(this.value) && this.multiple) {
+      data.push(...this.value);
+    }
+
+    data.push(value);
+
+    this.$emit('input', this.multiple ? data : value);
+  }
+
+  /** Get simple select component */
+  getSimpleSelect() {
+    return this.$createElement('select', {
+      staticClass: 'aq-form-control',
+      attrs: {
+        ...this.$attrs
+      },
+      on: {
+        ...this.$listeners,
+        input: (e: any) => {
+          this.$emit('input', e.target.value);
+        }
+      }
+    }, [
+      this.$slots.default
+    ]);
+  }
+
+  getMultipleContent() {
+    if(this.multiple && Array.isArray(this.value)) {
+      return this.value.map((v: any) => {
+        return this.getOptionComponent(this.$createElement(AQBadge, [v]))
+      });
+    }
+
+    return this.getOptionComponent(this.placeholder);
+  }
+
+  getOptionComponent(element: any) {
+    return this.$createElement('span', {
+      staticClass: 'aq-option pr-2 pointer-events-none',
+    }, [
+      element
+    ]);
+  }
+
+  /**
+   * Determine the select content
+   *
+   */
+  determineSelectContent() {
+    if(!this.isOpen) {
+      if (this.multiple) {
+        return this.getMultipleContent();
+      }
+    }
+
+    if(this.isOpen) {
+      if (this.multiple && this.value) {
+        return this.getMultipleContent();
+      }
+
+      if(!this.searchable) {
+        return this.getOptionComponent(this.value || this.placeholder);
+      }
+    }
+
+    if(!this.isOpen && !this.multiple) {
+      return this.getOptionComponent(this.value || this.placeholder);
+    }
   }
 }

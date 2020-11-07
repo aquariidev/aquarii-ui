@@ -20,10 +20,6 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
     }
   }
 
-  private optIdentifier(option: any) {
-    return this.optionLabel ? option[this.optionLabel] : option;
-  }
-
   /** Render element */
   public render(h: CreateElement): VNode {
     const checkIcon = (option: any) => {
@@ -55,11 +51,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
           },
           on: {
             click: (e: any) => {
-              this.$emit('input', e.target.innerText);
-
-              const elem = this.$refs.listBox as HTMLElement;
-              elem.setAttribute('aria-activedescendant', `${this.optIdentifier(option).replace(' ', '')}-item-${index}`);
-
+              this.selectOption(option, e.target.innerText);
               this.closeOptionsList();
             }
           }
@@ -87,16 +79,22 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
     }
 
     const input = h('input', {
-      staticClass: 'aq-form-control aq-select',
+      staticClass: 'aq-select focus:outline-none flex-1',
+      ref: 'input',
       domProps: {
         value: this.isOpen ? this.searchValue : this.value
       },
       attrs: {
         ...this.$attrs,
-        placeholder: this.value || this.placeholder
+        placeholder: this.placeholder,
       },
       on: {
+        click: (e: any) => {
+          e.stopPropagation();
+        },
         focus: (e: any) => {
+          e.stopPropagation();
+
           this.isOpen = true;
           this.setPointer();
         },
@@ -105,11 +103,11 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
 
           this.searchOption();
         },
-        keydown: this.handleKeydown
       }
     });
 
     const selectedContentButton = h('button', {
+      staticClass: 'flex',
       attrs: {
         type: 'button',
         'aria-haspopup': 'listbox',
@@ -118,14 +116,15 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
       },
       on: {
         click: (e: Event) => {
-          const elem = this.$refs.listBox as HTMLElement;
+          e.preventDefault();
+
           if(this.value) {
             this.setPointer();
           }
 
-          elem.focus();
-          e.stopPropagation();
           this.isOpen = !this.isOpen;
+
+          this.inputFocus();
         },
         keyup: (e: any) => {
           if(e.keyCode === 27) {
@@ -135,12 +134,8 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
         keydown: this.handleKeydown
       }
     }, [
-      h('span', {
-        staticClass: 'aq-option',
-        domProps: {
-          innerHTML: this.value
-        }
-      }),
+      this.determineSelectContent(),
+      (this.searchable && this.isOpen) && input,
       h('span', {
         staticClass: 'aq-option-caret'
       }, [
@@ -153,7 +148,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
     const currentValue = h('span', {
       staticClass: 'selected-content'
     }, [
-      this.searchable ? input : selectedContentButton
+      selectedContentButton
     ]);
 
     const selectContent = h('div', {
@@ -187,26 +182,12 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
       }
     }, [currentValue, selectContent])
 
-    const select = h('select', {
-      staticClass: 'aq-form-control',
-      attrs: {
-        ...this.$attrs
-      },
-      on: {
-        ...this.$listeners,
-        input: (e: any) => {
-          this.$emit('input', e.target.value);
-        }
-      }
-    }, [
-      this.$slots.default
-    ])
 
     return h('div', {
       staticClass: 'aq-form',
     }, [
       this.getLabel(),
-      this.custom ? formSelect : select,
+      this.custom ? formSelect : this.getSimpleSelect(),
       this.getMessage()
     ])
   }
