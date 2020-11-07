@@ -5,7 +5,7 @@ order: 14
 group: components
 props:
   - option: value
-    value: string|array|array-object|integer
+    value: any
     default:
     desc: The value of selected option
   - option: label
