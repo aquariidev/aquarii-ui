@@ -145,7 +145,11 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
         staticClass: 'aq-option-caret'
       }, [
         h(AQIcon, {
-          props: {name: 'double-direction'}
+          props: {name: 'double-direction'},
+          attrs: {
+            viewBox: '0 0 20 20',
+            stroke: '#239fa6b2',
+          }
         })
       ])
     ]);
