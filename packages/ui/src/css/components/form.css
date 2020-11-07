@@ -22,7 +22,7 @@ label {
 
 /* Form Control */
 .aq-form-control {
-    @apply appearance-none rounded-md block w-full px-3 py-2 border text-gray-900 leading-6 text-base;
+    @apply appearance-none rounded-md block w-full px-3 py-2 border text-gray-900 leading-6 text-base bg-white;
     height: 2.75rem;
 }
 

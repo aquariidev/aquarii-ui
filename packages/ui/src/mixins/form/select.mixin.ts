@@ -214,7 +214,7 @@ export default class SelectMixin extends Vue {
   /** Option Component for single or multiple selection */
   getOptionComponent(element: any, noPointerEvent: boolean = true) {
     return this.$createElement('span', {
-      staticClass: `aq-option pr-2${noPointerEvent ? ' pointer-events-none' :''}`,
+      staticClass: `aq-option flex pr-2${noPointerEvent ? ' pointer-events-none' :''}`,
     }, [
       element
     ]);

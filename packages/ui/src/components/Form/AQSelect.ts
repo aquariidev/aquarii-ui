@@ -80,7 +80,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
     }
 
     const input = h('input', {
-      staticClass: 'aq-select focus:outline-none flex-1',
+      staticClass: 'aq-select focus:outline-none',
       ref: 'input',
       domProps: {
         value: this.isOpen ? this.searchValue : this.value
@@ -108,7 +108,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
     });
 
     const selectedContentButton = h('button', {
-      staticClass: 'aq-select-btn',
+      staticClass: 'aq-form-control aq-select-btn',
       attrs: {
         type: 'button',
         'aria-haspopup': 'listbox',

@@ -23,7 +23,7 @@
   }
 
   .aq-select .selected-content .aq-select-btn {
-    @apply flex cursor-default relative w-full rounded border border-gray-300 bg-white pl-3 pr-10 py-2 text-left transition ease-in-out duration-150;
+    @apply flex cursor-default relative pl-3 pr-10 py-2 text-left transition ease-in-out duration-150 h-auto;
   }
 
   .aq-select .selected-content .aq-select-btn:focus {
