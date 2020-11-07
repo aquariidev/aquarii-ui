@@ -22,11 +22,11 @@
     @apply inline-block w-full rounded shadow-sm;
   }
 
-  .aq-select .selected-content button {
-    @apply cursor-default relative w-full rounded border border-gray-300 bg-white pl-3 pr-10 py-2 text-left transition ease-in-out duration-150;
+  .aq-select .selected-content .aq-select-btn {
+    @apply flex cursor-default relative w-full rounded border border-gray-300 bg-white pl-3 pr-10 py-2 text-left transition ease-in-out duration-150;
   }
 
-  .aq-select .selected-content button:focus {
+  .aq-select .selected-content .aq-select-btn:focus {
     @apply outline-none;
   }
 

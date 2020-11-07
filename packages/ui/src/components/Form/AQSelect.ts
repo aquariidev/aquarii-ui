@@ -107,7 +107,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
     });
 
     const selectedContentButton = h('button', {
-      staticClass: 'flex',
+      staticClass: 'aq-select-btn',
       attrs: {
         type: 'button',
         'aria-haspopup': 'listbox',
@@ -134,7 +134,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
         keydown: this.handleKeydown
       }
     }, [
-      this.determineSelectContent(),
+      this.multiple ? this.getMultipleContent() : this.getContent(),
       (this.searchable && this.isOpen) && input,
       h('span', {
         staticClass: 'aq-option-caret'

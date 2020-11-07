@@ -147,47 +147,62 @@ export default class SelectMixin extends Vue {
     ]);
   }
 
-  getMultipleContent() {
-    if(this.multiple && Array.isArray(this.value)) {
-      return this.value.map((v: any) => {
-        return this.getOptionComponent(this.$createElement(AQBadge, [v]))
-      });
-    }
+  removeSelect(index: any) {
+    if(this.multiple) {
+      const values = [].concat(this.value);
 
-    return this.getOptionComponent(this.placeholder);
+      const newValue = values.filter((n: any, i: any) => {
+        return i !== index;
+      });
+
+      this.$emit('input', newValue);
+    }
   }
 
-  getOptionComponent(element: any) {
+
+  /** Get tag component for multiple selection */
+  getTag(value: any, index: any) {
+    return this.$createElement(AQBadge, {
+      key: value,
+      props: {
+        closeable: true,
+      },
+      on: {
+        remove: () => {
+          this.$nextTick(() => this.removeSelect(index));
+        }
+      }
+    }, [value])
+  }
+
+  /** Get Select content on multiple selection */
+  getMultipleContent() {
+    if(Array.isArray(this.value) && this.value.length) {
+      return this.value.map((v: any, index: any) => this.getOptionComponent(this.getTag(v, index), false));
+    }
+
+    if(!this.isOpen) {
+      return this.getOptionComponent(this.placeholder);
+    }
+  }
+
+  /** Get Select Content on single selection */
+  getContent() {
+    if(!this.isOpen) {
+      return this.getOptionComponent(this.value || this.placeholder);
+    }
+
+    if(this.isOpen && !this.searchable) {
+      return this.getOptionComponent(this.value || this.placeholder);
+    }
+  }
+
+  /** Option Component for single or multiple selection */
+  getOptionComponent(element: any, noPointerEvent: boolean = true) {
     return this.$createElement('span', {
-      staticClass: 'aq-option pr-2 pointer-events-none',
+      staticClass: `aq-option pr-2${noPointerEvent ? ' pointer-events-none' :''}`,
     }, [
       element
     ]);
-  }
-
-  /**
-   * Determine the select content
-   *
-   */
-  determineSelectContent() {
-    if(!this.isOpen) {
-      if (this.multiple) {
-        return this.getMultipleContent();
-      }
-    }
-
-    if(this.isOpen) {
-      if (this.multiple && this.value) {
-        return this.getMultipleContent();
-      }
-
-      if(!this.searchable) {
-        return this.getOptionComponent(this.value || this.placeholder);
-      }
-    }
-
-    if(!this.isOpen && !this.multiple) {
-      return this.getOptionComponent(this.value || this.placeholder);
-    }
   }
 }
