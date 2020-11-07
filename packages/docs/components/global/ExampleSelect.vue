@@ -25,7 +25,7 @@
     </div>
 
     <div v-if="section === 'multiple'">
-      <aq-select v-model="values" :options="options" :multiple="true" option-label="name" label="Jimmy Name">
+      <aq-select v-model="values" :options="options" track-by="name" :multiple="true" option-label="name" label="Jimmy Name">
       </aq-select>
     </div>
   </div>
