@@ -1,5 +1,5 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Mixins, Prop } from 'vue-property-decorator';
+import { Component, Mixins } from 'vue-property-decorator';
 import FormMixin from '../../mixins/form.mixin';
 import SelectMixin from '../../mixins/form/select.mixin';
 import { onClickOutside } from '../../util/click-outside';
@@ -144,7 +144,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
       h('span', {
         staticClass: 'aq-option-caret'
       }, [
-        h('aq-icon', {
+        h(AQIcon, {
           props: {name: 'double-direction'}
         })
       ])
