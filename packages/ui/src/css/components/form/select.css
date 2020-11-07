@@ -34,7 +34,6 @@
     @apply absolute mt-1 w-full rounded bg-white shadow-lg z-50;
   }
 
-  .aq-select .select-content li:hover,
   .aq-select .select-content li.selection {
     @apply bg-cool-gray-100;
   }

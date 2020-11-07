@@ -15,6 +15,7 @@ export default class SelectMixin extends Vue {
   @Prop({required: false, default: true, type: Boolean}) closeOnSelect!: boolean;
   @Prop({required: false, default: true, type: Boolean}) searchable: any;
   @Prop({required: false, type: String}) trackBy: any;
+  @Prop({required: false, default: true}) clearOnSelect?: boolean;
 
   searchValue = '';
   selectedOptions = [];
@@ -78,7 +79,12 @@ export default class SelectMixin extends Vue {
   }
 
   /** Set Pointer */
-  setPointer() {
+  setPointer(index?: any) {
+    if(index !== undefined) {
+      this.pointer = index;
+      return;
+    }
+
     if(this.trackBy) {
       this.pointer = this.options.findIndex((option: any) => option[this.trackBy] === this.value);
     } else {
@@ -127,6 +133,8 @@ export default class SelectMixin extends Vue {
     data.push(value);
 
     this.$emit('input', this.multiple ? data : value);
+
+    if(this.clearOnSelect) this.searchValue = '';
   }
 
   /** Get simple select component */

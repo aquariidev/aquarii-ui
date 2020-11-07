@@ -78,7 +78,9 @@ If you have options with array-object / array containing object, you can use `op
 
 <div class="mb-4">
   <aq-alert type="warning">
-    option-label and track-by are required if your options props contains array object
+    <p>
+      option-label and track-by are required if your options props contains array object.
+    </p>
   </aq-alert>
 </div>
 

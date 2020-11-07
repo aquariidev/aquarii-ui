@@ -20,7 +20,7 @@
     </div>
 
     <div v-if="section === 'search'">
-      <aq-select v-model="value" :options="options" :searchable="false" option-label="name" label="Jimmy Name">
+      <aq-select v-model="value" :options="options" track-by="name" :searchable="false" option-label="name" label="Jimmy Name">
       </aq-select>
     </div>
 
