@@ -147,3 +147,9 @@ then you can add `v-model` to control the value.
 To add multiple selection, set `multiple` props to `true`, the value from your v-model will be turn to array instead single selection.
 
 <example-select section="multiple"></example-select>
+
+<div class="mb-4">
+  <aq-alert type="warning">
+    Remember options that contains array-object required to add track-by props
+  </aq-alert>
+</div>

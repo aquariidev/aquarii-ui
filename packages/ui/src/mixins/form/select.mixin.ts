@@ -63,7 +63,7 @@ export default class SelectMixin extends Vue {
     if(e.code === 'Enter') {
       e.preventDefault();
 
-      this.$emit('input', this.determineValue());
+      this.selectOption(this.determineValue());
       this.closeOptionsList();
     }
   }
@@ -117,7 +117,7 @@ export default class SelectMixin extends Vue {
   }
 
   /** Select option, depend on the multipe props */
-  selectOption(option: any, value: any) {
+  selectOption(value: any) {
     const data = [];
 
     if (Array.isArray(this.value) && this.multiple) {

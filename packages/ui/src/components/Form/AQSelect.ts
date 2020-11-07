@@ -51,7 +51,7 @@ export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
           },
           on: {
             click: (e: any) => {
-              this.selectOption(option, e.target.innerText);
+              this.selectOption(e.target.innerText);
               this.closeOptionsList();
             }
           }
