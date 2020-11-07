@@ -95,7 +95,7 @@ export default class SelectMixin extends Vue {
     this.selectedOptions = this.options.filter((option: any) => {
       const optionVal = isObject(option) ? option[this.optionLabel] : option;
 
-      return optionVal.toLowerCase().indexOf(this.searchValue);
+      return optionVal.toLowerCase().indexOf(this.searchValue) > -1;
     })
   }
 
