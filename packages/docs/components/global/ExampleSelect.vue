@@ -10,17 +10,22 @@
     </div>
 
     <div v-if="section === 'custom'">
-      <aq-select v-model="value" :custom="true" :options="arr" :searchable="false">
+      <aq-select v-model="custom" :options="arr" :searchable="true">
       </aq-select>
     </div>
 
     <div v-if="section === 'optionLabel'">
-      <aq-select v-model="value" :searchable="false" :custom="true" :options="options" option-label="name" label="Jimmy Name">
+      <aq-select v-model="custom" track-by="name" :searchable="false" :options="options" option-label="name" label="Jimmy Name">
       </aq-select>
     </div>
 
     <div v-if="section === 'search'">
-      <aq-select v-model="value" :custom="true" :options="options" option-label="name" label="Jimmy Name">
+      <aq-select v-model="value" :options="options" track-by="name" :searchable="false" option-label="name" label="Jimmy Name">
+      </aq-select>
+    </div>
+
+    <div v-if="section === 'multiple'">
+      <aq-select v-model="values" :close-on-select="closeOnSelect" :options="options" track-by="name" :multiple="true" option-label="name">
       </aq-select>
     </div>
   </div>
@@ -28,10 +33,12 @@
 
 <script>
 export default {
-  props: ['section'],
+  props: ['section', 'closeOnSelect'],
   data() {
     return {
+      custom: null,
       value: 'Jimmy Proton',
+      values: null,
       arr: [
         'Jimmy Proton',
         'Jimmy Neutron',

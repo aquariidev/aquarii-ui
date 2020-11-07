@@ -1,6 +1,7 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Mixins, Prop } from 'vue-property-decorator';
+import { Component, Mixins } from 'vue-property-decorator';
 import FormMixin from '../../mixins/form.mixin';
+import SelectMixin from '../../mixins/form/select.mixin';
 import { onClickOutside } from '../../util/click-outside';
 import AQIcon from '../Icon/AQIcon';
 
@@ -9,47 +10,24 @@ import AQIcon from '../Icon/AQIcon';
  * im struggling to naming the component because my english are bad,
  * please help me rename for each component part
  */
-
 @Component({name: 'aq-select'})
-export default class AQSelect extends Mixins(FormMixin) {
-  @Prop({required: false}) value: any;
-  @Prop({required: false, type: String, default: 'Select option'}) placeholder: any;
-  @Prop({required: false, type: String, default: 'default'}) type: any;
-  @Prop({required: false, default: true, type: Boolean}) custom!: boolean;
-  @Prop({required: false, default: false, type: Boolean}) multiple!: boolean;
-  @Prop({required: false, type: Array}) options: any;
-  @Prop({required: false, type: String}) optionLabel: any;
-  @Prop({required: false, default: true, type: Boolean}) closeOnSelect!: boolean;
-  @Prop({required: false, default: true, type: Boolean}) searchable: any;
-
-  searchValue = '';
-  selectedOptions = [];
-  isOpen = false;
-
+export default class AQSelect extends Mixins(FormMixin, SelectMixin) {
   mounted() {
     if(this.$refs.formSelect) {
       onClickOutside(this.$refs.formSelect, (e: any) => {
         this.isOpen = false;
       })
     }
-  }
 
-  private optIdentifier(option: any) {
-    return this.optionLabel ? option[this.optionLabel] : option;
-  }
-
-  searchOption() {
-    this.selectedOptions = this.options.filter((option: any) => {
-      return option[this.optionLabel].toLowerCase().indexOf(this.searchValue) > -1;
+    this.$on('remove', function() {
+      console.log('something removed')
     })
   }
 
   /** Render element */
   public render(h: CreateElement): VNode {
     const checkIcon = (option: any) => {
-      option = this.optionLabel ? option[this.optionLabel] : option;
-
-      if(option === this.value) {
+      if(this.isOptionSelected(option)) {
         return h('span', {
           staticClass: 'aq-option-icon',
         }, [
@@ -62,24 +40,24 @@ export default class AQSelect extends Mixins(FormMixin) {
       }
     }
 
-    const optionLists = () => {
+    const optionsList = () => {
       const options = this.searchValue ? this.selectedOptions : this.options;
 
       return options.length ? options.map((option: any, index: number) => (
         h('li', {
+          class: this.pointer === index && 'selection',
           attrs: {
             role: 'option',
             id: `${this.optIdentifier(option).replace(' ', '')}-item-${index}`,
-            'aria-selected': this.value == this.optIdentifier(option)
+            'aria-selected': this.isOptionSelected(option)
           },
           on: {
             click: (e: any) => {
-              this.$emit('input', e.target.innerText);
-
-              const elem = this.$refs.listBox as HTMLElement;
-              elem.setAttribute('aria-activedescendant', `${this.optIdentifier(option).replace(' ', '')}-item-${index}`);
-
-              if(this.closeOnSelect) this.isOpen = false;
+              this.selectOption(e.target.innerText);
+              this.closeOptionsList();
+            },
+            mouseenter: () => {
+              this.setPointer(index);
             }
           }
         }, [
@@ -106,27 +84,35 @@ export default class AQSelect extends Mixins(FormMixin) {
     }
 
     const input = h('input', {
-      staticClass: 'aq-form-control aq-select',
+      staticClass: 'aq-select focus:outline-none',
+      ref: 'input',
       domProps: {
         value: this.isOpen ? this.searchValue : this.value
       },
       attrs: {
         ...this.$attrs,
-        placeholder: this.value || this.placeholder
+        placeholder: this.placeholder,
       },
       on: {
+        click: (e: any) => {
+          e.stopPropagation();
+        },
         focus: (e: any) => {
+          e.stopPropagation();
+
           this.isOpen = true;
+          this.setPointer();
         },
         input: (e: any) => {
           this.searchValue = e.target.value;
 
           this.searchOption();
-        }
+        },
       }
     });
 
     const selectedContentButton = h('button', {
+      staticClass: 'aq-form-control aq-select-btn',
       attrs: {
         type: 'button',
         'aria-haspopup': 'listbox',
@@ -135,32 +121,35 @@ export default class AQSelect extends Mixins(FormMixin) {
       },
       on: {
         click: (e: Event) => {
-          const elem = this.$refs.listBox as HTMLElement;
-          elem.focus();
-          e.stopPropagation();
+          e.preventDefault();
+
+          if(this.value) {
+            this.setPointer();
+          }
+
           this.isOpen = !this.isOpen;
+
+          this.inputFocus();
         },
         keyup: (e: any) => {
           if(e.keyCode === 27) {
             this.isOpen = false;
           }
         },
-        keydown: (e: any) => {
-          e.preventDefault();
-        }
+        keydown: this.handleKeydown
       }
     }, [
-      h('span', {
-        staticClass: 'aq-option',
-        domProps: {
-          innerHTML: this.value
-        }
-      }),
+      this.multiple ? this.getMultipleContent() : this.getContent(),
+      (this.searchable && this.isOpen) && input,
       h('span', {
         staticClass: 'aq-option-caret'
       }, [
         h(AQIcon, {
-          props: {name: 'double-direction'}
+          props: {name: 'double-direction'},
+          attrs: {
+            viewBox: '0 0 20 20',
+            stroke: '#239fa6b2',
+          }
         })
       ])
     ]);
@@ -168,7 +157,7 @@ export default class AQSelect extends Mixins(FormMixin) {
     const currentValue = h('span', {
       staticClass: 'selected-content'
     }, [
-      this.searchable ? input : selectedContentButton
+      selectedContentButton
     ]);
 
     const selectContent = h('div', {
@@ -190,7 +179,7 @@ export default class AQSelect extends Mixins(FormMixin) {
           'aria-activedescendant': ''
         }
       }, [
-        this.options && optionLists()
+        this.options && optionsList()
       ])
     ])
 
@@ -202,26 +191,12 @@ export default class AQSelect extends Mixins(FormMixin) {
       }
     }, [currentValue, selectContent])
 
-    const select = h('select', {
-      staticClass: 'aq-form-control',
-      attrs: {
-        ...this.$attrs
-      },
-      on: {
-        ...this.$listeners,
-        input: (e: any) => {
-          this.$emit('input', e.target.value);
-        }
-      }
-    }, [
-      this.$slots.default
-    ])
 
     return h('div', {
       staticClass: 'aq-form',
     }, [
       this.getLabel(),
-      this.custom ? formSelect : select,
+      this.custom ? formSelect : this.getSimpleSelect(),
       this.getMessage()
     ])
   }

@@ -1,6 +1,5 @@
 @layer components {
-  select.aq-form-control,
-  .aq-select {
+  select.aq-form-control {
     @apply bg-no-repeat;
     background-size: 1.5em 1.5em;
     background-position: right .5rem center;
@@ -8,7 +7,7 @@
   }
 
   .aq-select {
-    @apply relative;
+    @apply relative w-auto;
   }
 
   .aq-select .aq-listbox {
@@ -23,11 +22,11 @@
     @apply inline-block w-full rounded shadow-sm;
   }
 
-  .aq-select .selected-content button {
-    @apply cursor-default relative w-full rounded border border-gray-300 bg-white pl-3 pr-10 py-2 text-left transition ease-in-out duration-150;
+  .aq-select .selected-content .aq-select-btn {
+    @apply flex cursor-default relative pl-3 pr-10 py-2 text-left transition ease-in-out duration-150 h-auto;
   }
 
-  .aq-select .selected-content button:focus {
+  .aq-select .selected-content .aq-select-btn:focus {
     @apply outline-none;
   }
 
@@ -35,8 +34,12 @@
     @apply absolute mt-1 w-full rounded bg-white shadow-lg z-50;
   }
 
-  .aq-select .select-content li:hover,
-  .aq-select .select-content li:hover .aq-option-icon {
+  .aq-select .select-content li.selection {
+    @apply bg-cool-gray-100;
+  }
+
+  .aq-select .select-content li[aria-selected=true],
+  .aq-select .select-content li[aria-selected=true] .aq-option-icon {
     @apply text-white bg-indigo-600;
   }
 
