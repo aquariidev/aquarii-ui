@@ -82,7 +82,7 @@ Divide a card into header and footer, add `header` and/or `footer` slot to card 
   </template>
 
   <template #footer>
-    <aq-button type="primary">Details</aq-button>
+    <aq-button color="primary">Details</aq-button>
     <aq-button>Preview</aq-button>
   </template>
 </aq-card>

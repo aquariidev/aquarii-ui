@@ -12,7 +12,7 @@
       </template>
 
       <template #footer>
-        <aq-button type="primary">Details</aq-button>
+        <aq-button color="primary">Details</aq-button>
         <aq-button>Preview</aq-button>
       </template>
     </aq-card>
