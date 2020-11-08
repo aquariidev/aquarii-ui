@@ -6,15 +6,17 @@
       <span>{{value}}</span>
     </div>
 
-    <aq-toggle on-icon="check" v-model="value" v-if="section === 'icon'"></aq-toggle>
+    <aq-toggle on-icon="check" v-model="value" v-if="section === 'icon'" />
 
-    <aq-toggle off-icon="x" on-icon="check" v-model="value" v-if="section === 'icon-both'"></aq-toggle>
+    <aq-toggle off-icon="x" on-icon="check" v-model="value" v-if="section === 'icon-both'" />
+
+    <aq-toggle v-if="section === 'color'" :color="color" v-model="value"/>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['section'],
+  props: ['section', 'color'],
   data() {
     return {
       value: true

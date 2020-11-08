@@ -1,19 +1,47 @@
 import { CreateElement, VNode } from 'vue';
-import { Component, Prop, Mixins } from 'vue-property-decorator';
-import AQComponent from '../../mixins/component';
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator';
 import AQIcon from '../Icon/AQIcon';
 
 @Component({name: 'aq-toggle'})
-export default class AQToggle extends Mixins(AQComponent) {
+export default class AQToggle extends Vue {
   @Prop({required: false, type: Boolean}) value: any;
   @Prop({required: false, type: String}) onIcon: any;
   @Prop({required: false, type: String}) offIcon: any;
+  @Prop({required: false}) color: any;
+
+  mounted() {
+    this.setCustomColor();
+  }
+
+  @Watch('value')
+  watchValue() {
+    this.setCustomColor();
+  }
+
+  /** Set toggle ref when color available and value is true */
+  private setCustomColor(): void {
+    if(this.$refs.toggle && this.color) {
+      (this.$refs.toggle as HTMLElement).style.backgroundColor = this.value ? this.color : '';
+    }
+  }
+
+  /** Check if color props is not inside colors property */
+  private isCustomColor(): any {
+    return !this.colors.includes(this.color);
+  }
+
+  /** Computed colors property */
+  get colors() {
+    return ['danger', 'warning', 'success'];
+  }
 
   /** Computed toggleClass */
   get toggleClass() {
     const classes = [];
 
-    classes.push(...this.getPropsWithoutValue());
+    if(this.color && !this.isCustomColor()) {
+      classes.push(`aq-${this.color}`);
+    }
 
     classes.push(this.value ? 'aq-toggle-on' : 'aq-toggle-off');
 
@@ -26,7 +54,7 @@ export default class AQToggle extends Mixins(AQComponent) {
       props: {
         name: this.onIcon
       }
-    })
+    });
 
     const offIcon = h(AQIcon, {
       props: {
@@ -50,15 +78,14 @@ export default class AQToggle extends Mixins(AQComponent) {
       (this.onIcon || this.offIcon) && icon,
       this.$slots.offText,
       this.$slots.onText
-    ])
+    ]);
 
     return h('span', {
       staticClass: 'aq-toggle',
       class: this.toggleClass,
+      ref: 'toggle',
       on: {
-        click: (e: any) => {
-          this.$emit('input', !this.value);
-        }
+        click: (e: any) => this.$emit('input', !this.value)
       },
       attrs: {
         role: 'checkbox',
@@ -67,6 +94,6 @@ export default class AQToggle extends Mixins(AQComponent) {
       }
     }, [
       toggleCircle
-    ])
+    ]);
   }
 }

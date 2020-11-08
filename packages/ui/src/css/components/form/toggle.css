@@ -30,4 +30,17 @@
   .aq-toggle.aq-toggle-on .aq-toggle-circle {
     @apply translate-x-5;
   }
+
+  /* Toggle style */
+  .aq-toggle-on.aq-danger {
+    @apply bg-red-500;
+  }
+
+  .aq-toggle-on.aq-warning {
+    @apply bg-yellow-400;
+  }
+
+  .aq-toggle-on.aq-success {
+    @apply bg-green-500;
+  }
 }
