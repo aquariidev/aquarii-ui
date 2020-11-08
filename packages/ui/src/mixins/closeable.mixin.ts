@@ -8,10 +8,8 @@ export default class Closeable extends Vue {
    * Close/destroy the component
    */
   close(e: any) {
-    this.$el.parentNode?.removeChild(this.$el);
+    e.preventDefault();
 
-    this.$emit('remove');
-
-    this.$destroy();
+    this.$emit('x-click');
   }
 }

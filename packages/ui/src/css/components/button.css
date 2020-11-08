@@ -1,112 +1,125 @@
 @layer components {
-    /* Basic normal */
-    .aq-btn {
-        @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded transition duration-150 ease-in-out font-medium bg-white;
-    }
+  /* Basic normal */
+  .aq-btn {
+    @apply relative inline-block py-2 px-4 border text-sm leading-5 rounded transition duration-150 ease-in-out font-medium bg-white;
+  }
 
-    .aq-btn:hover {
-        @apply text-gray-500;
-    }
+  .aq-btn:hover {
+    @apply text-gray-500;
+  }
 
-    /* Basic small */
-    .aq-btn.aq-small {
-        @apply px-2 py-1;
-    }
+  /* Basic small */
+  .aq-btn.aq-small {
+    @apply px-2 py-1;
+  }
 
-    .aq-btn.aq-icon {
-        @apply inline-flex items-center;
-    }
+  .aq-btn.aq-icon {
+    @apply inline-flex items-center;
+  }
 
-    /* Basic large */
-    .aq-btn.aq-large {
-        @apply px-6 py-4;
-    }
+  /* Basic large */
+  .aq-btn.aq-large {
+    @apply px-6 py-4;
+  }
 
-    /* Basic */
-    .aq-btn.aq-primary, .aq-btn.aq-success, .aq-btn.aq-danger {
-        @apply text-white;
-    }
+  /* Basic */
+  .aq-btn.aq-primary,
+  .aq-btn.aq-success,
+  .aq-btn.aq-danger {
+    @apply text-white;
+  }
 
-    /* Outline button */
-    .aq-btn.aq-outline {
-        @apply bg-transparent !important;
-    }
+  .aq-btn:focus {
+    @apply outline-none;
+  }
 
-    .aq-btn:focus {
-        @apply outline-none;
-    }
+  /* Primary */
+  .aq-btn.aq-primary {
+    @apply bg-indigo-600;
+  }
 
-    /* Primary */
-    .aq-btn.aq-primary {
-        @apply bg-indigo-600 border-transparent;
-    }
+  .aq-btn.aq-primary,
+  .aq-btn.aq-primary.aq-outline {
+    @apply border-indigo-600;
+  }
 
-    .aq-btn.aq-primary.aq-outline {
-        @apply text-indigo-600;
-    }
+  .aq-btn.aq-primary.aq-outline {
+    @apply text-indigo-600;
+  }
 
-    .aq-btn.aq-primary:hover {
-        @apply bg-indigo-500 border-indigo-500;
-    }
+  .aq-btn.aq-primary:hover {
+    @apply bg-indigo-500;
+  }
 
-    /* Success */
-    .aq-btn.aq-success {
-        @apply bg-green-400 border-green-400;
-    }
+  .aq-btn.aq-primary:hover,
+  .aq-btn.aq-primary.aq-outline:hover {
+    @apply border-indigo-500;
+  }
 
-    .aq-btn.aq-success.aq-outline {
-        @apply text-green-400;
-    }
+  /* Success */
+  .aq-btn.aq-success {
+    @apply bg-green-400 border-green-400;
+  }
 
-    .aq-btn.aq-success:hover {
-        @apply bg-green-500 border-green-500;
-    }
+  .aq-btn.aq-success.aq-outline {
+    @apply text-green-400;
+  }
 
-    /* Danger */
-    .aq-btn.aq-danger {
-        @apply bg-red-500 border-red-500;
-    }
+  .aq-btn.aq-success:hover {
+    @apply bg-green-500 border-green-500;
+  }
 
-    .aq-btn.aq-danger.aq-outline {
-        @apply text-red-500;
-    }
+  /* Danger */
+  .aq-btn.aq-danger {
+    @apply bg-red-500 border-red-500;
+  }
 
-    .aq-btn.aq-danger:hover {
-        @apply bg-red-600 border-red-600;
-    }
+  .aq-btn.aq-danger.aq-outline {
+    @apply text-red-500;
+  }
 
-    /* Group */
-    .aq-btn-group {
-        @apply relative z-0 inline-flex shadow-sm rounded-md;
-    }
+  .aq-btn.aq-danger:hover {
+    @apply bg-red-600 border-red-600;
+  }
 
-    .aq-btn-group > .aq-btn:first-child {
-        @apply rounded-l rounded-r-none;
-    }
+  /* Group */
+  .aq-btn-group {
+    @apply relative z-0 inline-flex shadow-sm rounded-md;
+  }
 
-    .aq-btn-group > .aq-btn {
-        @apply rounded-none -ml-px;
-    }
+  .aq-btn-group>.aq-btn:first-child {
+    @apply rounded-l rounded-r-none;
+  }
 
-    .aq-btn-group > .aq-btn:first-child {
-        @apply rounded-l rounded-r-none;
-    }
+  .aq-btn-group>.aq-btn {
+    @apply rounded-none -ml-px;
+  }
 
-    .aq-btn-group > .aq-btn:last-child {
-        @apply rounded-r rounded-l-none;
-    }
+  .aq-btn-group>.aq-btn:first-child {
+    @apply rounded-l rounded-r-none;
+  }
 
-    /* Block */
-    .aq-btn.aq-block {
-        @apply w-full;
-    }
+  .aq-btn-group>.aq-btn:last-child {
+    @apply rounded-r rounded-l-none;
+  }
 
-    /* Circle / rounded full */
-    .aq-btn.aq-circle {
-        @apply rounded-full px-2 py-2;
-    }
+  /* Outline button */
+  .aq-btn.aq-outline,
+  .aq-btn.aq-outline:hover {
+    @apply bg-transparent;
+  }
 
-    .aq-btn:disabled {
-        @apply pointer-events-none bg-opacity-50 border-transparent;
-    }
+  /* Block */
+  .aq-btn.aq-block {
+    @apply w-full;
+  }
+
+  /* Circle / rounded full */
+  .aq-btn.aq-circle {
+    @apply rounded-full px-2 py-2;
+  }
+
+  .aq-btn:disabled {
+    @apply pointer-events-none bg-opacity-50 border-transparent;
+  }
 }

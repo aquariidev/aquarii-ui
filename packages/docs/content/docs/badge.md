@@ -20,6 +20,10 @@ props:
     value: boolean
     default:
     desc: Add a closeable button to badge component
+events:
+  - name: @x-click
+    attr: ()
+    desc: Emitted When close button clicked
 ---
 
 ## Basic Usage
@@ -90,11 +94,35 @@ By default badge border radius are circle/pill, add `rounded` props to turn the 
 <aq-badge large rounded>Large Rounded Badge</aq-badge>
 ```
 
-## Remove Button
+## Closeable Badge
 
 Add `closeable` props and set to `true` to destroy / remove the badge.
 
+And to handle the closeable event ( when you click the x button), use `@x-click` events inside the badge component.
+
 <aq-card body>
-  <aq-badge :closeable="true">Remove Tag</aq-badge>
-  <aq-badge :closeable="true" rounded type="primary">Remove Tag</aq-badge>
+  <example-badge></example-badge>
 </aq-card>
+
+```vue
+<template>
+  <aq-badge @x-click="remove(badge)" v-for="badge in badges" :key="badge" :closeable="true">
+    {{badge}}
+  </aq-badge>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      badges: ['Javascript', 'Vue', 'Nuxt']
+    }
+  },
+  methods: {
+    remove(badge) {
+      this.badges = this.badges.filter(data => data !== badge);
+    }
+  }
+}
+</script>
+```

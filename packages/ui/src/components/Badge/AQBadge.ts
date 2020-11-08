@@ -32,11 +32,7 @@ export default class AQBadge extends Mixins(Closeable, AQComponent) {
         type: 'button',
       },
       on: {
-        click: (e: any) => {
-          e.preventDefault();
-
-          this.close(e);
-        }
+        click: this.close
       }
     }, [
       h(AQIcon, {
