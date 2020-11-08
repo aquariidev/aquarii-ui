@@ -4,6 +4,10 @@ description: A component that block interactions with the main view.
 group: components
 order: 12
 props:
+  - option: value
+    value: any
+    default:
+    desc: Value to control the modal to be show or hide
   - option: closeable
     value: boolean
     default:
@@ -120,3 +124,15 @@ This model can replace the `activator` functionality.
 But to prevent the modal blink or dissapeared, add `.stop` modifier to the component that triggers the modal.
 
 <example-modal section="no-activator"></example-modal>
+
+```html
+<aq-button color="primary" @click.stop="isOpen = true">Open Modal</aq-button>
+
+<aq-modal v-model="isOpen">
+  <aq-card body>
+    <p class="text-sm leading-5 text-gray-500" slot="body">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur amet labore.
+    </p>
+  </aq-card>
+</aq-modal>
+```
