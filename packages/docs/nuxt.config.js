@@ -65,7 +65,6 @@ export default {
   build: {
     extend(config) {
       // Fix multiple instances of vue from aquarii module.
-
       config.resolve.alias.vue$ = path.resolve(
         __dirname, './node_modules/vue/dist/vue.esm.js'
       )
