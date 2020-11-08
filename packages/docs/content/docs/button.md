@@ -88,15 +88,43 @@ there is a 3 colors of button size, standard ( without props), small and large
 
 Button groups will add border radius on first and last buttons.
 
-<aq-button-group>
-  <aq-button>Prev</aq-button>
-  <aq-button>Next</aq-button>
-</aq-button-group>
+<div class="flex items-end">
+  <div class="mr-2">
+    <aq-button-group>
+      <aq-button color="primary">Prev</aq-button>
+      <aq-button color="primary">Next</aq-button>
+    </aq-button-group>
+  </div>
+
+  <aq-button-group>
+    <aq-button>
+      <aq-icon name="rewind"></aq-icon>
+    </aq-button>
+    <aq-button>
+      <aq-icon name="play"></aq-icon>
+    </aq-button>
+    <aq-button>
+      <aq-icon name="forward"></aq-icon>
+    </aq-button>
+  </aq-button-group>
+</div>
 
 ```html
 <aq-button-group>
-  <aq-button>Prev</aq-button>
-  <aq-button>Next</aq-button>
+  <aq-button color="primary">Prev</aq-button>
+  <aq-button color="primary">Next</aq-button>
+</aq-button-group>
+
+<aq-button-group>
+  <aq-button>
+    <aq-icon name="rewind"></aq-icon>
+  </aq-button>
+  <aq-button>
+    <aq-icon name="play"></aq-icon>
+  </aq-button>
+  <aq-button>
+    <aq-icon name="forward"></aq-icon>
+  </aq-button>
 </aq-button-group>
 ```
 

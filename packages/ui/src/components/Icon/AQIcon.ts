@@ -11,18 +11,31 @@ export default class AQIcon extends AQComponent {
   getIconPath() {
     const icon = Icons.find(icon => icon.name == this.name);
 
+    const stroke = {
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+      'stroke-width': '2',
+    }
+
     if(!icon) {
       throw new Error('Icon cannot be found');
     }
 
+    if(Array.isArray(icon.d)) {
+      return icon.d.map(data => this.$createElement('path', {
+        attrs: {
+          ...stroke,
+          d: data
+        }
+      }))
+    }
+
     return this.$createElement('path', {
       attrs: {
-        'stroke-linecap': 'round',
-        'stroke-linejoin': 'round',
-        'stroke-width': '2',
+        ...stroke,
         d: icon.d
       }
-    })
+    });
   }
 
   public render(h: CreateElement): VNode {
