@@ -9,8 +9,6 @@
     <aq-toggle on-icon="check" v-model="value" v-if="section === 'icon'"></aq-toggle>
 
     <aq-toggle off-icon="x" on-icon="check" v-model="value" v-if="section === 'icon-both'"></aq-toggle>
-
-    <aq-toggle small v-model="value" v-if="section === 'small'"></aq-toggle>
   </div>
 </template>
 
