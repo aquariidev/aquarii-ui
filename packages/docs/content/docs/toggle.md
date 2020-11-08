@@ -35,6 +35,6 @@ you dont need to add both of the icon, you can add on, off or both.
 </div>
 
 ```html
-<aq-toggle on-icon="check" v-model="value"></aq-toggle>
-<aq-toggle off-icon="x" on-icon="check" v-model="value"></aq-toggle>
+<aq-toggle on-icon="check" v-model="value"/>
+<aq-toggle off-icon="x" on-icon="check" v-model="value"/>
 ```
