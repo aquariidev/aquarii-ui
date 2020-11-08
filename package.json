@@ -8,7 +8,8 @@
   "license": "MIT",
   "scripts": {
     "docs:dev": "node scripts/dev.js",
-    "aquarii:build-dev": "node scripts/aquarii-build-dev.js"
+    "aq:build-dev": "node scripts/aquarii.build.dev.js",
+    "aq:serve-dev": "node scripts/aquarii.serve.dev.js"
   },
   "devDependencies": {
     "shelljs": "^0.8.4"

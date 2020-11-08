@@ -4,7 +4,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const resolve = file => path.resolve(__dirname, file);
 
 module.exports = {
-  entry: ['./src/index.js', './src/css/main.css'],
+  entry: ['./dev/index.js', './src/css/main.css'],
   output: {
     filename: 'main.js',
     path: resolve('../dev'),
