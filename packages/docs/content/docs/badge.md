@@ -21,8 +21,8 @@ props:
     default:
     desc: Add a closeable button to badge component
 events:
-  - name: @x-click
-    attr: ()
+  - name: "@x-click"
+    attr:
     desc: Emitted When close button clicked
 ---
 
