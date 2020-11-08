@@ -41,7 +41,7 @@ export default class AQInput extends Mixins(FormMixin) {
   }
 
   get formGroupClass(): string {
-    const classes = [];
+    const classes = ['aq-form-content'];
 
     if (this.appendInline) classes.push('aq-append-inline');
     if (this.prependInline) classes.push('aq-prepend-inline');
