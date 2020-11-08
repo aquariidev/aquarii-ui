@@ -1,5 +1,13 @@
 const Icons = [
   {
+    name: 'arrow-left',
+    d: `M10 19l-7-7m0 0l7-7m-7 7h18`
+  },
+  {
+    name: 'arrow-right',
+    d: `M14 5l7 7m0 0l-7 7m7-7H3`
+  },
+  {
     name: 'dot-vertical',
     d: `M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z`
   },
