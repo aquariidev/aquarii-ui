@@ -1,3 +1,6 @@
+// Style
+import './button.css';
+
 import { CreateElement, VNode } from 'vue';
 import { Component, Prop } from 'vue-property-decorator';
 import AQComponent from '../../mixins/component';
